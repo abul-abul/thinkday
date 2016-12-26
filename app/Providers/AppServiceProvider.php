@@ -40,16 +40,16 @@ class AppServiceProvider extends ServiceProvider
             'App\Services\GalleryService'
         );
         $this->app->bind(
-            'App\Contracts\PageInterface',
-            'App\Services\PageService'
-        );
-        $this->app->bind(
             'App\Contracts\SubMenuInterface',
             'App\Services\SubMenuService'
         );
         $this->app->bind(
             'App\Contracts\LanguageInterface',
             'App\Services\LanguageService'
+        );
+        $this->app->bind(
+            'App\Contracts\NewsInterface',
+            'App\Services\NewsService'
         );
     }
 }

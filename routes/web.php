@@ -14,7 +14,8 @@
 
 //================user
 //=================Login
-Route::get('/','UsersController@getStartAngular');
+
+Route::get('/','UsersController@getLayOut');
 Route::get('user/login-registration','UsersController@getLoginReg');
 Route::post('user/registration','UsersController@postRegistration');
 Route::post('user/login','UsersController@postLogin');
@@ -78,13 +79,17 @@ Route::post('ab-admin/crop-image','AdminController@postCropImages');
 Route::post('ab-admin/crop-image-update','AdminController@postUpdeCropImage'); 
 Route::post('ab-admin/resize-image','AdminController@postResizeimage'); 
 
-Route::get('ab-admin/add-page','AdminController@getAddPage'); 
-Route::get('ab-admin/page-list','AdminController@getPageList'); 
-Route::post('ab-admin/add-page','AdminController@postAddPage'); 
-Route::get('ab-admin/add-submenu','AdminController@getSubMenu'); 
-Route::post('ab-admin/add-submenu','AdminController@postAddSubmenu');
-Route::get('ab-admin/add-page-delete/{id}','AdminController@getDeletePage');
+//Pages
+Route::get('ab-admin/sport','AdminController@getSport');
+Route::get('ab-admin/games','AdminController@getGames');
+Route::get('ab-admin/video','AdminController@getVideo');
+Route::get('ab-admin/show-biznes','AdminController@getShowBiznes');
+Route::get('ab-admin/culture','AdminController@getCulture');
+Route::get('ab-admin/news-list','AdminController@getNewsList');
+Route::get('ab-admin/add-news','AdminController@getAddNews');
+Route::post('ab-admin/add-news','AdminController@postAddNews');
 
+//end Pages
 
 Route::get('ab-admin/language','AdminController@getLanguage');
 Route::post('ab-admin/add-language','AdminController@postAddLanguage');

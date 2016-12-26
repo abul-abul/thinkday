@@ -328,26 +328,66 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="{{action('AdminController@getAddPage')}}">
+								<a href="{{action('AdminController@getSport')}}">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Add pages
+									Sport
 								</a>
 							</li>
 
 							<li class="">
-								<a href="{{action('AdminController@getPageList')}}">
+								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Page List
+										<span class="menu-text">
+											News
+										</span>
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+								<b class="arrow"></b>
+								<ul class="submenu">
+									<li class="">
+										<a href="{{action('AdminController@getNewsList')}}">
+											News List
+										</a>
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="{{action('AdminController@getAddNews')}}">
+											Add News
+										</a>
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="{{action('AdminController@getGames')}}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Games
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="{{action('AdminController@getSubMenu')}}">
+								<a href="{{action('AdminController@getVideo')}}">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Add Sub Menu
+									Video
 								</a>
 								<b class="arrow"></b>
 							</li>
+							<li class="">
+								<a href="{{action('AdminController@getShowBiznes')}}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Show Biznes
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="{{action('AdminController@getCulture')}}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Culture
+								</a>
+								<b class="arrow"></b>
+							</li>
+
 						</ul>
 					</li>
 					<li class="">

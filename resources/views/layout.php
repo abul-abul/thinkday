@@ -33,7 +33,7 @@
 				</li>
 			</ul>
 		</header>
-		
+
 
 		<div class="container">
 			<div class="container_right" ui-view></div>
@@ -57,7 +57,7 @@
 		<script src="/app/app.js"></script>
 		<script src="/app/routes.app.js"></script>
 		<script src="/app/MainController.js"></script>
-		
+
 <!-- 		// <script src="/app/app.js" type="text/javascript"></script>
 		// <script src="/app/routes.app.js" type="text/javascript"></script> -->
 

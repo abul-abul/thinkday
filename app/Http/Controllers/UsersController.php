@@ -25,7 +25,7 @@ class UsersController extends BaseController
     /**
      * Create a new instance of BaseController class.
      *
-     * @return void
+     * @param LanguageInterface $langRepo
      */
 	public function __construct(LanguageInterface $langRepo)
     {
@@ -35,21 +35,14 @@ class UsersController extends BaseController
 
     }
 
-    public function getStartAngular()
-    {
-        return view('layout');
-    }
 
-    public function postAddMessage(request $request)
+    /**
+     * @return mixed
+     * @internal param Request $request
+     */
+    public function getLayOut()
     {
-        $user = \App\User::first();
-        $message = \App\ChatMessage::create([
-            'user_id' => $user->id,
-            'message' => $request->get('message')
-        ]);
-
-        event(new \App\Events\ChatMessageWasReceived($message, $user));
-        return response()->json();
+        return view('app-user');
     }
 
     /**
@@ -57,10 +50,6 @@ class UsersController extends BaseController
      */
     public function getHome()
     {
-       //Event::fire("ChatMessageWasReceived",array($user->name)) 
-        // \Event::listen("ChatMessageWasReceived", function(){
-        //     echo "You have listened to one event!";
-        // });
         return view('user.home');
     }
 

@@ -11,9 +11,8 @@ use App\Contracts\ArticleInterface;
 use App\Contracts\UserInterface;
 use App\Contracts\YoutubeInerface;
 use App\Contracts\GalleryInterface;
-use App\Contracts\PageInterface;
-use App\Contracts\SubMenuInterface;
 use App\Contracts\LanguageInterface;
+use App\Contracts\NewsInterface;
 use View;
 use Session;
 use Validator;
@@ -25,10 +24,9 @@ use Intervention\Image\ImageManagerStatic as Image;
 class AdminController extends BaseController
 {
 
-	/**
-     * Create a new instance of BaseController class.
-     *
-     * @return void
+    /**
+     * AdminController constructor.
+     * @param LanguageInterface $langRepo
      */
 	public function __construct(LanguageInterface $langRepo)
     {
@@ -109,11 +107,8 @@ class AdminController extends BaseController
     }
 
     /**
-     * Get dashboard page
-     * Get ab-admin/dashboard
-     *
-     * @param 
-     * @return view
+     * @param UserInterface $userRepo
+     * @return View
      */
     public function getDashboard(UserInterface $userRepo)
     {
@@ -145,12 +140,9 @@ class AdminController extends BaseController
     }
 
     /**
-     * POST Add Article
-     * POST ab-admin/article-add
-     * 
      * @param ArticleRequest $request
-     * @param ArticleRequest $articleRepo
-     * @return redirect
+     * @param ArticleInterface $articleRepo
+     * @return mixed
      */
     public function postAddArticle(ArticleRequest $request,ArticleInterface $articleRepo)
     {
@@ -509,98 +501,96 @@ class AdminController extends BaseController
     }
 
     /**
-     * 
+     * @return View
      */
-    public function getAddPage()
+    public function getNewsList(NewsInterface $newRepo)
     {
-        return view('admin.page.add-page');
-    }
-
-    /**
-     * 
-     */
-    public function getPageList(PageInterface $pageRepo)
-    {
-        $dataArray = [
-            'page' => [],
-            'sub' => []
-        ];
-        $result = $pageRepo->selectMenuSubmenu();
-
-        foreach ($result as $key => $value) {
-            array_push($dataArray['page'], $value->id);
-            array_push($dataArray['sub'],$value['menuSubMenu']);
-        }
-        // $s = array_combine($dataArray['page'], $dataArray['sub']);
-        // dd($s);
-        $param = $pageRepo->getAll();
-       // $json = json_encode($pageRepo->getAll());
+        $result = $newRepo->getAll();
         $data = [
-            //'pages' => $param,
-            'pages' => $result
+            'news' => $result
         ];
-        return view('admin.page.page-list',$data);
+       // dd($data);
+        return view('admin.pages.news.news-list',$data);
     }
 
     /**
-     * 
+     * @return View
      */
-    public function postAddPage(request $request,PageInterface $pageRepo)
+    public function  getAddNews()
+    {
+        return view('admin.pages.news.add-news');
+    }
+
+    public function postAddNews(request $request,NewsInterface $newRepo)
     {
         $result = $request->all();
         $validator = Validator::make($result, [
-            'page_name' => 'required',
+            'title' => 'required',
+            'description' => 'required',
         ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }else{
-            unset($request['_token']);
-            $pageRepo->createPage($result);
+            if ($request['image']){
+                $logoFile = $result['image']->getClientOriginalExtension();
+                $name = str_random(12);
+                $path = public_path() . '/page_uploade/news';
+                $result_move =  $result['image']->move($path, $name.'.'.$logoFile);
+                $images = $name.'.'.$logoFile;
+                $data['image'] = $images;
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }else{
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }
+            $newRepo->getCreate($data);
         }
-        return redirect()->action('AdminController@getPageList');
+        return redirect(action('AdminController@getNewsList'));
     }
 
     /**
-     * 
+     * @return View
      */
-    public function getSubMenu(PageInterface $pageRepo)
+    public function getSport()
     {
-        $result = $pageRepo->getAll();
-        $data = [
-            'pages' => $result
-        ];
-        return view('admin.page.sub-menu',$data);
+        return view('admin.pages.sport.sport');
     }
 
     /**
-     * 
+     * @return View
      */
-    public function postAddSubmenu(request $request,SubMenuInterface $submenuRepo,PageInterface $pageRepo)
+    public function getGames()
     {
-        $result = $request->all();
-        $data = [
-            'sub_menu' => $result['sub_menu']
-        ];
-        $sub = $submenuRepo->createPage($data);
-        $pageObj = $pageRepo->getOne($result['page_name']);
-        $pageObj->menuSubMenu()->attach($sub->id);
-        return redirect()->back()->with('error','You add Sub menu');
+        return view('admin.pages.games.games');
     }
 
-   
     /**
-     * 
+     * @return View
      */
-    public function getDeletePage($id,PageInterface $pageRepo)
+    public function getVideo()
     {
-        $pageObj = $pageRepo->selectMenuSubmenu();
-        dd($pageObj);
-        //$pageRepo->deletePage($id);
-        //$pageObj->menuSubMenu()->detach($id);
-    }   
+        return view('admin.pages.video.video');
+    }
 
     /**
-     * 
+     * @return View
+     */
+    public function getShowBiznes()
+    {
+        return view('admin.pages.showbiznes.showbiznes');
+    }
+
+    /**
+     * @return View
+     */
+    public function getCulture()
+    {
+        return view('admin.pages.culture.culture');
+    }
+
+    /**
+     * @return View
      */
     public function getLanguage()
     {
@@ -608,7 +598,9 @@ class AdminController extends BaseController
     }
 
     /**
-     * 
+     * @param Request $request
+     * @param LanguageInterface $langRepo
+     * @return mixed
      */
     public function postAddLanguage(request $request,LanguageInterface $langRepo)
     {
@@ -626,7 +618,8 @@ class AdminController extends BaseController
     }
 
     /**
-     * 
+     * @param LanguageInterface $langRepo
+     * @return View
      */
     public function getLanguageList(LanguageInterface $langRepo)
     {
@@ -638,7 +631,9 @@ class AdminController extends BaseController
     }
 
     /**
-     * 
+     * @param $id
+     * @param LanguageInterface $langRepo
+     * @return mixed
      */
     public function getDeleteLanguage($id,LanguageInterface $langRepo)
     {
