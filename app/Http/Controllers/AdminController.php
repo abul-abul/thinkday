@@ -509,9 +509,10 @@ class AdminController extends BaseController
         $data = [
             'news' => $result
         ];
-       // dd($data);
         return view('admin.pages.news.news-list',$data);
     }
+
+
 
     /**
      * @return View
@@ -547,6 +548,24 @@ class AdminController extends BaseController
             $newRepo->getCreate($data);
         }
         return redirect(action('AdminController@getNewsList'));
+    }
+
+    /**
+     * @param $id
+     * @param NewsInterface $newsRepo
+     * @return mixed
+     */
+    public function getDeleteNews($id,NewsInterface $newsRepo)
+    {
+        $res = $newsRepo->getOne($id);
+        if($res->image == ""){
+            $newsRepo->getdelete($id);
+        }else{
+            $path =  public_path().'/page_uploade/news/'.$res->image;
+            $newsRepo->getdelete($id);
+            File::delete($path);
+        }
+        return redirect()->back()->with('error',"File deleted");
     }
 
     /**

@@ -88,6 +88,7 @@ Route::get('ab-admin/culture','AdminController@getCulture');
 Route::get('ab-admin/news-list','AdminController@getNewsList');
 Route::get('ab-admin/add-news','AdminController@getAddNews');
 Route::post('ab-admin/add-news','AdminController@postAddNews');
+Route::get('ab-admin/del-news/{id}','AdminController@getDeleteNews');
 
 //end Pages
 
