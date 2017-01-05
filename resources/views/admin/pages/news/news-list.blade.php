@@ -28,7 +28,7 @@
                         <td>
                             {{$new->title}}
                         </td>
-                        <td>{{$new->description}}</td>
+                        <td>{{substr($new->description, 0, 8)}}...</td>
                         <td class="hidden-480">
                             @if($new->image)
                                 <img style="width:50px;height: 50px" src="/page_uploade/news/{{$new->image}}">
@@ -43,25 +43,27 @@
                         </td>
                         <td>
                             <div class="hidden-sm hidden-xs btn-group">
+
                                 <button class="btn btn-xs btn-success">
                                     <i class="ace-icon fa fa-check bigger-120"></i>
                                 </button>
                                 <button class="btn btn-xs btn-warning">
                                     <i class="ace-icon fa fa-flag bigger-120"></i>
                                 </button>
-                                <a  href="#">
-                                    <button style="height: 26px" class="btn btn-xs btn-primary">
-                                        <i class="glyphicon glyphicon-picture"></i>
-                                    </button>
-                                </a>
-
-                                <button class="btn btn-xs btn-info">
-                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                </button>
 
                                 <button data-href="{{action('AdminController@getDeleteNews',$new->id)}}"  data-toggle="modal" data-target="#myModal" class="btn btn-xs btn-danger click_del">
                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                 </button>
+                                <a href="{{action('AdminController@getOneNews',$new->id)}}">
+                                    <button style="height: 26px;" class="btn btn-xs btn-info">
+                                        <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                    </button>
+                                </a>
+                                <a  href="{{action('AdminController@getPageGallery',$new->id,1)}}">
+                                    <button style="height: 26px" class="btn btn-xs btn-primary">
+                                        <i class="glyphicon glyphicon-picture"></i>
+                                    </button>
+                                </a>
                             </div>
                         </td>
                     </tr>

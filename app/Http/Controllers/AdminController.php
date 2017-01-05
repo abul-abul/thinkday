@@ -569,6 +569,48 @@ class AdminController extends BaseController
     }
 
     /**
+     * @param $id
+     * @param NewsInterface $newRepo
+     * @return View
+     */
+    public function getOneNews($id,NewsInterface $newRepo)
+    {
+       $result = $newRepo->getOne($id);
+       $data = [
+           'news' => $result
+       ];
+        return view('admin.pages.news.edit-news',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param NewsInterface $newRepo
+     * @return mixed
+     */
+    public function postEditNews(request $request,NewsInterface $newRepo)
+    {
+       $result = $request->all();
+       if(isset($result['image'])){
+           $oldObj = $newRepo->getOne($result['id']);
+           $oldImg = public_path() .'/page_uploade/news/' . $oldObj->image;
+           File::delete($oldImg);
+           $logoFile = $result['image']->getClientOriginalExtension();
+           $name = str_random(12);
+           $path = public_path() . '/page_uploade/news';
+           $result_move = $result['image']->move($path, $name.'.'.$logoFile);
+           $news_images = $name.'.'.$logoFile;
+           $result['image'] = $news_images;
+       }
+       $newRepo->getUpdate($result['id'],$result);
+       return redirect()->action('AdminController@getNewsList');
+    }
+
+    public function getPageGallery($page_id)
+    {
+        dd($page_id);
+    }
+
+    /**
      * @return View
      */
     public function getSport()

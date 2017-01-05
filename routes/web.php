@@ -46,6 +46,8 @@ Route::get('paypal/response/cancel','PaymentController@getPaypalCancelResponse')
 
 
 //================Admin
+Route::get('ab-admin/page-gallery/{page_id}','AdminController@getPageGallery');
+
 Route::get('ab-admin','AdminController@getLogin');
 Route::post('ab-admin/login','AdminController@postLogin');
 Route::get('ab-admin/dashboard','AdminController@getDashboard');
@@ -89,6 +91,8 @@ Route::get('ab-admin/news-list','AdminController@getNewsList');
 Route::get('ab-admin/add-news','AdminController@getAddNews');
 Route::post('ab-admin/add-news','AdminController@postAddNews');
 Route::get('ab-admin/del-news/{id}','AdminController@getDeleteNews');
+Route::get('ab-admin/one-news/{id}','AdminController@getOneNews');
+Route::post('ab-admin/edit-news','AdminController@postEditNews');
 
 //end Pages
 
