@@ -13,6 +13,7 @@ use App\Contracts\YoutubeInerface;
 use App\Contracts\GalleryInterface;
 use App\Contracts\LanguageInterface;
 use App\Contracts\NewsInterface;
+use App\Contracts\PageGalleryServiceInterface;
 use View;
 use Session;
 use Validator;
@@ -605,9 +606,46 @@ class AdminController extends BaseController
        return redirect()->action('AdminController@getNewsList');
     }
 
-    public function getPageGallery($page_id)
+    /**
+     * @param $page_id
+     * @param $category_id
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     * @return View
+     */
+    public function getPageGallery($page_id,$category_id,PageGalleryServiceInterface $pageGalleryRepo)
     {
-        dd($page_id);
+        $result = $pageGalleryRepo->getPageCategory($page_id,$category_id);
+        $data = [
+            'page_id' => $page_id,
+            'category_id' => $category_id,
+            'gallerys' => $result
+        ];
+        return view('admin.pages.gallery.page_gallery',$data);
+    }
+
+
+    public function postAddPageGallery(request $request,PageGalleryServiceInterface $pageGalleryRepo,$page_id,$category_id)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'image' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            foreach ($result['image'] as $key => $image) {
+                $logoFile = $image->getClientOriginalExtension();
+                $name = str_random(12);
+                $path = public_path() . '/page_uploade/page_gallery';
+                $result_move = $image->move($path, $name.'.'.$logoFile);
+                $page_gallery_images = $name.'.'.$logoFile;
+                $data['image'] = $page_gallery_images;
+                $data['page_id'] = $page_id;
+                $data['category_id'] = $category_id;
+                $pageGalleryRepo->getCreate($data);
+            }
+            //return redirect()->action('AdminController@getGallery');
+        }
     }
 
     /**
@@ -757,7 +795,9 @@ class AdminController extends BaseController
     }
 
     /**
-     * 
+     * @param Request $request
+     * @param GalleryInterface $galleryRepo
+     * @return mixed
      */
     public function postUpdeCropImage(Request $request,GalleryInterface $galleryRepo)
     {
@@ -773,7 +813,9 @@ class AdminController extends BaseController
     }
 
     /**
-     * 
+     * @param Request $request
+     * @param GalleryInterface $galleryRepo
+     * @return mixed
      */
     public function postResizeimage(request $request,GalleryInterface $galleryRepo)
     {

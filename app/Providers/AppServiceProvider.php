@@ -51,5 +51,9 @@ class AppServiceProvider extends ServiceProvider
             'App\Contracts\NewsInterface',
             'App\Services\NewsService'
         );
+        $this->app->bind(
+            'App\Contracts\PageGalleryServiceInterface',
+            'App\Services\PageGalleryService'
+        );
     }
 }

@@ -59,7 +59,8 @@
                                         <i class="ace-icon fa fa-pencil bigger-120"></i>
                                     </button>
                                 </a>
-                                <a  href="{{action('AdminController@getPageGallery',$new->id,1)}}">
+
+                                <a  href="{{action('AdminController@getPageGallery',[2, $new->id])}}">
                                     <button style="height: 26px" class="btn btn-xs btn-primary">
                                         <i class="glyphicon glyphicon-picture"></i>
                                     </button>

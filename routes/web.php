@@ -46,7 +46,8 @@ Route::get('paypal/response/cancel','PaymentController@getPaypalCancelResponse')
 
 
 //================Admin
-Route::get('ab-admin/page-gallery/{page_id}','AdminController@getPageGallery');
+Route::get('ab-admin/page-gallery/{page_id}/{category_id}','AdminController@getPageGallery');
+Route::post('ab-admin/page-gallery/{page_id}/{category_id}','AdminController@postAddPageGallery');
 
 Route::get('ab-admin','AdminController@getLogin');
 Route::post('ab-admin/login','AdminController@postLogin');
