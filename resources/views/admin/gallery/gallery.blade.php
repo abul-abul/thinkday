@@ -1,5 +1,5 @@
 @extends('app-admin')
-	
+
 @section('admin-content')
 	{!! HTML::style( asset('assets/admin/plugins/css/bootstrap.css')) !!}
 	{!! HTML::style( asset('assets/admin/plugins/css/font-awesome.css')) !!}
@@ -14,12 +14,11 @@
 <!-- /section:basics/sidebar -->
 			<div class="main-content">
 				<div class="main-content-inner">
-				
+
 
 					<!-- /section:basics/content.breadcrumbs -->
 					<div class="page-content">
 						<!-- #section:settings.box -->
-						
 
 						<!-- /section:settings.box -->
 						<div class="page-header">
@@ -32,7 +31,7 @@
 									@else
 										responsive photo gallery using colorbox
 									@endif
-									
+
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -87,7 +86,7 @@
 											</li>
 
 										@endforeach
-									
+
 									</ul>
 								</div><!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
@@ -99,12 +98,12 @@
 
 			<div class="modal fade" id="myModal" role="dialog">
 			    <div class="modal-dialog">
-			    
+
 			      <!-- Modal content-->
 			      <div class="modal-content">
-			        
+
 			        <div class="modal-body">
-			        	<input content="{{ csrf_token() }}" type="file" style="display:none" class="gallery_image_modal_edit"> 
+			        	<input content="{{ csrf_token() }}" type="file" style="display:none" class="gallery_image_modal_edit">
 			            <img style="width:100%;cursor:pointer" src="" class="gallery_image_modal">
 			            <img class="img_loading" style="display: none;position: absolute;top: 41%;left: 41%;" src="/assets/admin/images/ajax-loader.gif">
 			        </div>
@@ -112,16 +111,16 @@
 			          <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
 			        </div>
 			      </div>
-			      
+
 			    </div>
  			</div>
 
  			<div class="modal fade" id="myModal1" role="dialog">
 			    <div class="modal-dialog">
-			    
+
 			      <!-- Modal content-->
 			      <div class="modal-content">
-			        
+
 			        <div class="modal-body">
 			        	<h1>Resize your image</h1>
 			        	<img class="img_loading1" style="display: none;position: absolute;top: 41%;left: 41%;" src="/assets/admin/images/ajax-loader.gif">
@@ -132,7 +131,7 @@
 			          <button type="button" class="btn btn-default resize_image" >Save</button>
 			        </div>
 			      </div>
-			      
+
 			    </div>
  			</div>
 @endsection
@@ -168,26 +167,26 @@
 
 		$('.ace-thumbnails [data-rel="colorbox"]').colorbox(colorbox_params);
 		$("#cboxLoadingGraphic").html("<i class='ace-icon fa fa-spinner orange fa-spin'></i>");//let's add a custom loading icon
-		
-		
+
+
 		$(document).one('ajaxloadstart.page', function(e) {
 			$('#colorbox, #cboxOverlay').remove();
 	    });
 	})
 
-	
+
 </script>
 @endsection
 
 @section('script')
 
-	
-	{!! HTML::script( asset('assets/admin/plugins/js/ace/elements.onpage-help.js') ) !!} 
-	{!! HTML::script( asset('assets/admin/plugins/js/ace/ace.onpage-help.js') ) !!} 
-	{!! HTML::script( asset('assets/admin/plugins/js/rainbow.js') ) !!} 
-	{!! HTML::script( asset('assets/admin/plugins/js/language/generic.js') ) !!} 
-	{!! HTML::script( asset('assets/admin/plugins/js/language/html.js') ) !!} 
-	{!! HTML::script( asset('assets/admin/plugins/js/language/css.js') ) !!} 
-	{!! HTML::script( asset('assets/admin/plugins/js/language/javascript.js') ) !!} 
+
+	{!! HTML::script( asset('assets/admin/plugins/js/ace/elements.onpage-help.js') ) !!}
+	{!! HTML::script( asset('assets/admin/plugins/js/ace/ace.onpage-help.js') ) !!}
+	{!! HTML::script( asset('assets/admin/plugins/js/rainbow.js') ) !!}
+	{!! HTML::script( asset('assets/admin/plugins/js/language/generic.js') ) !!}
+	{!! HTML::script( asset('assets/admin/plugins/js/language/html.js') ) !!}
+	{!! HTML::script( asset('assets/admin/plugins/js/language/css.js') ) !!}
+	{!! HTML::script( asset('assets/admin/plugins/js/language/javascript.js') ) !!}
 
 @endsection

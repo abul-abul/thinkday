@@ -8,11 +8,9 @@
             <table id="simple-table" class="table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
-
                     <th>Title</th>
                     <th>Description</th>
                     <th>image</th>
-
                     <th>
                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
                         created_at

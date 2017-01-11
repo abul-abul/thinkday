@@ -26,12 +26,12 @@
 
 	@include('message')
 	{!! Form::open(['action' => ['AdminController@postAddGallery'] ,'class' => 'form-horizontal','files' =>true  ]) !!}
-     	
+
      	{!! Form::file('image_name[]', array('multiple'=>true,'class'=>'gallery_file')) !!}
 
 		<span class="add_gallery">
 			<span class="bigger-150 bolder"><i class="ace-icon fa fa-caret-right red"></i> Drop files</span> to upload
-			<span class="smaller-80 grey">(or click)</span> <br> 				
+			<span class="smaller-80 grey">(or click)</span> <br>
 			<i class="upload-icon ace-icon fa fa-cloud-upload blue fa-3x article_file_icon gallery_icon"></i>
 		</span>
 
@@ -40,7 +40,7 @@
 			<span class="glyphicon glyphicon-ok-sign"></span>Add
         </button>
 
-	{!! Form::close() !!} 
+	{!! Form::close() !!}
 
 
 

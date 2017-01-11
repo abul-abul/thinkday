@@ -13,6 +13,10 @@ interface NewsInterface
      */
     public function getAll();
 
+    /**
+     * @return mixed
+     */
+    public function getAllPaginate();
 
     /**
      * Create salon

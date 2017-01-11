@@ -15,23 +15,27 @@
 //================user
 //=================Login
 
-Route::get('/','UsersController@getLayOut');
-Route::get('user/login-registration','UsersController@getLoginReg');
-Route::post('user/registration','UsersController@postRegistration');
-Route::post('user/login','UsersController@postLogin');
-Route::get('user/dashbord','UsersController@getDeshbord');
+Route::get('/','UsersController@getHome');
+Route::get('/news','UsersController@getNews');
 
-Route::get('user/facebook-login','UsersController@getFacebookLogin');
-Route::get('user/facebook-callback','UsersController@getFacebookCallback');
 
-Route::get('user/twitter-login','UsersController@getTwitterLogin');
-Route::get('user/twitter-callback','UsersController@getTwitterCallback');
-
-Route::get('user/google-login','UsersController@getGoogleLogin');
-Route::get('user/google-callback','UsersController@getGoogleCallback');
-Route::post('user/add-message','UsersController@postAddMessage');
-
-Route::get('video','UsersController@getVideo');
+//
+//Route::get('user/login-registration','UsersController@getLoginReg');
+//Route::post('user/registration','UsersController@postRegistration');
+//Route::post('user/login','UsersController@postLogin');
+//Route::get('user/dashbord','UsersController@getDeshbord');
+//
+//Route::get('user/facebook-login','UsersController@getFacebookLogin');
+//Route::get('user/facebook-callback','UsersController@getFacebookCallback');
+//
+//Route::get('user/twitter-login','UsersController@getTwitterLogin');
+//Route::get('user/twitter-callback','UsersController@getTwitterCallback');
+//
+//Route::get('user/google-login','UsersController@getGoogleLogin');
+//Route::get('user/google-callback','UsersController@getGoogleCallback');
+//Route::post('user/add-message','UsersController@postAddMessage');
+//
+//Route::get('video','UsersController@getVideo');
 //=================End
 
 //================ end user
@@ -94,6 +98,7 @@ Route::post('ab-admin/add-news','AdminController@postAddNews');
 Route::get('ab-admin/del-news/{id}','AdminController@getDeleteNews');
 Route::get('ab-admin/one-news/{id}','AdminController@getOneNews');
 Route::post('ab-admin/edit-news','AdminController@postEditNews');
+Route::get('ab-admin/news-gallery-crop/{id}','AdminController@getNewsCropImage');
 
 //end Pages
 

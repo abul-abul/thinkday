@@ -27,6 +27,14 @@ class NewsService implements NewsInterface
         return $this->news->get();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAllPaginate()
+    {
+        return $this->news->paginate(9);
+    }
+
 
     /**
      * Create Language

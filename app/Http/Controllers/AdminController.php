@@ -623,7 +623,13 @@ class AdminController extends BaseController
         return view('admin.pages.gallery.page_gallery',$data);
     }
 
-
+    /**
+     * @param Request $request
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     * @param $page_id
+     * @param $category_id
+     * @return mixed
+     */
     public function postAddPageGallery(request $request,PageGalleryServiceInterface $pageGalleryRepo,$page_id,$category_id)
     {
         $result = $request->all();
@@ -646,6 +652,21 @@ class AdminController extends BaseController
             }
             //return redirect()->action('AdminController@getGallery');
         }
+    }
+
+    /**
+     * @param $id
+     * @param NewsInterface $newsRepo
+     * @return View
+     */
+    public function getNewsCropImage($id,PageGalleryServiceInterface $pageGalleryRepo)
+    {
+        $result = $pageGalleryRepo->getPageCategory();
+        dd($result);
+        $data = [
+            'images' => $result
+        ];
+        return view('admin.pages.news.news-gallery-crop',$data);
     }
 
     /**
