@@ -25,8 +25,8 @@
 		<div class="center_left">
 			<div class="header_left">
 				<div class="logo_place">
-					<a href="index.html">
-						<img src="images/logo.png" class="logo" />
+					<a href="{{action('UsersController@getHome')}}">
+						<img src="/images/logo.png" class="logo" />
 					</a>
 				</div>
 				<div class="center_hide">
@@ -176,7 +176,7 @@
 	<div class="footer_center">
 		<div class="footer_logo_place">
 			<a href="index.html">
-				{{--<img src="images/logo.png" class="logo" />--}}
+				<img src="/images/logo.png" class="logo" />
 			</a>
 		</div>
 		<div class="footer_text_place">
