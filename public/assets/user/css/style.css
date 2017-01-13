@@ -654,7 +654,6 @@ header{
 .posts_place{
 	width: 400px;
 	height: 780px;
-	background-color: red;
 	float: right;
 	margin-right: -20px;
 	overflow: auto;
@@ -666,14 +665,12 @@ header{
 	height: 100px;
 	border-bottom: 1px solid gray;
     margin-bottom: 15px;
-	background-color: #000;
 }
 
 .posts_image_place{
 	width: 100px;
 	height: 100px;
 	float: left;
-	background-color: green;
 }
 
 .posts_title{
@@ -682,11 +679,10 @@ header{
 	text-align: center;
 	margin: 0px;
 	font-size: 18px;
-	color: #fff;
+	color: #000;
 	font-weight: bold;
 	float: left;
 	overflow: hidden;
-	background-color: orange;
 }
 
 .posts_text{
@@ -694,13 +690,12 @@ header{
 	height: calc(100% - 24px);
 	text-align: center;
 	font-size: 16px;
-	color: #fff;
+	color: #000;
 	font-weight: bold;
 	font-style: italic;
 	float: left;
 	padding-top: 5px;
 	overflow: hidden;
-	background-color: brown;
 }
 
 .advertising_place{
@@ -709,7 +704,6 @@ header{
 	margin-top: 20px;
 	float: right;
 	margin-right: -20px;
-	background-color: green;
 }
 
 .us_place{
