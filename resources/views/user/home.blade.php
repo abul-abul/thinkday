@@ -149,173 +149,173 @@
 		</div>
 		<div class="posts_place">
 			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service1.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service2.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service3.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service4.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service5.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service6.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service1.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service2.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service3.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service4.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service5.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
 		</div>
 		<div class="advertising_place">
-			
+			advertising_place advertising_place advertising_place advertising_place advertising_place
 		</div>
 		<div class="more_place">
 			<div class="all_services">
@@ -325,7 +325,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="us" class="us_place">
+	<div class="us_place">
 		<div class="us_abs">
 			<div class="us_rel">
 				<div class="us_abs_1"></div>
@@ -333,7 +333,7 @@
 		</div>
 		<div class="us_place_center">
 			<div class="us_title_place">
-				<span class="us_title">contact us</span>
+				<span class="us_title">contact with us</span>
 			</div>
 			<form action="" method="post">
 				<input type="email" class="question_email" placeholder="Email" />
@@ -429,173 +429,173 @@
 		</div>
 		<div class="posts_place">
 			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
-			<div class="posts">
-				<a href="#">
-					<div class="posts_image_place">
-						
-					</div>
-					<p class="posts_title">
-						Day News on one string
-					</p>
-					<p class="posts_text">
-						Some one is looser,but some one is clever.
-						But every one is man.
-						We are people.
-					</p>
-				</a>
-			</div>
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service1.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service2.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service3.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service4.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service5.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service6.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service1.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service2.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service3.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service4.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
+				<div class="posts">
+					<a href="#">
+						<div class="posts_image_place">
+							<img src="/smallimg/service5.jpg" class="posts_image" />
+						</div>
+						<p class="posts_title">
+							Day News on one string
+						</p>
+						<p class="posts_text">
+							Some one is looser,but some one is clever.
+							But every one is man.
+							We are people.
+						</p>
+					</a>
+				</div>
 		</div>
 		<div class="advertising_place">
-			
+			advertising_place advertising_place advertising_place advertising_place advertising_place
 		</div>
 		<div class="more_place">
 			<div class="all_services">

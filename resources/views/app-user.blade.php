@@ -51,10 +51,16 @@
 					<div class="weather_place2">
 						<span class="weather color">Yerevan -10°</span>
 					</div>
+					<div class="login_place2">
+						
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="center_right_top">
+			<div class="login_place">
+				
+			</div>
 			<div class="weather_place">
 				<span class="weather">Yerevan -10°</span>
 			</div>
@@ -147,8 +153,8 @@
 						</span>
 					</a>
 				</li>
-				<li class="menu_children">
-					<a href="#us" class="menu_link">
+				<li id="contact" class="menu_children">
+					<a class="menu_link">
 						<span class="link_border">
 							Contacts
 							<span class="menu_abs"></span>
