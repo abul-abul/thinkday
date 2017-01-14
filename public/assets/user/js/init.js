@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	window.width = $(window).width();
+	var offsetUs = $(".us_place").offset().top;
 
 	$(window).scroll(function(){
 
@@ -29,7 +30,7 @@ $(document).ready(function(){
 			});
 		};
 
-		if(scrollTop >= 700){
+		if(scrollTop >= 200){
 			$(".back_to_top").css({
 				"display":"block",
 			});
@@ -40,10 +41,16 @@ $(document).ready(function(){
 		};
 	});
 
+	$("#contact").click(function(){
+		$('body').animate({
+		    scrollTop: offsetUs - 100
+		}, 1500);
+	});
+
 	$(".back_to_top").click(function(){
 		$("body").animate({
 			scrollTop:0,
-		}, "slow");
+		}, 1500);
 	});
 
 	$(".fa-search").before().click(function(){
