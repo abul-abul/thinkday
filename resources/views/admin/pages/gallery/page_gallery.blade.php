@@ -200,7 +200,7 @@
 
             {{--video--}}
     <div class="tab-pane fade in active" id="video_list">
-       
+
     </div>
         {{--end video--}}
     </div>

@@ -181,7 +181,7 @@
 	<div class="footer_center">
 		<div class="footer_logo_place">
 			<a href="index.html">
-				<img src="images/logoold.png" class="logo" />
+				<img src="images/logo.png" class="logo" />
 			</a>
 		</div>
 		<div class="footer_text_place">

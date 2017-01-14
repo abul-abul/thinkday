@@ -17,6 +17,7 @@
 
 Route::get('/','UsersController@getHome');
 Route::get('/news','UsersController@getNews');
+Route::get('/news-category/{id}','UsersController@getNewsCategory');
 
 
 //

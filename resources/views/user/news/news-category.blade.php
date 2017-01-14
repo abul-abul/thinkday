@@ -1,33 +1,22 @@
 @extends('app-user')
 @section('user-content')
+
     <div class="content">
-        <div class="services_title">
-            Our services
-        </div>
-
         <div class="services_place clear">
-            @foreach($news as $new)
-            <div class="services_blocks">
-                <a href="{{action('UsersController@getNewsCategory',$new->id)}}">
-                    <div class="ser_bg_abs"></div>
-                    @if($new->image)
-                        <img src="/page_uploade/news/{{$new->image}}" class="service_image" />
-                    @else
-                        <img class="service_image" src="/images/noImg.jpg" alt="">
-                    @endif
-                    <div class="service_abs">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        <span class="ser_abs_text">{{$new->title}}</span>
-                    </div>
-                </a>
+            <h1 class="news_title_place">
+                {{$news->title}}
+            </h1>
+            <div class="news_image_place">
+                <img src="/page_uploade/news/{{$news->image}}" class="news_image">
             </div>
-            @endforeach
-
+            <p class="news_desc_place">
+              <span>{{$news->description}}</span>  
+            </p>
+            
         </div>
-
         <div class="content_right_place">
-        <div class="posts_place">
-            <div class="posts">
+            <div class="posts_place">
+                <div class="posts">
                     <a href="#">
                         <div class="posts_image_place">
                             <img src="/assets/user/images/service1.jpg" class="posts_image" />
@@ -197,11 +186,9 @@
                 advertising_place advertising_place advertising_place advertising_place advertising_place
             </div>
         </div>
-        <div class="more_place">
-            {{ $news->links() }}        
-        </div>
     </div>
-    <div class="us_place">
+
+	<div class="us_place">
         <div class="us_abs">
             <div class="us_rel">
                 <div class="us_abs_1"></div>
@@ -225,6 +212,5 @@
             </div>
         </div>
     </div>
-
-    
+	
 @endsection
