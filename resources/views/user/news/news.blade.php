@@ -30,7 +30,7 @@
             <div class="posts">
                     <a href="#">
                         <div class="posts_image_place">
-                            <img src="/smallimg/service1.jpg" class="posts_image" />
+                            <img src="/images/noImg.jpg" class="posts_image" />
                         </div>
                         <p class="posts_title">
                             Day News on one string

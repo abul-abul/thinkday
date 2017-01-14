@@ -55,6 +55,9 @@ Route::post('ab-admin/page-gallery/{page_id}/{category_id}','AdminController@pos
 Route::get('ab-admin/news-gallery-crop/{img_id}/{page_id}/{category_id}','AdminController@getGalleryCropImage');
 Route::post('ab-admin/crop-page-gallery','AdminController@postCropPageGallery');
 Route::post('ab-admin/crop-image-page-gallery-update','AdminController@postCropImagePageGalleryUpdate');
+Route::get('ab-admin/delete-page-gallery/{id}','AdminController@getDeletePageGallery');
+Route::post('ab-admin/edit-page-gallery','AdminController@postEditPageGallery');
+Route::post('ab-admin/page-resize-images','AdminController@postPageResizeImages');
 
 Route::get('ab-admin','AdminController@getLogin');
 Route::post('ab-admin/login','AdminController@postLogin');
