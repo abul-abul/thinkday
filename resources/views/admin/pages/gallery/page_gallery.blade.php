@@ -132,7 +132,7 @@
                                                         <i data-id='{{$image->id}}' content="{{ csrf_token() }}" data-toggle="modal" data-target="#myModal1" class="ace-icon fa fa-link resize_icon"></i>
                                                     </a>
 
-                                                    <a href="{{action('AdminController@getNewsCropImage',$image->id)}}">
+                                                    <a href="{{action('AdminController@getGalleryCropImage',[$image->id,$page_id,$category_id])}}">
                                                         <i class="ace-icon fa fa-paperclip"></i>
                                                     </a>
 

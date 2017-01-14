@@ -650,23 +650,86 @@ class AdminController extends BaseController
                 $data['category_id'] = $category_id;
                 $pageGalleryRepo->getCreate($data);
             }
-            //return redirect()->action('AdminController@getGallery');
+            return redirect()->action('AdminController@getGallery');
         }
     }
 
     /**
-     * @param $id
-     * @param NewsInterface $newsRepo
+     * @param $img_id
+     * @param $page_id
+     * @param $category_id
+     * @param PageGalleryServiceInterface $pageGalleryRepo
      * @return View
      */
-    public function getNewsCropImage($id,PageGalleryServiceInterface $pageGalleryRepo)
+    public function getGalleryCropImage($img_id,$page_id,$category_id,PageGalleryServiceInterface $pageGalleryRepo)
     {
-        $result = $pageGalleryRepo->getPageCategory();
-        dd($result);
+       // $result = $pageGalleryRepo->getPageCategory($page_id,$category_id);
+        $result = $pageGalleryRepo->getOne($img_id);
         $data = [
             'images' => $result
         ];
-        return view('admin.pages.news.news-gallery-crop',$data);
+        return view('admin.pages.gallery.gallery-crop',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function postCropPageGallery(request $request)
+    {
+        $result = $request->all();
+        $data_crop = $result['data_crop'];
+        $crop_image =  json_decode($data_crop);
+        if($crop_image != '')
+        {
+            $imag = explode('/',$request->get('data'));
+            $imag = end($imag);
+            $name = str_random();
+            $format = explode('.', $imag);
+            $format = end($format);
+
+            $name = $name.'.'.$format;
+            $path = public_path().'/page_uploade/page_gallery/';
+            $newPath = public_path().'/page_uploade/page_gallery/';
+            $img = Image::make($path.$imag);
+          
+            //dd($crop_image->width);
+            $width = round($crop_image->width);
+            $height = round($crop_image->height);
+
+            $x = round($crop_image->x);
+            $y = round($crop_image->y);
+
+            if($width == 0){
+                $width = 1;
+            }
+            if($height == 0)
+            {
+                $height = 1;
+            }
+            $img->crop($width, $height, $x, $y);
+            $img->save($newPath.$name);
+            $data['image_name'] = $name;
+            return response()->json($data);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     * @return mixed
+     */
+    public function postCropImagePageGalleryUpdate(Request $request,PageGalleryServiceInterface $pageGalleryRepo)
+    {
+        $result = $request->all();
+        unset($result['_token']);
+        $img = $result['image_name'];
+        $id = $result['id'];
+        $data = [
+            'image_name' => $img
+        ];
+        $pageGalleryRepo->getUpdate($id,$data);
+        return response()->json($data);
     }
 
     /**

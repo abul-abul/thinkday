@@ -105,7 +105,7 @@
             </button><br>
 
             <input type="hidden" class="form-control" id="putData" placeholder="Get data to here or set data with this value">
-            <button data-id="{{$gallerys->id}}" class="btn btn-primary crop_image_button">Crop image</button>
+            <button data-id="{{$images->id}}" class="btn btn-primary crop_image_gallery_button">Crop image</button>
         </div><!-- /.docs-buttons -->
 
 

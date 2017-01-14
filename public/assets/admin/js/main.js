@@ -186,5 +186,34 @@ $(document).ready(function(){
     })
     //============end page
 
+    //===========Page gallery
+    $('.crop_image_gallery_button').click(function(){
+        $('.get_data').trigger('click');
+        var token = $('.get_data').attr('content');
+        var get_data = $('#putData').val();
+        var image = $('#image').attr('src');
+        var id = $(this).attr('data-id');
+        $.ajax({
+            url: '/ab-admin/crop-page-gallery',
+            type: 'post',
+            data: {_token:token,data_crop:get_data,data:image},
+            success: function(data)
+            {
+                // var image_name = data.image_name;
+                // $.ajax({
+                //     url: '/ab-admin/crop-image-page-gallery-update',
+                //     type: 'post',
+                //     data: {_token:token,id:id,image_name:image_name},
+                //     success : function(data){
+                //        // location.reload()
+                //     }
+                // })
+            }
+        });
+    })
+
+    //===========End Page gallery
+
+
 })
 
