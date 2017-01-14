@@ -67,6 +67,15 @@ class UsersController extends BaseController
         return view('user.news.news',$data);
     }
 
+    public function getNewsCategory($id,NewsInterface $newsRepo)
+    {
+        $result = $newsRepo->getOne($id);
+        $data = [
+            'news' => $result
+        ];
+        return view('user.news.news-category',$data);
+    }
+
 
 
 

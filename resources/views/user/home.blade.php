@@ -14,7 +14,7 @@
 	        <div class="carousel-inner">
 	            <div class="item active">
 	                <!-- Set the first background image using inline CSS below. -->
-	                <div class="fill" style="background-image:url('images/slide1.jpg');"></div>
+	                <div class="fill" style="background-image:url('/assets/user/images/slide1.jpg');"></div>
 	                <div class="carousel-caption">
 	                    <h2>
 	                    	<a href="#" class="slider_link">Caption 1</a>
@@ -23,7 +23,7 @@
 	            </div>
 	            <div class="item">
 	                <!-- Set the second background image using inline CSS below. -->
-	                <div class="fill" style="background-image:url('images/slide2.jpg');"></div>
+	                <div class="fill" style="background-image:url('/assets/user/images/slide2.jpg');"></div>
 	                <div class="carousel-caption">
 	                    <h2>
 	                    	<a href="#" class="slider_link">Caption 2</a>
@@ -32,7 +32,7 @@
 	            </div>
 	            <div class="item">
 	                <!-- Set the third background image using inline CSS below. -->
-	                <div class="fill" style="background-image:url('images/slide3.jpg');"></div>
+	                <div class="fill" style="background-image:url('/assets/user/images/slide3.jpg');"></div>
 	                <div class="carousel-caption">
 	                    <h2>
 	                    	<a href="#" class="slider_link">Caption 3</a>
@@ -59,7 +59,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service1.jpg" class="service_image" />
+					<img src="/assets/user/images/service1.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our works</span>
@@ -69,7 +69,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service2.jpg" class="service_image" />
+					<img src="/assets/user/images/service2.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our partners</span>
@@ -79,7 +79,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service3.jpg" class="service_image" />
+					<img src="/assets/user/images/service3.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our blogs</span>
@@ -89,7 +89,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service4.jpg" class="service_image" />
+					<img src="/assets/user/images/service4.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our videos</span>
@@ -99,7 +99,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service5.jpg" class="service_image" />
+					<img src="/assets/user/images/service5.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our images images images</span>
@@ -109,7 +109,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service6.jpg" class="service_image" />
+					<img src="/assets/user/images/service6.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our works</span>
@@ -119,7 +119,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service4.jpg" class="service_image" />
+					<img src="/assets/user/images/service4.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our videos</span>
@@ -129,7 +129,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service5.jpg" class="service_image" />
+					<img src="/assets/user/images/service5.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our images images images</span>
@@ -139,7 +139,7 @@
 			<div class="services_blocks">
 				<a href="#">
 					<div class="ser_bg_abs"></div>
-					<img src="images/service6.jpg" class="service_image" />
+					<img src="/assets/user/images/service6.jpg" class="service_image" />
 					<div class="service_abs">
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 						<span class="ser_abs_text">our works</span>
@@ -147,11 +147,12 @@
 				</a>
 			</div>
 		</div>
+		<div class="content_right_place">
 		<div class="posts_place">
 			<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service1.jpg" class="posts_image" />
+							<img src="/assets/user/images/service1.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -166,7 +167,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service2.jpg" class="posts_image" />
+							<img src="/assets/user/images/service2.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -181,7 +182,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service3.jpg" class="posts_image" />
+							<img src="/assets/user/images/service3.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -196,7 +197,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service4.jpg" class="posts_image" />
+							<img src="/assets/user/images/service4.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -211,7 +212,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service5.jpg" class="posts_image" />
+							<img src="/assets/user/images/service5.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -226,7 +227,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service6.jpg" class="posts_image" />
+							<img src="/assets/user/images/service6.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -241,7 +242,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service1.jpg" class="posts_image" />
+							<img src="/assets/user/images/service1.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -256,7 +257,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service2.jpg" class="posts_image" />
+							<img src="/assets/user/images/service2.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -271,7 +272,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service3.jpg" class="posts_image" />
+							<img src="/assets/user/images/service3.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -286,7 +287,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service4.jpg" class="posts_image" />
+							<img src="/assets/user/images/service4.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -301,7 +302,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service5.jpg" class="posts_image" />
+							<img src="/assets/user/images/service5.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -316,6 +317,7 @@
 		</div>
 		<div class="advertising_place">
 			advertising_place advertising_place advertising_place advertising_place advertising_place
+		</div>
 		</div>
 		<div class="more_place">
 			<div class="all_services">
@@ -359,7 +361,7 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service1.jpg" class="service_image" />
+					<img src="/assets/user/images/service1.jpg" class="service_image" />
 				</a>
 			</div>
 			<div class="services_blocks">
@@ -367,7 +369,7 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service2.jpg" class="service_image" />
+					<img src="/assets/user/images/service2.jpg" class="service_image" />
 				</a>
 			</div>
 			<div class="services_blocks">
@@ -375,7 +377,7 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service3.jpg" class="service_image" />
+					<img src="/assets/user/images/service3.jpg" class="service_image" />
 				</a>
 			</div>
 			<div class="services_blocks">
@@ -383,7 +385,7 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service1.jpg" class="service_image" />
+					<img src="/assets/user/images/service1.jpg" class="service_image" />
 				</a>
 			</div>
 			<div class="services_blocks">
@@ -391,7 +393,7 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service2.jpg" class="service_image" />
+					<img src="/assets/user/images/service2.jpg" class="service_image" />
 				</a>
 			</div>
 			<div class="services_blocks">
@@ -399,7 +401,7 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service3.jpg" class="service_image" />
+					<img src="/assets/user/images/service3.jpg" class="service_image" />
 				</a>
 			</div>
 			<div class="services_blocks">
@@ -407,7 +409,7 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service1.jpg" class="service_image" />
+					<img src="/assets/user/images/service1.jpg" class="service_image" />
 				</a>
 			</div>
 			<div class="services_blocks">
@@ -415,7 +417,7 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service2.jpg" class="service_image" />
+					<img src="/assets/user/images/service2.jpg" class="service_image" />
 				</a>
 			</div>
 			<div class="services_blocks">
@@ -423,15 +425,16 @@
 					<div class="ser_bg_abs_1">
 						<i class="fa fa-link" aria-hidden="true"></i>
 					</div>
-					<img src="images/service3.jpg" class="service_image" />
+					<img src="/assets/user/images/service3.jpg" class="service_image" />
 				</a>
 			</div>
 		</div>
+		<div class="content_right_place">
 		<div class="posts_place">
 			<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service1.jpg" class="posts_image" />
+							<img src="/assets/user/images/service1.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -446,7 +449,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service2.jpg" class="posts_image" />
+							<img src="/assets/user/images/service2.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -461,7 +464,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service3.jpg" class="posts_image" />
+							<img src="/assets/user/images/service3.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -476,7 +479,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service4.jpg" class="posts_image" />
+							<img src="/assets/user/images/service4.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -491,7 +494,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service5.jpg" class="posts_image" />
+							<img src="/assets/user/images/service5.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -506,7 +509,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service6.jpg" class="posts_image" />
+							<img src="/assets/user/images/service6.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -521,7 +524,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service1.jpg" class="posts_image" />
+							<img src="/assets/user/images/service1.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -536,7 +539,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service2.jpg" class="posts_image" />
+							<img src="/assets/user/images/service2.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -551,7 +554,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service3.jpg" class="posts_image" />
+							<img src="/assets/user/images/service3.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -566,7 +569,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service4.jpg" class="posts_image" />
+							<img src="/assets/user/images/service4.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -581,7 +584,7 @@
 				<div class="posts">
 					<a href="#">
 						<div class="posts_image_place">
-							<img src="/smallimg/service5.jpg" class="posts_image" />
+							<img src="/assets/user/images/service5.jpg" class="posts_image" />
 						</div>
 						<p class="posts_title">
 							Day News on one string
@@ -596,6 +599,7 @@
 		</div>
 		<div class="advertising_place">
 			advertising_place advertising_place advertising_place advertising_place advertising_place
+		</div>
 		</div>
 		<div class="more_place">
 			<div class="all_services">
