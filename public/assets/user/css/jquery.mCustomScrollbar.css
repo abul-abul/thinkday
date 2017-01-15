@@ -17,47 +17,6 @@ CONTENTS:
 */
 
 
-.img{
-	cursor: url(../../../images/cursor.png), auto;
-}
-
-.scroll_slider{
-	width: 100%;
-	height: 272px;
-    margin: 0px;
-    padding:0; 
-}
-
-.gallery_tour {
-    margin-top: 28px;
-    position: relative;
-    transition: all .4s ease;
-}
-
-.slide {
-    float: left;
-}
-
-.slide a {
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-    margin: 5px 5px;
-    float: left;
-    height: 150px;
-}
-.slide .img {
-    width: 200px;
-    height: 150px;
-    display: inline-block;
-    transition: all .4s ease;
-}
-
-.clear:after{
-	content: '';
-	clear:both;
-	display: block;
-}
 
 
 /* 
@@ -403,7 +362,7 @@ yx-axis
 	}
 
 	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-		background-color: #fff; background-color: #f7595d;
+		background-color: #fff; background-color: #172646;
 	}
 
 	/*.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
@@ -420,7 +379,7 @@ yx-axis
 	.mCSB_scrollTools .mCSB_buttonDown,
 	.mCSB_scrollTools .mCSB_buttonLeft,
 	.mCSB_scrollTools .mCSB_buttonRight{
-		background-image: url(../image/mCSB_buttons.png); /* css sprites */
+		background-image: url(/assets/user/images/mCSB_buttons.png); /* css sprites */
 		background-repeat: no-repeat;
 		background-color: #f5f5f5;
 	}
@@ -1236,11 +1195,11 @@ yx-axis
 	
 	.mCS-inset.mCSB_scrollTools .mCSB_buttonLeft, 
 	.mCS-inset-2.mCSB_scrollTools .mCSB_buttonLeft, 
-	.mCS-inset-3.mCSB_scrollTools .mCSB_buttonLeft{ background-position: -57px -101px; }
+	.mCS-inset-3.mCSB_scrollTools .mCSB_buttonLeft{ background-position: -120px -37px; }
 	
 	.mCS-inset.mCSB_scrollTools .mCSB_buttonRight, 
 	.mCS-inset-2.mCSB_scrollTools .mCSB_buttonRight, 
-	.mCS-inset-3.mCSB_scrollTools .mCSB_buttonRight{ background-position: -57px -123px; }
+	.mCS-inset-3.mCSB_scrollTools .mCSB_buttonRight{ background-position: -120px -54px; }
 	
 	
 	/* theme "inset-dark", "inset-2-dark", "inset-3-dark" */
@@ -1317,3 +1276,46 @@ yx-axis
 	.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{ background-color: #fff; background-color: rgba(255,255,255,0.9); }
 	
 	/* ---------------------------------------- */
+
+.img{
+	cursor: url(/assets/user/images/cursor.png), auto;
+}
+
+.scroll_slider{
+	width: 100%;
+	height: 190px;
+    margin: 0px;
+    padding:0; 
+}
+
+.gallery_tour {
+    margin-top: 28px;
+    position: relative;
+    transition: all .4s ease;
+}
+
+.slide {
+    float: left;
+}
+
+.slide a {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    margin: 5px 5px;
+    float: left;
+    height: 150px;
+}
+.slide .img {
+    width: 200px;
+    height: 150px;
+    display: inline-block;
+    transition: all .4s ease;
+}
+
+.clear:after{
+	content: '';
+	clear:both;
+	display: block;
+}
+

@@ -44,13 +44,13 @@ $(document).ready(function(){
 	$("#contact").click(function(){
 		$('body').animate({
 		    scrollTop: offsetUs - 100
-		}, 1500);
+		}, 1000);
 	});
 
 	$(".back_to_top").click(function(){
 		$("body").animate({
 			scrollTop:0,
-		}, 1500);
+		}, 1000);
 	});
 
 	$(".fa-search").before().click(function(){
@@ -76,5 +76,32 @@ $(document).ready(function(){
 			"display":"none",
 		});
 	});
+
+	$('.cabaret_gallery').click(function(){
+		$('html, body').animate({
+            scrollTop: $(".scroll_slider").offset().top
+        }, 1000);
+	})
+
+	$(".gallery_tour").mCustomScrollbar({
+	    axis:"x",
+	    theme: 'inset',
+	    scrollButtons:{enable:true},
+	});
+
+	function setSliderWrapper()
+	{
+	    var count = 0;
+
+	    $('.gallery_tour .slide').each(function(){
+	        $('.img',this).each(function(){
+	            count += $(this).outerWidth()+10;
+	        });
+
+	        $(this).css('width',count);
+	        count = 0;
+	    });
+	}		
+	setSliderWrapper();
 
 });
