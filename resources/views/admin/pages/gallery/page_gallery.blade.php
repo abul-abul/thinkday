@@ -27,16 +27,17 @@
         }
         .add_gal_button{
             margin-top:15px;
-
         }
+
     </style>
 
 
     <div class="panel with-nav-tabs panel-default">
         <div class="panel-heading">
             <ul class="nav nav-tabs">
-                <li class="active"><a class="locums_tab" href="#add_gallery" data-toggle="tab">Add Gallery</a></li>
-                <li><a class="locums_tab" href="#gallery_list" data-toggle="tab">Gallery List</a></li>
+                <li  class="active"><a class="gallery_list" href="#add_gallery" data-toggle="tab">Add Gallery</a></li>
+                <li><a class="gallery_list" href="#gallery_list" data-toggle="tab">Gallery List</a></li>
+                <li><a class="video_list" href="#video_list" data-toggle="tab">Video List</a></li>
             </ul>
         </div>
     </div>
@@ -44,9 +45,7 @@
         <div class="tab-content">
             <div class="tab-pane fade in active" id="add_gallery">
                 <h1>Add Gallery Images</h1>
-
                 @include('message')
-
                 {!! Form::open(['action' => ['AdminController@postAddPageGallery',$page_id,$category_id] ,'class' => 'form-horizontal','files' =>true  ]) !!}
 
                 {!! Form::file('image[]', array('multiple'=>true,'class'=>'gallery_file')) !!}
@@ -69,7 +68,7 @@
 
 
     <div class="tab-pane fade" id="gallery_list">
-        <div class="locum-files-view">
+        {{--<div class="locum-files-view">--}}
             {{--Slider Gallery--}}
             <div class="main-content">
                 <div class="main-content-inner">
@@ -129,7 +128,7 @@
 
                                                 <div class="tools">
                                                     <a href="#">
-                                                        <i data-id='{{$image->id}}' content="{{ csrf_token() }}" data-toggle="modal" data-target="#myModal1" class="ace-icon fa fa-link resize_icon"></i>
+                                                        <i data-id='{{$image->id}}' content="{{ csrf_token() }}" data-toggle="modal" data-target="#myModal1" class="ace-icon fa fa-link page_resize_gallery"></i>
                                                     </a>
 
                                                     <a href="{{action('AdminController@getGalleryCropImage',[$image->id,$page_id,$category_id])}}">
@@ -137,10 +136,10 @@
                                                     </a>
 
                                                     <a href="#">
-                                                        <i data-toggle="modal" data-target="#myModal" data-id='{{$image->id}}' class="ace-icon fa fa-pencil galery_edit"></i>
+                                                        <i data-toggle="modal" data-target="#myModal" data-id='{{$image->id}}' class="ace-icon fa fa-pencil galery_page_edit"></i>
                                                     </a>
                                                     <a  href="#">
-                                                        <i data-id='{{$image->id}}' class="ace-icon fa fa-times red galery_delete"></i>
+                                                        <i data-id='{{$image->id}}' class="ace-icon fa fa-times red page_galery_delete"></i>
                                                     </a>
                                                 </div>
                                             </li>
@@ -163,8 +162,8 @@
                     <div class="modal-content">
 
                         <div class="modal-body">
-                            <input content="{{ csrf_token() }}" type="file" style="display:none" class="gallery_image_modal_edit">
-                            <img style="width:100%;cursor:pointer" src="" class="gallery_image_modal">
+                            <input content="{{ csrf_token() }}" type="file" style="display:none" class="page_gallery_image_modal_edit">
+                            <img style="width:100%;cursor:pointer" src="" class="page_gallery_image_modal">
                             <img class="img_loading" style="display: none;position: absolute;top: 41%;left: 41%;" src="/assets/admin/images/ajax-loader.gif">
                         </div>
                         <div class="modal-footer">
@@ -188,16 +187,22 @@
                             <input type="number" class="form-control gal_image_height" placeholder="height">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default resize_image" >Save</button>
+                            <button type="button" class="btn btn-default page_resize_image" >Save</button>
                         </div>
                     </div>
 
                 </div>
             </div>
             {{--end Slider Gallery--}}
-        </div>
+        {{--</div>--}}
     </div>
 
+
+            {{--video--}}
+    <div class="tab-pane fade in active" id="video_list">
+
+    </div>
+        {{--end video--}}
     </div>
 </div>
 

@@ -508,7 +508,8 @@ class AdminController extends BaseController
     {
         $result = $newRepo->getAll();
         $data = [
-            'news' => $result
+            'news' => $result,
+            'news_list_active' => true
         ];
         return view('admin.pages.news.news-list',$data);
     }
@@ -650,8 +651,60 @@ class AdminController extends BaseController
                 $data['category_id'] = $category_id;
                 $pageGalleryRepo->getCreate($data);
             }
-            return redirect()->action('AdminController@getGallery');
+            return redirect()->back();
         }
+    }
+
+    /**
+     * @param Request $request
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     * @return mixed
+     */
+    public function postEditPageGallery(request $request,PageGalleryServiceInterface $pageGalleryRepo)
+    {
+        $result = $request->all();
+        $id = $result['id'];
+        $row = $pageGalleryRepo->getOne($id);
+        $oldPath = public_path() . '/page_uploade/page_gallery/' . $row['image'];
+        File::delete($oldPath);
+        $logoFile = $result['file']->getClientOriginalExtension();
+        $name = str_random(12);
+        $path = public_path() . '/page_uploade/page_gallery';
+        $result_move = $result['file']->move($path, $name.'.'.$logoFile);
+        $gallery_images = $name.'.'.$logoFile;
+        $data['image'] = $gallery_images;
+        $pageGalleryRepo->getUpdate($id,$data);
+        return response()->json($gallery_images);
+    }
+
+    /**
+     * @param Request $request
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     * @return mixed
+     */
+    public function postPageResizeImages(request $request,PageGalleryServiceInterface $pageGalleryRepo)
+    {
+        $id = $request->get('id');
+        $width = $request->get('width');
+        $height = $request->get('height');
+        $resullt = $pageGalleryRepo->getOne($id);
+
+        $image = $resullt->image;
+
+        $imag = explode('/', $image);
+        $imag = end($imag);
+
+        $name = str_random();
+        $format = explode('.', $imag);
+        $format = end($format);
+
+        $name = $name.'.'.$format;
+        $path = public_path() . '/page_uploade/page_gallery/';
+
+        $img = Image::make($path.$imag);
+        $img->resize($width, $height);
+        $img->save($path.$imag);
+        return response()->json($name);
     }
 
     /**
@@ -687,13 +740,11 @@ class AdminController extends BaseController
             $name = str_random();
             $format = explode('.', $imag);
             $format = end($format);
-
             $name = $name.'.'.$format;
             $path = public_path().'/page_uploade/page_gallery/';
             $newPath = public_path().'/page_uploade/page_gallery/';
             $img = Image::make($path.$imag);
-          
-            //dd($crop_image->width);
+
             $width = round($crop_image->width);
             $height = round($crop_image->height);
 
@@ -726,10 +777,23 @@ class AdminController extends BaseController
         $img = $result['image_name'];
         $id = $result['id'];
         $data = [
-            'image_name' => $img
+            'image' => $img
         ];
         $pageGalleryRepo->getUpdate($id,$data);
         return response()->json($data);
+    }
+
+    /**
+     * @param $id
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     */
+    public function getDeletePageGallery($id,PageGalleryServiceInterface $pageGalleryRepo)
+    {
+        $result = $pageGalleryRepo->getOne($id);
+        $path = public_path() . '/page_uploade/page_gallery/' . $result['image'];
+        File::delete($path);
+        $pageGalleryRepo->getdelete($id);
+        return response()->json();
     }
 
     /**
