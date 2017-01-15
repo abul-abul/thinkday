@@ -1,6 +1,7 @@
 @extends('app-user')
 @section('user-content')
 
+
     <div class="content">
         <div class="services_place clear">
             <h1 class="news_title_place">
@@ -12,7 +13,30 @@
             <p class="news_desc_place">
               <span>{{$news->description}}</span>  
             </p>
-            
+            <div class="scroll_slider">
+                <div class="gallery_tour">
+                   <div class="slide gall clear">
+                        <a href="/page_uploade/news/0kroYLQYte4l.jpg">
+                            <div class="img" style="background: url('/page_uploade/news/0kroYLQYte4l.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
+                        </a>
+                        <a href="/page_uploade/news/beOMNwf5RnEO.jpg">
+                            <div class="img" style="background: url('/page_uploade/news/beOMNwf5RnEO.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
+                        </a>
+                        <a href="/page_uploade/news/beOMNwf5RnEO.jpg">
+                            <div class="img" style="background: url('/page_uploade/news/beOMNwf5RnEO.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
+                        </a>
+                        <a href="/page_uploade/news/0kroYLQYte4l.jpg">
+                            <div class="img" style="background: url('/page_uploade/news/0kroYLQYte4l.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
+                        </a>
+                        <a href="/page_uploade/news/beOMNwf5RnEO.jpg">
+                            <div class="img" style="background: url('/page_uploade/news/beOMNwf5RnEO.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
+                        </a>
+                        <a href="/page_uploade/news/beOMNwf5RnEO.jpg">
+                            <div class="img" style="background: url('/page_uploade/news/beOMNwf5RnEO.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
+                        </a>      
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="content_right_place">
             <div class="posts_place">

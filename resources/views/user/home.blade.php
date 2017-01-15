@@ -322,7 +322,7 @@
 		<div class="more_place">
 			<div class="all_services">
 				<a href="#" class="all_link">
-					<span class="all_ser_text">view all news</span>
+					<span class="all_ser_text">view more news</span>
 				</a>
 			</div>
 		</div>
@@ -604,7 +604,7 @@
 		<div class="more_place">
 			<div class="all_services">
 				<a href="#" class="all_link">
-					<span class="all_ser_text">view all news</span>
+					<span class="all_ser_text">view more news</span>
 				</a>
 			</div>
 		</div>

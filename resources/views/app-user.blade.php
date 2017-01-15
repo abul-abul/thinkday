@@ -11,7 +11,8 @@
 	{!! HTML::style( asset('assets/admin/plugins/css/ace.css')) !!}
 	{!! HTML::style( asset('assets/admin/plugins/css/ace-rtl.css')) !!}
 
-
+	{!! HTML::style( asset('assets/user/css/jquery.mCustomScrollbar.css')) !!}
+    {!! HTML::style( asset('assets/user/css/lightgallery.css')) !!}
 	{!! HTML::style( asset('assets/user/css/full-slider.css')) !!}
 	{!! HTML::style( asset('assets/user/css/font-face.css')) !!}
 	{!! HTML::style( asset('assets/user/css/style.css')) !!}
@@ -209,6 +210,8 @@
 
 	{!! HTML::script( asset('assets/user/js/jquery.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/bootstrap.min.js') ) !!}
+	{!! HTML::script(asset('assets/user/js/jquery.mCustomScrollbar.concat.min.js'))!!}
+	{!! HTML::script(asset('assets/user/js/lightgallery.js'))!!}
 	{!! HTML::script( asset('assets/user/js/init.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/user_main.js') ) !!}
 
