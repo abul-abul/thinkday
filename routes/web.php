@@ -51,6 +51,8 @@ Route::get('paypal/response/cancel','PaymentController@getPaypalCancelResponse')
 
 
 //================Admin
+
+//===========Gallery
 Route::get('ab-admin/page-gallery/{page_id}/{category_id}','AdminController@getPageGallery');
 Route::post('ab-admin/page-gallery/{page_id}/{category_id}','AdminController@postAddPageGallery');
 Route::get('ab-admin/news-gallery-crop/{img_id}/{page_id}/{category_id}','AdminController@getGalleryCropImage');
@@ -59,6 +61,9 @@ Route::post('ab-admin/crop-image-page-gallery-update','AdminController@postCropI
 Route::get('ab-admin/delete-page-gallery/{id}','AdminController@getDeletePageGallery');
 Route::post('ab-admin/edit-page-gallery','AdminController@postEditPageGallery');
 Route::post('ab-admin/page-resize-images','AdminController@postPageResizeImages');
+Route::post('ab-admin/add-page-youtbe-video','AdminController@postAddPageYoutbeVideo');
+Route::get('ab-admin/delete-page-youtbe-video/{id}','AdminController@getDeletePageYoutbeVideo');
+//============End Gallery
 
 Route::get('ab-admin','AdminController@getLogin');
 Route::post('ab-admin/login','AdminController@postLogin');

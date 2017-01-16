@@ -514,7 +514,38 @@ class AdminController extends BaseController
         return view('admin.pages.news.news-list',$data);
     }
 
+    /**
+     * @param Request $request
+     * @param YoutubeInerface $youtubeRepo
+     * @return mixed
+     */
+    public function postAddPageYoutbeVideo(request $request,YoutubeInerface $youtubeRepo)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'width' => 'required|numeric',
+            'height' => 'required|numeric',
+            'video' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            unset($result['_token']);
+            $youtubeRepo->createYoutubeVideo($result);
+            return redirect()->back()->with('error','video added');
+        }
+    }
 
+    /**
+     * @param $id
+     * @param YoutubeInerface $youtubeRepo
+     * @return mixed
+     */
+    public function getDeletePageYoutbeVideo($id,YoutubeInerface $youtubeRepo)
+    {
+        $youtubeRepo->deletevideo($id);
+        return redirect()->back()->with('error','video deleted');
+    }
 
     /**
      * @return View
@@ -613,13 +644,15 @@ class AdminController extends BaseController
      * @param PageGalleryServiceInterface $pageGalleryRepo
      * @return View
      */
-    public function getPageGallery($page_id,$category_id,PageGalleryServiceInterface $pageGalleryRepo)
+    public function getPageGallery($page_id,$category_id,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo)
     {
         $result = $pageGalleryRepo->getPageCategory($page_id,$category_id);
+        $video = $youtubeRepo->getPageCategoryVideo($page_id,$category_id);
         $data = [
             'page_id' => $page_id,
             'category_id' => $category_id,
-            'gallerys' => $result
+            'gallerys' => $result,
+            'vidoes' => $video
         ];
         return view('admin.pages.gallery.page_gallery',$data);
     }

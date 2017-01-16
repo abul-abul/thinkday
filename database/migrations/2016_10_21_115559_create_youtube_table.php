@@ -15,6 +15,8 @@ class CreateYoutubeTable extends Migration
     {
         Schema::create('youtube', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('category_id')->nullable();
+            $table->integer('page_id')->nullable();
             $table->string('video')->nullable();
             $table->string('width')->nullable();
             $table->string('height')->nullable();

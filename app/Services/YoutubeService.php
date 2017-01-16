@@ -9,11 +9,9 @@ use App\Youtube;
 class YoutubeService implements YoutubeInerface
 {
 
-	/**
-	* Create a new instance of UserService class
-	*
-	* @return void
-	*/
+    /**
+     * YoutubeService constructor.
+     */
 	public function __construct()
 	{
         $this->youtube = new Youtube();
@@ -84,5 +82,15 @@ class YoutubeService implements YoutubeInerface
     public function deletevideo($id)
     {  
         return $this->getOneYoutubeVideo($id)->delete();
+    }
+
+    /**
+     * @param $page_id
+     * @param $category_id
+     * @return mixed
+     */
+    public function getPageCategoryVideo($page_id,$category_id)
+    {
+        return $this->youtube->where('page_id',$page_id)->where('category_id',$category_id)->get();
     }
 }

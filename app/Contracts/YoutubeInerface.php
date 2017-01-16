@@ -54,4 +54,11 @@ interface YoutubeInerface
      */
     public function deletevideo($id);
 
+    /**
+     * @param $page_id
+     * @param $category_id
+     * @return mixed
+     */
+    public function getPageCategoryVideo($page_id,$category_id);
+
 }

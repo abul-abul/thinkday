@@ -297,16 +297,16 @@ $(document).ready(function(){
 
     })
 
-    $('.gallery_list').click(function () {
-        var href = $(this).attr('href');
-        var split_url = location.href.split('#');
-        if(href == '#gallery_list'){
-            var new_url = split_url[0] + "#gallery_list";
-        }else if(href == '#add_gallery'){
-            var new_url = split_url[0] + "#add_gallery";
-        }
-        window.location.href = new_url;
-    })
+    // $('.gallery_list').click(function () {
+    //     var href = $(this).attr('href');
+    //     var split_url = location.href.split('#');
+    //     if(href == '#gallery_list'){
+    //         var new_url = split_url[0] + "#gallery_list";
+    //     }else if(href == '#add_gallery'){
+    //         var new_url = split_url[0] + "#add_gallery";
+    //     }
+    //     window.location.href = new_url;
+    // })
     //===========End Page gallery
 
 

@@ -7,22 +7,21 @@
 
         <div class="services_place clear">
             @foreach($news as $new)
-            <div class="services_blocks">
-                <a href="{{action('UsersController@getNewsCategory',$new->id)}}">
-                    <div class="ser_bg_abs"></div>
-                    @if($new->image)
-                        <img src="/page_uploade/news/{{$new->image}}" class="service_image" />
-                    @else
-                        <img class="service_image" src="/images/noImg.jpg" alt="">
-                    @endif
-                    <div class="service_abs">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        <span class="ser_abs_text">{{$new->title}}</span>
-                    </div>
-                </a>
-            </div>
+                <div class="services_blocks">
+                    <a href="{{action('UsersController@getNewsCategory',$new->id)}}">
+                        <div class="ser_bg_abs"></div>
+                        @if($new->image)
+                            <img src="/page_uploade/news/{{$new->image}}" class="service_image" />
+                        @else
+                            <img class="service_image" src="/images/noImg.jpg" alt="">
+                        @endif
+                        <div class="service_abs">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            <span class="ser_abs_text">{{$new->title}}</span>
+                        </div>
+                    </a>
+                </div>
             @endforeach
-
         </div>
 
         <div class="content_right_place">
@@ -41,8 +40,8 @@
                             We are people.
                         </p>
                     </a>
-                </div>
-                <div class="posts">
+            </div>
+            <div class="posts">
                     <a href="#">
                         <div class="posts_image_place">
                             <img src="/assets/user/images/service2.jpg" class="posts_image" />
