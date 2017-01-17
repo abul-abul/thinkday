@@ -338,7 +338,7 @@
 				<span class="us_title">contact with us</span>
 			</div>
 			<form action="" method="post">
-				<input type="email" class="question_email" placeholder="Email" />
+				<input id="question_email" type="email" class="e-mail" placeholder="Email" />
 				<br>
 				<textarea placeholder="write your question"></textarea>
 				<br>

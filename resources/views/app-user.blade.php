@@ -21,6 +21,63 @@
 <body>
 
 <header>
+	<!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	    
+	      <!-- Modal content-->
+	      <div class="modal-content modal_place">
+	        <div class="modal-header modal_head">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Registration</span>
+	          <span class="log_middle">/</span>
+	          <span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Login</span>
+	        </div>	          
+			  <div class="panel-group" id="accordion">
+			    <div class="panel panel-default">
+			      <div id="collapse1" class="panel-collapse collapse in">
+			        <div class="panel-body">
+			        	<form action="" method="post">
+			        		<input type="text" class="name" placeholder="Name" />
+			        		<input type="text" class="name" placeholder="Surname" />
+			        		<input type="email" class="email" placeholder="Email" />
+			        		<input type="password" class="pass" placeholder="Password" />
+			        		<label for="male" class="label">Male</label>
+			        		<input type="radio" id="male" value="Male" name="gender" />
+			        		<label for="female" class="label">Female</label>
+			        		<input type="radio" id="female" value="Female" name="gender" />
+			        		<label for="other" class="label">Other</label>
+			        		<input type="radio" id="other" value="Other" name="gender" />
+			        		<div class="data_place">
+			        			<select class="bday">
+			        				<option value="0" selected="1">Day</option>
+			        			</select>
+			        			<select class="bmonth">
+			        				<option value="0" selected="1">Month</option>
+			        			</select>
+			        			<select class="byear">
+			        				<option value="0" selected="1">Year</option>
+			        			</select>
+			        		</div>
+			        		<input type="submit" class="reg_btn" value="Registration">
+			        	</form>
+			        </div>
+			      </div>
+			    </div>
+			    <div class="panel panel-default">
+			      <div id="collapse2" class="panel-collapse collapse">
+			      	<div class="panel-body">
+				        <input type="email" class="email" placeholder="Email" />
+				        <input type="password" class="pass" placeholder="Password" />
+				        <input type="submit" class="log_btn" value="Login">
+			        </div>
+			      </div>
+			    </div>
+			  </div>   
+	      </div>
+	    </div>
+	  </div>
+	<!-- End Modal -->
 	<div class="header_center">
 		<div class="center_left">
 			<div class="header_left">
@@ -59,7 +116,9 @@
 		</div>
 		<div class="center_right_top">
 			<div class="login_place">
-				
+				<span class="login_btn" data-toggle="modal" data-target="#myModal">
+					Registration / Login
+				</span>
 			</div>
 			<div class="weather_place">
 				<span class="weather">Yerevan -10°</span>

@@ -264,8 +264,8 @@ header{
 	border-right: 1px solid rgba(255,255,255,0.2);
 }
 
-.search{
-	position: absolute;
+input[type="text"].search{
+  	position: absolute;
     display: none;
     right: 0px;
     top: 54px;
@@ -380,6 +380,214 @@ header{
 	float: right;
 	padding: 0px 10px;
 }
+
+.login_btn{
+	display: inline-block;
+	width: 200px;
+	height: 50px;
+	line-height: 32px;
+	margin-top: 39px;
+	border-radius: 100px;
+	border: 9px double #fff;
+	background-color: #172646;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	cursor: pointer;
+}
+
+.login_btn:hover{
+	border-color: #172646;
+	background-color: #fff;
+	color: #000;
+	font-size: 17px;
+}
+
+.modal-dialog{
+	height: auto;
+	background-color: #172646;
+	opacity: 1;
+}
+
+.modal_place{
+	background-color: #172646;
+}
+
+.modal_head{
+	word-spacing: 10px;
+}
+
+.login_title{
+	font-size: 18px;
+	font-weight: bold;
+	font-style: italic;
+	color: #fff;
+	cursor: pointer;
+}
+
+.log_middle{
+	font-size: 18px;
+	font-weight: bold;
+	font-style: italic;
+	color: #fff;
+}
+
+.close{
+	color: #fff;
+	text-shadow: 0 0 0 #fff;
+	opacity: 1;
+}
+
+.close:hover{
+	color: #fff;
+	text-shadow: 0 0 0 #fff;
+	opacity: 1;
+}
+
+.panel-body{
+	padding: 50px;
+}
+
+.panel-group{
+	margin: 0px;
+}
+
+.panel-group .panel{
+	margin-top: 5px;
+	padding: 0px 20px;
+	border-radius: 190px;
+}
+
+.panel{
+	border: none;
+}
+
+.panel-group .panel + .panel{
+	margin-top: 5px;
+	padding: 0px 20px;
+	border-radius: 190px;
+}
+
+input[type=text], .name{
+	width: 100%;
+	margin-bottom: 10px;
+	background-color: #172646;
+	color: #fff;
+}
+
+input[type=text]:focus{
+	background-color: #172646;
+	border-color: #fff;
+	color: #fff;
+}
+
+#question_email{
+	width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    background-color: #fff;
+    color: #000;
+}
+
+input[type=email], #question_email:focus{
+	background-color: #172646;
+	color: #fff;
+}
+
+input[type=email], .email{
+	width: 100%;
+	margin-bottom: 10px;
+	background-color: #172646;
+	color: #fff;
+}
+
+input[type=email]:focus{
+	background-color: #172646;
+	border-color: #fff;
+	color: #fff;
+}
+
+input[type=password], .pass{
+	width: 100%;
+	margin-bottom: 10px;
+	background-color: #172646;
+	color: #fff;
+}
+
+input[type=password]:focus{
+	background-color: #172646;
+	border-color: #fff;
+	color: #fff;
+}
+
+input[type="text"].name::-webkit-input-placeholder{
+	color: #fff;
+	opacity: 1;
+}
+
+input[type="email"].email::-webkit-input-placeholder{
+	color: #fff;
+	opacity: 1;
+}
+
+input[type="password"].pass::-webkit-input-placeholder{
+	color: #fff;
+	opacity: 1;
+}
+
+.label{
+	color: #172646;
+	font-size: 18px;
+	font-weight: bold;
+	font-style: italic;
+	background-color: transparent;
+}
+
+input[type=radio]{
+	width: 15px;
+	height: 15px;
+	margin-top: 7px;
+	cursor: pointer;
+}
+
+select{
+	padding: 0px 15px 0px 3px;
+    height: 30px;
+    background-color: #172646;
+	color: #fff;
+	cursor: pointer;
+}
+
+select:focus{
+	background-color: #172646;
+	color: #fff;
+	border-color: #172646;
+}
+
+.data_place{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+}
+
+input[type=submit], .reg_btn{
+	font-size: 14px;
+    padding: 6px 10px;
+	float: right;
+	background-color: #172646;
+	color: #fff;
+}
+
+input[type=submit]:focus{
+	background-color: #172646;
+	border-color: #fff;
+	color: #fff;
+	outline: none !important;
+}
+
+
 
 .weather_place{
 	width: auto;
@@ -820,22 +1028,21 @@ header{
     word-spacing: 10px;
 }
 
-.question_email{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 20px;
-    padding-left: 10px;
-}
-
 textarea{
 	width: 100%;
 	max-width: 100%;
 	height: 200px;
 	max-height: 200px;
 	margin-bottom: 20px;
+	color: #000;
 	padding: 10px;
 	font-size: 16px;
     text-transform: capitalize;
+}
+
+textarea:focus{
+	background-color: #172646;
+	color: #fff;
 }
 
 .question_send{
@@ -846,6 +1053,7 @@ textarea{
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
+    padding: 3px 10px !important;
 }
 
 /***end_content**/
@@ -861,6 +1069,11 @@ textarea{
 	text-transform: capitalize;
 	font-style: italic;
 	font-weight: bold;
+}
+
+.news_date_place{
+	font-size: 16px;
+    font-weight: bold;
 }
 
 .news_image_place{
