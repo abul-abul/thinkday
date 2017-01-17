@@ -55,5 +55,9 @@ class AppServiceProvider extends ServiceProvider
             'App\Contracts\PageGalleryServiceInterface',
             'App\Services\PageGalleryService'
         );
+        $this->app->bind(
+            'App\Contracts\SportInterface',
+            'App\Services\SportService'
+        );
     }
 }

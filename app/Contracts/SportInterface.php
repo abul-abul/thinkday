@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-interface NewsInterface
+interface SportInterface
 {
 
     /**

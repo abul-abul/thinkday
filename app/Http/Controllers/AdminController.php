@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,6 +15,7 @@ use App\Contracts\YoutubeInerface;
 use App\Contracts\GalleryInterface;
 use App\Contracts\LanguageInterface;
 use App\Contracts\NewsInterface;
+use App\Contracts\SportInterface;
 use App\Contracts\PageGalleryServiceInterface;
 use View;
 use Session;
@@ -514,6 +517,9 @@ class AdminController extends BaseController
         return view('admin.pages.news.news-list',$data);
     }
 
+
+
+
     /**
      * @param Request $request
      * @param YoutubeInerface $youtubeRepo
@@ -636,6 +642,117 @@ class AdminController extends BaseController
        }
        $newRepo->getUpdate($result['id'],$result);
        return redirect()->action('AdminController@getNewsList');
+    }
+
+
+
+    /**
+     * @return View
+     */
+    public function  getAddSport()
+    {
+        return view('admin.pages.sport.add-sport');
+    }
+
+    /**
+     * @param SportInterface $sportRepo
+     * @return View
+     */
+    public function getSportList(SportInterface $sportRepo)
+    {
+        $result = $sportRepo->getAll();
+        $data = [
+            'sports' => $result,
+        ];
+        return view('admin.pages.sport.sport-list',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function postAddSport(request $request,SportInterface $sportRepo)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            if ($request['image']){
+                $logoFile = $result['image']->getClientOriginalExtension();
+                $name = str_random(12);
+                $path = public_path() . '/page_uploade/sport';
+                $result_move =  $result['image']->move($path, $name.'.'.$logoFile);
+                $images = $name.'.'.$logoFile;
+                $data['image'] = $images;
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }else{
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }
+            $sportRepo->getCreate($data);
+        }
+        return redirect(action('AdminController@getSportList'));
+    }
+
+    /**
+     * @param $id
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function getDeleteSport($id,SportInterface $sportRepo)
+    {
+        $res = $sportRepo->getOne($id);
+        if($res->image == ""){
+            $sportRepo->getdelete($id);
+        }else{
+            $path =  public_path().'/page_uploade/sport/'.$res->image;
+            $sportRepo->getdelete($id);
+            File::delete($path);
+        }
+        return redirect()->back()->with('error',"File deleted");
+    }
+
+    /**
+     * @param $id
+     * @param SportInterface $sportRepo
+     * @return View
+     */
+    public function getOneSport($id,SportInterface $sportRepo)
+    {
+        $result = $sportRepo->getOne($id);
+        $data = [
+            'sports' => $result
+        ];
+        return view('admin.pages.sport.edit-sport',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function postEditSport(request $request,SportInterface $sportRepo)
+    {
+        $result = $request->all();
+        if(isset($result['image'])){
+            $oldObj = $sportRepo->getOne($result['id']);
+            $oldImg = public_path() .'/page_uploade/sport/' . $oldObj->image;
+            File::delete($oldImg);
+            $logoFile = $result['image']->getClientOriginalExtension();
+            $name = str_random(12);
+            $path = public_path() . '/page_uploade/sport';
+            $result_move = $result['image']->move($path, $name.'.'.$logoFile);
+            $news_images = $name.'.'.$logoFile;
+            $result['image'] = $news_images;
+        }
+        $sportRepo->getUpdate($result['id'],$result);
+        return redirect()->action('AdminController@getSportList');
     }
 
     /**
@@ -829,13 +946,6 @@ class AdminController extends BaseController
         return response()->json();
     }
 
-    /**
-     * @return View
-     */
-    public function getSport()
-    {
-        return view('admin.pages.sport.sport');
-    }
 
     /**
      * @return View

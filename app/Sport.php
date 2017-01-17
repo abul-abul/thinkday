@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model
+class Sport extends Model
 {
-    protected $table = 'news';
+    protected $table = 'sport';
 
     protected $fillable = ['title','description','image'];
 

@@ -104,12 +104,21 @@ Route::get('ab-admin/games','AdminController@getGames');
 Route::get('ab-admin/video','AdminController@getVideo');
 Route::get('ab-admin/show-biznes','AdminController@getShowBiznes');
 Route::get('ab-admin/culture','AdminController@getCulture');
+
 Route::get('ab-admin/news-list','AdminController@getNewsList');
 Route::get('ab-admin/add-news','AdminController@getAddNews');
 Route::post('ab-admin/add-news','AdminController@postAddNews');
 Route::get('ab-admin/del-news/{id}','AdminController@getDeleteNews');
 Route::get('ab-admin/one-news/{id}','AdminController@getOneNews');
 Route::post('ab-admin/edit-news','AdminController@postEditNews');
+
+
+Route::get('ab-admin/sport-list','AdminController@getSportList');
+Route::get('ab-admin/add-sport','AdminController@getAddSport');
+Route::post('ab-admin/add-sport','AdminController@postAddSport');
+Route::get('ab-admin/del-sport/{id}','AdminController@getDeleteSport');
+Route::get('ab-admin/one-sport/{id}','AdminController@getOneSport');
+Route::post('ab-admin/edit-sport','AdminController@postEditSport');
 
 //end Pages
 

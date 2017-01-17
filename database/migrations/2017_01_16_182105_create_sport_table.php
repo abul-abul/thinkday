@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePageGalleryTable extends Migration
+class CreateSportTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreatePageGalleryTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_gallery', function (Blueprint $table) {
+        Schema::create('sport', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('page_id')->nullable();
-            $table->integer('category_id')->unsigned();
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
-//            $table->foreign('category_id')
-//                ->references('id')
-//                ->on('news')
-//                ->onDelete('cascade');
         });
     }
 
@@ -33,6 +29,6 @@ class CreatePageGalleryTable extends Migration
      */
     public function down()
     {
-        Schema::drop('page_gallery');
+        Schema::drop('sport');
     }
 }
