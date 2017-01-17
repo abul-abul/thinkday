@@ -55,4 +55,8 @@ interface NewsInterface
      */
     public function getPageGallery($category_id);
 
+    /**
+     * @return mixed
+     */
+    public function getRandomNews();
 }

@@ -61,7 +61,9 @@ class UsersController extends BaseController
     public function getNews(NewsInterface $newsRepo)
     {
         $result = $newsRepo->getAllPaginate();
+        $randNews = $newsRepo->getRandomNews();
         $data = [
+            'rand_news' => $randNews,
             'news' => $result
         ];
         return view('user.news.news',$data);
@@ -76,9 +78,11 @@ class UsersController extends BaseController
     {
         $gallerys = $newsRepo->getPageGallery($id);
         $result = $newsRepo->getOne($id);
+        $randNews = $newsRepo->getRandomNews();
         $data = [
             'news' => $result,
-            'gallerys' => $gallerys
+            'gallerys' => $gallerys,
+            'rand_news' => $randNews,
         ];
         return view('user.news.news-category',$data);
     }

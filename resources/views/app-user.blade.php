@@ -82,8 +82,8 @@
 		<div class="center_left">
 			<div class="header_left">
 				<div class="logo_place">
-					<a href="index.html">
-						<img src="images/logo.png" class="logo" />
+					<a href="{{action('UsersController@getHome')}}">
+						<img src="/images/logo.png" class="logo" />
 					</a>
 				</div>
 				<div class="center_hide">
@@ -146,7 +146,7 @@
 			<div class="header_right"></div>
 			<ul class="header_menu">
 				<li class="menu_children">
-					<a href="#" class="menu_link">
+					<a href="{{action('UsersController@getHome')}}" class="menu_link">
 						<span class="link_border">
 							home
 							<span class="menu_abs"></span>
@@ -240,7 +240,7 @@
 	<div class="footer_center">
 		<div class="footer_logo_place">
 			<a href="index.html">
-				<img src="images/logo.png" class="logo" />
+				<img src="/images/logo.png" class="logo" />
 			</a>
 		</div>
 		<div class="footer_text_place">
@@ -261,6 +261,7 @@
 		</div>
 	</div>
 </footer>
+
 <div class="back_to_top">
 	<i class="fa fa-angle-up" aria-hidden="true"></i>
 </div>

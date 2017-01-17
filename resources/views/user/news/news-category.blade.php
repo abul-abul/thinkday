@@ -12,7 +12,7 @@
             </h1>
             <p class="news_date_place">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <span>16.01.2017</span>
+                <span>{{date('d.m.Y', strtotime($news->created_at))}}</span>
             </p>
             @if($news->image)
             <div class="news_image_place">
@@ -22,202 +22,47 @@
             <p class="news_desc_place">
               <span>{{$news->description}}</span>  
             </p>
+            @if($gallerys[0]['pageGallery'])
             <div class="cabaret_scroll_slider">
                 <div class="gallery_tour">
                    <div class="slide gall clear">
-                        <a href="/assets/user/images/service1.jpg">
-                            <div class="img" style="background: url('/assets/user/images/service1.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
-                        </a>
-                        <a href="/assets/user/images/service2.jpg">
-                            <div class="img" style="background: url('/assets/user/images/service2.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
-                        </a>
-                        <a href="/assets/user/images/service3.jpg">
-                            <div class="img" style="background: url('/assets/user/images/service3.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
-                        </a>
-                        <a href="/assets/user/images/service4.jpg">
-                            <div class="img" style="background: url('/assets/user/images/service4.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
-                        </a>
-                        <a href="/assets/user/images/service5.jpg">
-                            <div class="img" style="background: url('/assets/user/images/service5.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
-                        </a>
-                        <a href="/assets/user/images/service6.jpg">
-                            <div class="img" style="background: url('/assets/user/images/service6.jpg') no-repeat;background-size: cover;height:150px;width:200px"></div>
-                        </a>      
+                       @foreach($gallerys[0]['pageGallery'] as $gallery)
+                           <a href="/page_uploade/page_gallery/{{$gallery->image}}">
+                             <div class="img" style='background: url("/page_uploade/page_gallery/{{$gallery->image}}") no-repeat;background-size: cover;height:150px;width:200px'></div>
+                           </a>
+                       @endforeach
                     </div>
                 </div>
             </div>
-            <div class="video_place">
-                <iframe style="width: 100%;height: 100%;" src="https://www.youtube.com/embed/d19eBjpP2Aw?list=RDd19eBjpP2Aw" frameborder="0" allowfullscreen>
+            @endif
+            @if($gallerys[0]['pageVideo'])
+            <div class="video_place">>
+                @foreach($gallerys[0]['pageVideo'] as $gallery)
+                <iframe style="width: 100%;height: 100%;" src="{{$gallery->video}}" frameborder="0" allowfullscreen>
                 </iframe>
+                @endforeach
             </div>
+            @endif
         </div>
         <div class="content_right_place">
             <div class="posts_place">
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service1.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service2.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service3.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service4.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service5.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service6.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service1.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service2.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service3.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service4.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
-                <div class="posts">
-                    <a href="#">
-                        <div class="posts_image_place">
-                            <img src="/assets/user/images/service5.jpg" class="posts_image" />
-                        </div>
-                        <p class="posts_title">
-                            Day News on one string
-                        </p>
-                        <p class="posts_text">
-                            Some one is looser,but some one is clever.
-                            But every one is man.
-                            We are people.
-                        </p>
-                    </a>
-                </div>
+                @foreach($rand_news as $rand_new)
+                    <div class="posts">
+                        <a href="{{action('UsersController@getNewsCategory',$rand_new->id)}}">
+                            <div class="posts_image_place">
+                                @if($rand_new->image)
+                                <img src="/page_uploade/news/{{$rand_new->image}}" class="posts_image" />
+                                @endif
+                            </div>
+                            <p class="posts_title">
+                               {{$rand_new->title}}
+                            </p>
+                            <p class="posts_text">
+                                 {{substr($rand_new->description, 0,80)}} ...
+                            </p>
+                        </a>
+                    </div>
+                @endforeach
             </div>
             <div class="advertising_place">
                 advertising_place advertising_place advertising_place advertising_place advertising_place
@@ -257,4 +102,4 @@
     {!! HTML::script(asset('assets/user/js/jquery.mCustomScrollbar.concat.min.js'))!!}
     {!! HTML::script(asset('assets/user/js/lightgallery.js'))!!}
 
-@endsection('script')
+@endsection

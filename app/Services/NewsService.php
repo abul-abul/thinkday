@@ -89,13 +89,12 @@ class NewsService implements NewsInterface
     }
 
     /**
-     * @param $category_id
      * @return mixed
      */
-//    public function getPageVideo($category_id)
-//    {
-//        return $this->news->where('id',$category_id)->with('pageVideo')->get();
-//    }
+    public function getRandomNews()
+    {
+        return $this->news->inRandomOrder()->take(8)->get();
+    }
 
 
 }

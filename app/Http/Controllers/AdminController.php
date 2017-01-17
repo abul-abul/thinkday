@@ -561,6 +561,11 @@ class AdminController extends BaseController
         return view('admin.pages.news.add-news');
     }
 
+    /**
+     * @param Request $request
+     * @param NewsInterface $newRepo
+     * @return mixed
+     */
     public function postAddNews(request $request,NewsInterface $newRepo)
     {
         $result = $request->all();
