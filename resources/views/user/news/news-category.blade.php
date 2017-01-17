@@ -10,6 +10,10 @@
             <h1 class="news_title_place">
                 {{$news->title}}
             </h1>
+            <p class="news_date_place">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <span>16.01.2017</span>
+            </p>
             @if($news->image)
             <div class="news_image_place">
                 <img src="/page_uploade/news/{{$news->image}}" class="news_image">
@@ -18,7 +22,7 @@
             <p class="news_desc_place">
               <span>{{$news->description}}</span>  
             </p>
-            <div class="scroll_slider">
+            <div class="cabaret_scroll_slider">
                 <div class="gallery_tour">
                    <div class="slide gall clear">
                         <a href="/assets/user/images/service1.jpg">
@@ -232,7 +236,7 @@
                 <span class="us_title">contact with us</span>
             </div>
             <form action="" method="post">
-                <input type="email" class="question_email" placeholder="Email" />
+                <input type="email" id="question_email" placeholder="Email" />
                 <br>
                 <textarea placeholder="write your question"></textarea>
                 <br>
@@ -253,4 +257,4 @@
     {!! HTML::script(asset('assets/user/js/jquery.mCustomScrollbar.concat.min.js'))!!}
     {!! HTML::script(asset('assets/user/js/lightgallery.js'))!!}
 
-@endsection
+@endsection('script')
