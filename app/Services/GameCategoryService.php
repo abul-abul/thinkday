@@ -89,11 +89,28 @@ class GameCategoryService implements GameCategoryInterface
     }
 
     /**
+     * @param $page_id
+     * @return mixed
+     */
+    public function getPageCategoryPaginate($page_id)
+    {
+        return $this->game_category->where('game_page_id',$page_id)->paginate(16);
+    }
+
+    /**
      * @return mixed
      */
     public function getRandomGameCategory()
     {
         return $this->game_category->inRandomOrder()->take(16)->paginate(16);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRandomGameCategoryInner()
+    {
+        return $this->game_category->inRandomOrder()->take(8)->get();
     }
 
 }

@@ -21,6 +21,8 @@ Route::get('/news-category/{id}','UsersController@getNewsCategory');
 route::get('/sport','UsersController@getSport');
 route::get('/sport-category/{id}','UsersController@getSportCategory');
 route::get('/game','UsersController@getGame');
+route::get('/category-page/{id}','UsersController@getCategoryPage');
+route::get('/game-category-inner-page/{id}','UsersController@gameCategoryInnerPage');
 
 //
 //Route::get('user/login-registration','UsersController@getLoginReg');

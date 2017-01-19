@@ -127,15 +127,53 @@ class UsersController extends BaseController
      * @param GameCategoryInterface $gameCategoryRepo
      * @return mixed
      */
-    public function getGame(GameCategoryInterface $gameCategoryRepo)
+    public function getGame(GameCategoryInterface $gameCategoryRepo,GamePageInterface $gamePageRepo)
     {
         $result = $gameCategoryRepo->getRandomGameCategory();
+        $game_page = $gamePageRepo->getAll();
         $data = [
+            'game_pages' => $game_page,
             'games_categorys' => $result
         ];
+
         return view('user.game.game-home',$data);
     }
 
+    /**
+     * @param $page_id
+     * @param GameCategoryInterface $gameCategoryRepo
+     * @param GamePageInterface $gamePageRepo
+     * @return mixed
+     */
+    public function getCategoryPage($page_id,GameCategoryInterface $gameCategoryRepo,GamePageInterface $gamePageRepo)
+    {
+        $result = $gameCategoryRepo->getPageCategoryPaginate($page_id);
+        $game_page = $gamePageRepo->getAll();
+        $one_game_page = $gamePageRepo->getOne($page_id);
+        $data = [
+            'one_game_page' => $one_game_page,
+            'game_pages' => $game_page,
+            'game_categorys' => $result
+        ];
+        return view('user.game.game-category-list',$data);
+    }
+
+    /**
+     * @param $category_id
+     * @param GameCategoryInterface $gameCategoryRepo
+     * @return mixed
+     */
+    public function gameCategoryInnerPage($category_id,GameCategoryInterface $gameCategoryRepo)
+    {
+        $result = $gameCategoryRepo->getOne($category_id);
+        $rand = $gameCategoryRepo->getRandomGameCategoryInner();
+        $data = [
+            'game' => $result,
+            'random_games' => $rand
+        ];
+//        dd($data);
+        return view('user.game.game-inner-category-page',$data);
+    }
     /**
      * 
      */

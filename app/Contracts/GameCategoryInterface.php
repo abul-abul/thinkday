@@ -60,4 +60,15 @@ interface GameCategoryInterface
      * @return mixed
      */
     public function getRandomGameCategory();
+
+    /**
+     * @param $page_id
+     * @return mixed
+     */
+    public function getPageCategoryPaginate($page_id);
+
+    /**
+     * @return mixed
+     */
+    public function getRandomGameCategoryInner();
 }
