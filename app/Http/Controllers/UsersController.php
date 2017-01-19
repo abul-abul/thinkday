@@ -11,6 +11,7 @@ use App\Http\Requests\user\UserRequest;
 use App\Contracts\UserInterface;
 use App\Contracts\LanguageInterface;
 use App\Contracts\NewsInterface;
+use App\Contracts\SportInterface;
 
 
 use App\Http\Requests;
@@ -87,9 +88,38 @@ class UsersController extends BaseController
         return view('user.news.news-category',$data);
     }
 
-    
+    /**
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function getSport(SportInterface $sportRepo)
+    {
+        $result = $sportRepo->getAllPaginate();
+        $randSport = $sportRepo->getRandomSport();
+        $data = [
+            'rand_sports' => $randSport,
+            'sports' => $result
+        ];
+        return view('user.sport.sport',$data);
+    }
 
-
+    /**
+     * @param $id
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function getSportCategory($id,SportInterface $sportRepo)
+    {
+        $gallerys = $sportRepo->getPageGallery($id);
+        $result = $sportRepo->getOne($id);
+        $randNews = $sportRepo->getRandomSport();
+        $data = [
+            'sports' => $result,
+            'gallerys' => $gallerys,
+            'rand_sports' => $randNews,
+        ];
+        return view('user.sport.sport-category',$data);
+    }
 
     /**
      * 

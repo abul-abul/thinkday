@@ -88,6 +88,13 @@ class SportService implements SportInterface
         return $this->sport->where('id',$category_id)->with('pageGallery')->with('pageVideo')->get();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getRandomSport()
+    {
+        return $this->sport->inRandomOrder()->take(8)->get();
+    }
 
 
 

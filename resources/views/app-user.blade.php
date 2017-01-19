@@ -153,41 +153,41 @@
 						</span>
 					</a>
 				</li>
-				<li class="menu_children">
-					<a href="#" class="menu_link">
-						<span class="link_border">
-							Vehicle Gallery
-							<i class="fa fa-sort-desc" aria-hidden="true"></i>
-							<span class="menu_abs"></span>
-						</span>
-					</a>
-					<ul class="sub_menu_abs">
-						<li class="sub_menu_li">
-							<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-							<a href="#">
-								Masonary Gird
-							</a>
-						</li>
-						<li class="sub_menu_li">
-							<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-							<a href="#">
-								Gird With Padding
-							</a>
-						</li>
-						<li class="sub_menu_li">
-							<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-							<a href="#">
-								Gird With No Padding
-							</a>
-						</li>
-						<li class="sub_menu_li">
-							<i class="fa fa-angle-double-right" aria-hidden="true"></i>
-							<a href="#">
-								Cobbies Gird
-							</a>
-						</li>
-					</ul>
-				</li>
+				{{--<li class="menu_children">--}}
+					{{--<a href="#" class="menu_link">--}}
+						{{--<span class="link_border">--}}
+							{{--Vehicle Gallery--}}
+							{{--<i class="fa fa-sort-desc" aria-hidden="true"></i>--}}
+							{{--<span class="menu_abs"></span>--}}
+						{{--</span>--}}
+					{{--</a>--}}
+					{{--<ul class="sub_menu_abs">--}}
+						{{--<li class="sub_menu_li">--}}
+							{{--<i class="fa fa-angle-double-right" aria-hidden="true"></i>--}}
+							{{--<a href="#">--}}
+								{{--Masonary Gird--}}
+							{{--</a>--}}
+						{{--</li>--}}
+						{{--<li class="sub_menu_li">--}}
+							{{--<i class="fa fa-angle-double-right" aria-hidden="true"></i>--}}
+							{{--<a href="#">--}}
+								{{--Gird With Padding--}}
+							{{--</a>--}}
+						{{--</li>--}}
+						{{--<li class="sub_menu_li">--}}
+							{{--<i class="fa fa-angle-double-right" aria-hidden="true"></i>--}}
+							{{--<a href="#">--}}
+								{{--Gird With No Padding--}}
+							{{--</a>--}}
+						{{--</li>--}}
+						{{--<li class="sub_menu_li">--}}
+							{{--<i class="fa fa-angle-double-right" aria-hidden="true"></i>--}}
+							{{--<a href="#">--}}
+								{{--Cobbies Gird--}}
+							{{--</a>--}}
+						{{--</li>--}}
+					{{--</ul>--}}
+				{{--</li>--}}
 				<li class="menu_children">
 					<a href="{{action('UsersController@getNews')}}" class="menu_link">
 						<span class="link_border">
@@ -197,9 +197,9 @@
 					</a>
 				</li>
 				<li class="menu_children">
-					<a href="#" class="menu_link">
+					<a href="{{action('UsersController@getSport')}}" class="menu_link">
 						<span class="link_border">
-							Pages
+							Sport
 							<span class="menu_abs"></span>
 						</span>
 					</a>
@@ -207,7 +207,7 @@
 				<li class="menu_children">
 					<a href="#" class="menu_link">
 						<span class="link_border">
-							Blog
+							Games
 							<span class="menu_abs"></span>
 						</span>
 					</a>
