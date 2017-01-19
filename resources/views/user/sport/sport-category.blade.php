@@ -8,19 +8,19 @@
     <div class="content">
         <div class="services_place clear">
             <h1 class="news_title_place">
-                {{$news->title}}
+                {{$sports->title}}
             </h1>
             <p class="news_date_place">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <span>{{date('d.m.Y', strtotime($news->created_at))}}</span>
+                <span>{{date('d.m.Y', strtotime($sports->created_at))}}</span>
             </p>
-            @if($news->image)
+            @if($sports->image)
             <div class="news_image_place">
-                <img src="/page_uploade/news/{{$news->image}}" class="news_image">
+                <img src="/page_uploade/sport/{{$sports->image}}" class="news_image">
             </div>
             @endif
             <p class="news_desc_place">
-              <span>{{$news->description}}</span>  
+              <span>{{$sports->description}}</span>
             </p>
             @if($gallerys[0]['pageGallery'])
             <div class="cabaret_scroll_slider">
@@ -46,19 +46,19 @@
         </div>
         <div class="content_right_place">
             <div class="posts_place">
-                @foreach($rand_news as $rand_new)
+                @foreach($rand_sports as $rand_sport)
                     <div class="posts">
-                        <a href="{{action('UsersController@getNewsCategory',$rand_new->id)}}">
+                        <a href="{{action('UsersController@getSportCategory',$rand_sport->id)}}">
                             <div class="posts_image_place">
-                                @if($rand_new->image)
-                                <img src="/page_uploade/news/{{$rand_new->image}}" class="posts_image" />
+                                @if($rand_sport->image)
+                                <img src="/page_uploade/sport/{{$rand_sport->image}}" class="posts_image" />
                                 @endif
                             </div>
                             <p class="posts_title">
-                               {{$rand_new->title}}
+                               {{$rand_sport->title}}
                             </p>
                             <p class="posts_text">
-                                 {{substr($rand_new->description, 0,80)}} ...
+                                 {{substr($rand_sport->description, 0,80)}} ...
                             </p>
                         </a>
                     </div>
@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-	
+
 @endsection
 
 @section('script')

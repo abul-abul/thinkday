@@ -18,7 +18,9 @@
 Route::get('/','UsersController@getHome');
 Route::get('/news','UsersController@getNews');
 Route::get('/news-category/{id}','UsersController@getNewsCategory');
-
+route::get('/sport','UsersController@getSport');
+route::get('/sport-category/{id}','UsersController@getSportCategory');
+route::get('/game','UsersController@getGame');
 
 //
 //Route::get('user/login-registration','UsersController@getLoginReg');
@@ -104,12 +106,29 @@ Route::get('ab-admin/games','AdminController@getGames');
 Route::get('ab-admin/video','AdminController@getVideo');
 Route::get('ab-admin/show-biznes','AdminController@getShowBiznes');
 Route::get('ab-admin/culture','AdminController@getCulture');
+
 Route::get('ab-admin/news-list','AdminController@getNewsList');
 Route::get('ab-admin/add-news','AdminController@getAddNews');
 Route::post('ab-admin/add-news','AdminController@postAddNews');
 Route::get('ab-admin/del-news/{id}','AdminController@getDeleteNews');
 Route::get('ab-admin/one-news/{id}','AdminController@getOneNews');
 Route::post('ab-admin/edit-news','AdminController@postEditNews');
+
+
+Route::get('ab-admin/sport-list','AdminController@getSportList');
+Route::get('ab-admin/add-sport','AdminController@getAddSport');
+Route::post('ab-admin/add-sport','AdminController@postAddSport');
+Route::get('ab-admin/del-sport/{id}','AdminController@getDeleteSport');
+Route::get('ab-admin/one-sport/{id}','AdminController@getOneSport');
+Route::post('ab-admin/edit-sport','AdminController@postEditSport');
+
+Route::post('ab-admin/add-game-name','AdminController@postAddGameName');
+Route::get('ab-admin/game-page-list','AdminController@gamePageList');
+Route::get('ab-admin/delete-game-name/{id}','AdminController@getDeleteGameName');
+Route::get('ab-admin/add-game-cagegoty/{id}','AdminController@getAddGameCagegoty');
+Route::post('ab-admin/add-game-category/','AdminController@postAddGameCategory');
+Route::get('ab-admin/delete-game-category/{id}','AdminController@getDeleteGameCategory');
+
 
 //end Pages
 

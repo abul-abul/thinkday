@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-interface NewsInterface
+interface GamePageInterface
 {
 
     /**
@@ -49,14 +49,6 @@ interface NewsInterface
      */
     public function getUpdate($id,$data);
 
-    /**
-     * @param $category_id
-     * @return mixed
-     */
-    public function getPageGallery($category_id);
+    
 
-    /**
-     * @return mixed
-     */
-    public function getRandomNews();
 }

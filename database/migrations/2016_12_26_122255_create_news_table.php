@@ -20,6 +20,7 @@ class CreateNewsTable extends Migration
             $table->string('image')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**

@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use App\Contracts\NewsInterface;
-use App\News;
+use App\Contracts\GamePageInterface;
+use App\PageGame;
 
-class NewsService implements NewsInterface
+class GamePageService implements GamePageInterface
 {
 
     /**
@@ -13,7 +13,7 @@ class NewsService implements NewsInterface
      */
     public function __construct()
     {
-        $this->news = new News();
+        $this->page_game = new PageGame();
     }
 
     /**
@@ -24,7 +24,7 @@ class NewsService implements NewsInterface
      */
     public function getAll()
     {
-        return $this->news->get();
+        return $this->page_game->get();
     }
 
     /**
@@ -32,7 +32,7 @@ class NewsService implements NewsInterface
      */
     public function getAllPaginate()
     {
-        return $this->news->paginate(9);
+        return $this->page_game->paginate(10);
     }
 
 
@@ -44,7 +44,7 @@ class NewsService implements NewsInterface
      */
     public function getCreate($data)
     {
-        return $this->news->create($data);
+        return $this->page_game->create($data);
     }
 
     /**
@@ -55,7 +55,7 @@ class NewsService implements NewsInterface
      */
     public function getOne($id)
     {
-        return $this->news->find($id);
+        return $this->page_game->find($id);
     }
 
     /**
@@ -79,22 +79,8 @@ class NewsService implements NewsInterface
         return $this->getOne($id)->update($data);
     }
 
-    /**
-     * @param $category_id
-     * @return mixed
-     */
-    public function getPageGallery($category_id)
-    {
-        return $this->news->where('id',$category_id)->with('pageGallery')->with('pageVideo')->get();
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getRandomNews()
-    {
-        return $this->news->inRandomOrder()->take(8)->get();
-    }
+
 
 
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,7 +15,10 @@ use App\Contracts\YoutubeInerface;
 use App\Contracts\GalleryInterface;
 use App\Contracts\LanguageInterface;
 use App\Contracts\NewsInterface;
+use App\Contracts\SportInterface;
 use App\Contracts\PageGalleryServiceInterface;
+use App\Contracts\GamePageInterface;
+use App\Contracts\GameCategoryInterface;
 use View;
 use Session;
 use Validator;
@@ -514,6 +519,9 @@ class AdminController extends BaseController
         return view('admin.pages.news.news-list',$data);
     }
 
+
+
+
     /**
      * @param Request $request
      * @param YoutubeInerface $youtubeRepo
@@ -555,6 +563,11 @@ class AdminController extends BaseController
         return view('admin.pages.news.add-news');
     }
 
+    /**
+     * @param Request $request
+     * @param NewsInterface $newRepo
+     * @return mixed
+     */
     public function postAddNews(request $request,NewsInterface $newRepo)
     {
         $result = $request->all();
@@ -636,6 +649,117 @@ class AdminController extends BaseController
        }
        $newRepo->getUpdate($result['id'],$result);
        return redirect()->action('AdminController@getNewsList');
+    }
+
+
+
+    /**
+     * @return View
+     */
+    public function  getAddSport()
+    {
+        return view('admin.pages.sport.add-sport');
+    }
+
+    /**
+     * @param SportInterface $sportRepo
+     * @return View
+     */
+    public function getSportList(SportInterface $sportRepo)
+    {
+        $result = $sportRepo->getAll();
+        $data = [
+            'sports' => $result,
+        ];
+        return view('admin.pages.sport.sport-list',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function postAddSport(request $request,SportInterface $sportRepo)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            if ($request['image']){
+                $logoFile = $result['image']->getClientOriginalExtension();
+                $name = str_random(12);
+                $path = public_path() . '/page_uploade/sport';
+                $result_move =  $result['image']->move($path, $name.'.'.$logoFile);
+                $images = $name.'.'.$logoFile;
+                $data['image'] = $images;
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }else{
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }
+            $sportRepo->getCreate($data);
+        }
+        return redirect(action('AdminController@getSportList'));
+    }
+
+    /**
+     * @param $id
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function getDeleteSport($id,SportInterface $sportRepo)
+    {
+        $res = $sportRepo->getOne($id);
+        if($res->image == ""){
+            $sportRepo->getdelete($id);
+        }else{
+            $path =  public_path().'/page_uploade/sport/'.$res->image;
+            $sportRepo->getdelete($id);
+            File::delete($path);
+        }
+        return redirect()->back()->with('error',"File deleted");
+    }
+
+    /**
+     * @param $id
+     * @param SportInterface $sportRepo
+     * @return View
+     */
+    public function getOneSport($id,SportInterface $sportRepo)
+    {
+        $result = $sportRepo->getOne($id);
+        $data = [
+            'sports' => $result
+        ];
+        return view('admin.pages.sport.edit-sport',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function postEditSport(request $request,SportInterface $sportRepo)
+    {
+        $result = $request->all();
+        if(isset($result['image'])){
+            $oldObj = $sportRepo->getOne($result['id']);
+            $oldImg = public_path() .'/page_uploade/sport/' . $oldObj->image;
+            File::delete($oldImg);
+            $logoFile = $result['image']->getClientOriginalExtension();
+            $name = str_random(12);
+            $path = public_path() . '/page_uploade/sport';
+            $result_move = $result['image']->move($path, $name.'.'.$logoFile);
+            $news_images = $name.'.'.$logoFile;
+            $result['image'] = $news_images;
+        }
+        $sportRepo->getUpdate($result['id'],$result);
+        return redirect()->action('AdminController@getSportList');
     }
 
     /**
@@ -829,13 +953,6 @@ class AdminController extends BaseController
         return response()->json();
     }
 
-    /**
-     * @return View
-     */
-    public function getSport()
-    {
-        return view('admin.pages.sport.sport');
-    }
 
     /**
      * @return View
@@ -846,12 +963,148 @@ class AdminController extends BaseController
     }
 
     /**
+     * @param Request $request
+     * @param GamePageInterface $gamePageRepo
+     * @return mixed
+     */
+    public function postAddGameName(request $request,GamePageInterface $gamePageRepo)
+    {
+        $result = $request->all();
+        unset($result['_token']);
+        $validator = Validator::make($result, [
+            'name' => 'required|unique:page_game',
+            'image' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            $logoFile = $result['image']->getClientOriginalExtension();
+            $name = str_random(12);
+            $path = public_path() . '/page_uploade/game/game_page_images/';
+            $result_move = $result['image']->move($path, $name.'.'.$logoFile);
+            $game_image_name = $name.'.'.$logoFile;
+            $data = [
+                'name' => $result['name'],
+                'image' => $game_image_name
+            ];
+            $gamePageRepo->getCreate($data);
+            return redirect()->action('AdminController@gamePageList');
+        }
+    }
+
+
+    /**
+     * @param GamePageInterface $gamePageRepo
+     * @return View
+     */
+    public function gamePageList(GamePageInterface $gamePageRepo)
+    {
+        $result = $gamePageRepo->getAllPaginate();
+        $data = [
+            'game_names' => $result
+        ];
+        return view('admin.pages.games.game-page-list',$data);
+    }
+
+    /**
+     * @param $id
+     * @param GamePageInterface $gamePageRepo
+     * @return mixed
+     */
+    public function getDeleteGameName($id,GamePageInterface $gamePageRepo)
+    {
+        $one = $gamePageRepo->getOne($id);
+        $path = public_path() . '/page_uploade/game/game_page_images/'.$one['image'];
+        $status = File::delete($path);
+        $gamePageRepo->getdelete($id);
+        if($status){
+            return redirect()->back()->with('error','game name deleted');
+        }else{
+            return redirect()->back()->with('error_danger','error image not found');
+        }
+    }
+
+    /**
+     * @param $game_page_id
+     * @return View
+     */
+    public function getAddGameCagegoty($game_page_id,GameCategoryInterface $gameCategoryRepo)
+    {
+        $gameCategory = $gameCategoryRepo->getPageCategory($game_page_id);
+        $data = [
+            'page_cateory_games' => $gameCategory,
+            'game_page_id' => $game_page_id
+        ];
+
+        return view('admin.pages.games.game-add-category',$data);
+    }
+
+
+
+    /**
+     * @param Request $request
+     * @param GameCategoryInterface $gameCategoryRepo
+     * @return mixed
+     */
+    public function postAddGameCategory(request $request,GameCategoryInterface $gameCategoryRepo)
+    {
+        $result = $request->all();
+
+        $validator = Validator::make($result, [
+            'title' => 'required',
+            'image' => 'required',
+            'game' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            $logoFileImg = $result['image']->getClientOriginalExtension();
+            $nameImg = str_random(12);
+            $pathImg = public_path() . '/page_uploade/game/category_images/';
+            $result_move_img = $result['image']->move($pathImg, $nameImg.'.'.$logoFileImg);
+            $game_category_image_name = $nameImg.'.'.$logoFileImg;
+
+            $logoFileGame = $result['game']->getClientOriginalExtension();
+            $nameGame = str_random(12);
+            $pathGame = public_path() . '/page_uploade/game/category_game/';
+            $result_move_game = $result['game']->move($pathGame, $nameGame.'.'.$logoFileGame);
+            $game_category_game_name = $nameGame.'.'.$logoFileGame;
+
+            $data =[
+                'game_page_id' => $result['game_page_id'],
+                'title' => $result['title'],
+                'image' => $game_category_image_name,
+                'game' => $game_category_game_name,
+            ];
+            $gameCategoryRepo->getCreate($data);
+            return redirect()->back()->with('error','Game added');
+        }
+    }
+
+    /**
+     * @param $id
+     * @param GameCategoryInterface $gameCategoryRepo
+     * @return mixed
+     */
+    public function getDeleteGameCategory($id,GameCategoryInterface $gameCategoryRepo)
+    {
+        $oneRow = $gameCategoryRepo->getOne($id);
+        $pathImg = public_path() . '/page_uploade/game/category_images/'.$oneRow['image'];
+        $pathGame = public_path() . '/page_uploade/game/category_game/'.$oneRow['game'];
+        File::delete($pathImg);
+        File::delete($pathGame);
+        $gameCategoryRepo->getdelete($id);
+        return redirect()->back()->with('error','game category deleted');
+    }
+
+    /**
      * @return View
      */
     public function getVideo()
     {
         return view('admin.pages.video.video');
     }
+
 
     /**
      * @return View

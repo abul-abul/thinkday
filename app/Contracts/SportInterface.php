@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-interface NewsInterface
+interface SportInterface
 {
 
     /**
@@ -58,5 +58,5 @@ interface NewsInterface
     /**
      * @return mixed
      */
-    public function getRandomNews();
+    public function getRandomSport();
 }

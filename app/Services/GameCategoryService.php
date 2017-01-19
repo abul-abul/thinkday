@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use App\Contracts\NewsInterface;
-use App\News;
+use App\Contracts\GameCategoryInterface;
+use App\GameCategory;
 
-class NewsService implements NewsInterface
+class GameCategoryService implements GameCategoryInterface
 {
 
     /**
@@ -13,7 +13,7 @@ class NewsService implements NewsInterface
      */
     public function __construct()
     {
-        $this->news = new News();
+        $this->game_category = new GameCategory();
     }
 
     /**
@@ -24,7 +24,7 @@ class NewsService implements NewsInterface
      */
     public function getAll()
     {
-        return $this->news->get();
+        return $this->game_category->get();
     }
 
     /**
@@ -32,7 +32,7 @@ class NewsService implements NewsInterface
      */
     public function getAllPaginate()
     {
-        return $this->news->paginate(9);
+        return $this->game_category->paginate(16);
     }
 
 
@@ -44,7 +44,7 @@ class NewsService implements NewsInterface
      */
     public function getCreate($data)
     {
-        return $this->news->create($data);
+        return $this->game_category->create($data);
     }
 
     /**
@@ -55,7 +55,7 @@ class NewsService implements NewsInterface
      */
     public function getOne($id)
     {
-        return $this->news->find($id);
+        return $this->game_category->find($id);
     }
 
     /**
@@ -80,21 +80,20 @@ class NewsService implements NewsInterface
     }
 
     /**
-     * @param $category_id
+     * @param $page_id
      * @return mixed
      */
-    public function getPageGallery($category_id)
+    public function getPageCategory($page_id)
     {
-        return $this->news->where('id',$category_id)->with('pageGallery')->with('pageVideo')->get();
+        return $this->game_category->where('game_page_id',$page_id)->get();
     }
 
     /**
      * @return mixed
      */
-    public function getRandomNews()
+    public function getRandomGameCategory()
     {
-        return $this->news->inRandomOrder()->take(8)->get();
+        return $this->game_category->inRandomOrder()->take(16)->paginate(16);
     }
-
 
 }

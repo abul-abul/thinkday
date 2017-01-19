@@ -2,22 +2,22 @@
 @section('user-content')
     <div class="content">
         <div class="services_title">
-            Our services
+            Sport
         </div>
 
         <div class="services_place clear">
-            @foreach($news as $new)
+            @foreach($sports as $sport)
                 <div class="services_blocks">
-                    <a href="{{action('UsersController@getNewsCategory',$new->id)}}">
+                    <a href="{{action('UsersController@getSportCategory',$sport->id)}}">
                         <div class="ser_bg_abs"></div>
-                        @if($new->image)
-                            <img src="/page_uploade/news/{{$new->image}}" class="service_image" />
+                        @if($sport->image)
+                            <img src="/page_uploade/sport/{{$sport->image}}" class="service_image" />
                         @else
                             <img class="service_image" src="/images/noImg.jpg" alt="">
                         @endif
                         <div class="service_abs">
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                            <span class="ser_abs_text">{{$new->title}}</span>
+                            <span class="ser_abs_text">{{$sport->title}}</span>
                         </div>
                     </a>
                 </div>
@@ -26,20 +26,20 @@
 
         <div class="content_right_place">
         <div class="posts_place">
-            @foreach($rand_news as $rand_new)
+            @foreach($rand_sports as $rand_sport)
                 <div class="posts">
-                    <a href="{{action('UsersController@getNewsCategory',$rand_new->id)}}">
+                    <a href="{{action('UsersController@getSportCategory',$rand_sport->id)}}">
                         <div class="posts_image_place">
-                            @if($rand_new->image)
-                                <img src="/page_uploade/news/{{$rand_new->image}}" class="posts_image" />
+                            @if($rand_sport->image)
+                                <img src="/page_uploade/sport/{{$rand_sport->image}}" class="posts_image" />
 
                             @endif
                         </div>
                         <p class="posts_title">
-                            {{$rand_new->title}}
+                            {{$rand_sport->title}}
                         </p>
                         <p class="posts_text">
-                            {{substr($rand_new->description, 0,80)}} ...
+                            {{substr($rand_sport->description, 0,80)}} ...
                         </p>
                     </a>
                 </div>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="more_place">
-            {{ $news->links() }}        
+            {{ $sports->links() }}
         </div>
     </div>
     <div class="us_place">

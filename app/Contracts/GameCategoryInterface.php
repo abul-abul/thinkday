@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-interface NewsInterface
+interface GameCategoryInterface
 {
 
     /**
@@ -13,24 +13,25 @@ interface NewsInterface
      */
     public function getAll();
 
+
     /**
      * @return mixed
      */
     public function getAllPaginate();
 
     /**
-     * Create salon
+     * Create Language
      *
      * @param array $data
-     * @return gallery
+     * @return Language
      */
     public function getCreate($data);
 
     /**
-     * get one album
+     * get one Language
      *
      * @param array $id
-     * @return response
+     * @return Language
      */
     public function getOne($id);
 
@@ -50,13 +51,13 @@ interface NewsInterface
     public function getUpdate($id,$data);
 
     /**
-     * @param $category_id
+     * @param $page_id
      * @return mixed
      */
-    public function getPageGallery($category_id);
+    public function getPageCategory($page_id);
 
     /**
      * @return mixed
      */
-    public function getRandomNews();
+    public function getRandomGameCategory();
 }

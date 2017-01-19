@@ -11,6 +11,9 @@ use App\Http\Requests\user\UserRequest;
 use App\Contracts\UserInterface;
 use App\Contracts\LanguageInterface;
 use App\Contracts\NewsInterface;
+use App\Contracts\SportInterface;
+use App\Contracts\GameCategoryInterface;
+use App\Contracts\GamePageInterface;
 
 
 use App\Http\Requests;
@@ -61,24 +64,77 @@ class UsersController extends BaseController
     public function getNews(NewsInterface $newsRepo)
     {
         $result = $newsRepo->getAllPaginate();
+        $randNews = $newsRepo->getRandomNews();
         $data = [
+            'rand_news' => $randNews,
             'news' => $result
         ];
         return view('user.news.news',$data);
     }
 
+    /**
+     * @param $id
+     * @param NewsInterface $newsRepo
+     * @return mixed
+     */
     public function getNewsCategory($id,NewsInterface $newsRepo)
     {
+        $gallerys = $newsRepo->getPageGallery($id);
         $result = $newsRepo->getOne($id);
+        $randNews = $newsRepo->getRandomNews();
         $data = [
-            'news' => $result
+            'news' => $result,
+            'gallerys' => $gallerys,
+            'rand_news' => $randNews,
         ];
         return view('user.news.news-category',$data);
     }
 
+    /**
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function getSport(SportInterface $sportRepo)
+    {
+        $result = $sportRepo->getAllPaginate();
+        $randSport = $sportRepo->getRandomSport();
+        $data = [
+            'rand_sports' => $randSport,
+            'sports' => $result
+        ];
+        return view('user.sport.sport',$data);
+    }
 
+    /**
+     * @param $id
+     * @param SportInterface $sportRepo
+     * @return mixed
+     */
+    public function getSportCategory($id,SportInterface $sportRepo)
+    {
+        $gallerys = $sportRepo->getPageGallery($id);
+        $result = $sportRepo->getOne($id);
+        $randNews = $sportRepo->getRandomSport();
+        $data = [
+            'sports' => $result,
+            'gallerys' => $gallerys,
+            'rand_sports' => $randNews,
+        ];
+        return view('user.sport.sport-category',$data);
+    }
 
-
+    /**
+     * @param GameCategoryInterface $gameCategoryRepo
+     * @return mixed
+     */
+    public function getGame(GameCategoryInterface $gameCategoryRepo)
+    {
+        $result = $gameCategoryRepo->getRandomGameCategory();
+        $data = [
+            'games_categorys' => $result
+        ];
+        return view('user.game.game-home',$data);
+    }
 
     /**
      * 
