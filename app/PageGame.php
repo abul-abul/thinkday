@@ -8,5 +8,5 @@ class PageGame extends Model
 {
     protected $table = 'page_game';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','image'];
 }

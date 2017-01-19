@@ -120,6 +120,14 @@ Route::get('ab-admin/del-sport/{id}','AdminController@getDeleteSport');
 Route::get('ab-admin/one-sport/{id}','AdminController@getOneSport');
 Route::post('ab-admin/edit-sport','AdminController@postEditSport');
 
+Route::post('ab-admin/add-game-name','AdminController@postAddGameName');
+Route::get('ab-admin/game-page-list','AdminController@gamePageList');
+Route::get('ab-admin/delete-game-name/{id}','AdminController@getDeleteGameName');
+Route::get('ab-admin/add-game-cagegoty/{id}','AdminController@getAddGameCagegoty');
+Route::post('ab-admin/add-game-category/','AdminController@postAddGameCategory');
+Route::get('ab-admin/delete-game-category/{id}','AdminController@getDeleteGameCategory');
+
+
 //end Pages
 
 Route::get('ab-admin/language','AdminController@getLanguage');
