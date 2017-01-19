@@ -12,6 +12,8 @@ use App\Contracts\UserInterface;
 use App\Contracts\LanguageInterface;
 use App\Contracts\NewsInterface;
 use App\Contracts\SportInterface;
+use App\Contracts\GameCategoryInterface;
+use App\Contracts\GamePageInterface;
 
 
 use App\Http\Requests;
@@ -119,6 +121,19 @@ class UsersController extends BaseController
             'rand_sports' => $randNews,
         ];
         return view('user.sport.sport-category',$data);
+    }
+
+    /**
+     * @param GameCategoryInterface $gameCategoryRepo
+     * @return mixed
+     */
+    public function getGame(GameCategoryInterface $gameCategoryRepo)
+    {
+        $result = $gameCategoryRepo->getRandomGameCategory();
+        $data = [
+            'games_categorys' => $result
+        ];
+        return view('user.game.game-home',$data);
     }
 
     /**

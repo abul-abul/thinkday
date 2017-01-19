@@ -32,7 +32,7 @@ class GameCategoryService implements GameCategoryInterface
      */
     public function getAllPaginate()
     {
-        return $this->game_category->paginate(10);
+        return $this->game_category->paginate(16);
     }
 
 
@@ -88,6 +88,12 @@ class GameCategoryService implements GameCategoryInterface
         return $this->game_category->where('game_page_id',$page_id)->get();
     }
 
-
+    /**
+     * @return mixed
+     */
+    public function getRandomGameCategory()
+    {
+        return $this->game_category->inRandomOrder()->take(16)->paginate(16);
+    }
 
 }

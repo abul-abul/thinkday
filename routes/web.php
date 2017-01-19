@@ -20,6 +20,7 @@ Route::get('/news','UsersController@getNews');
 Route::get('/news-category/{id}','UsersController@getNewsCategory');
 route::get('/sport','UsersController@getSport');
 route::get('/sport-category/{id}','UsersController@getSportCategory');
+route::get('/game','UsersController@getGame');
 
 //
 //Route::get('user/login-registration','UsersController@getLoginReg');

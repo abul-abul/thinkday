@@ -28,7 +28,7 @@
         <div class="posts_place">
             @foreach($rand_sports as $rand_sport)
                 <div class="posts">
-                    <a href="{{action('UsersController@getNewsCategory',$rand_sport->id)}}">
+                    <a href="{{action('UsersController@getSportCategory',$rand_sport->id)}}">
                         <div class="posts_image_place">
                             @if($rand_sport->image)
                                 <img src="/page_uploade/sport/{{$rand_sport->image}}" class="posts_image" />

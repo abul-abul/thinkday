@@ -56,4 +56,8 @@ interface GameCategoryInterface
      */
     public function getPageCategory($page_id);
 
+    /**
+     * @return mixed
+     */
+    public function getRandomGameCategory();
 }

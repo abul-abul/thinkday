@@ -205,7 +205,7 @@
 					</a>
 				</li>
 				<li class="menu_children">
-					<a href="#" class="menu_link">
+					<a href="{{action('UsersController@getGame')}}" class="menu_link">
 						<span class="link_border">
 							Games
 							<span class="menu_abs"></span>
