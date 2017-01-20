@@ -9,9 +9,9 @@
             @include('user.game.game-menu')
         </ul>
         <div class="game_right_menu">
-            <h1>{{$one_game_page->name}}</h1>
+            <h1 class="game_big_name">{{$one_game_page->name}}</h1>
             @foreach($game_categorys as $game_category)
-                <div class="game_place">
+                <div class="game_place_1">
                     <a href="#" class="big_link">
                         <img src="/page_uploade/game/category_images/{{$game_category->image}}" class="game_img_big" />
                         <p class="game_name">{{$game_category->title}}</p>

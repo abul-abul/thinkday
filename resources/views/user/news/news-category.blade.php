@@ -36,10 +36,12 @@
             </div>
             @endif
             @if($gallerys[0]['pageVideo'])
-            <div class="video_place">>
+            <div class="video_place">
                 @foreach($gallerys[0]['pageVideo'] as $gallery)
-                <iframe style="width: 100%;height: 100%;" src="{{$gallery->video}}" frameborder="0" allowfullscreen>
-                </iframe>
+                <div class="video">
+                    <iframe style="width: 100%;height: 100%;" src="{{$gallery->video}}" frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
                 @endforeach
             </div>
             @endif
