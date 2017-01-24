@@ -21,8 +21,14 @@
     padding:0; 
 }
 
+.gallery_news{
+    font-size: 23px;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding-left: 5px;
+}
+
 .gallery_tour {
-    margin-top: 28px;
     position: relative;
     transition: all .4s ease;
 }

@@ -93,7 +93,9 @@
 						<span class="weather color">Yerevan -10°</span>
 					</div>
 					<div class="login_place2">
-						
+						<span class="login_btn" data-toggle="modal" data-target="#myModal">
+							Registration / Login
+						</span>
 					</div>
 				</div>
 			</div>
