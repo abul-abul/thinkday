@@ -9,11 +9,8 @@
 			GOOGLE PLACE
 		</div>
 		<div class="game_big_place">
-			<object width="770" height="500" data="/page_uploade/game/category_game/{{$game->game}}"></object>
 			<h1 class="game_big_name">{{$game->title}}</h1>
-			<div class="game_big_image_place">
-				<img src="/page_uploade/game/category_images/{{$game->image}}" alt="">
-			</div>
+			<object width="770" height="500" data="/page_uploade/game/category_game/{{$game->game}}"></object>
 		</div>
 		<div class="google_place_small">
 			GOOGLE PLACE
@@ -34,7 +31,7 @@
 				<span class="us_title">contact us</span>
 			</div>
 			<form action="" method="post">
-				<input type="email" class="question_email" placeholder="Email" />
+				<input type="email" id="question_email" placeholder="Email" />
 				<br>
 				<textarea placeholder="write your question"></textarea>
 				<br>

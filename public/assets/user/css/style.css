@@ -118,6 +118,14 @@ a:focus{
     font-size: 20px;
 }
 
+.fa-camera{
+	font-size: 20px;
+}
+
+.fa-video-camera{
+	font-size: 22px;
+}
+
 .clear:after{
 	content: '';
 	clear:both;
@@ -402,6 +410,10 @@ input[type="text"].search{
 	background-color: #fff;
 	color: #000;
 	font-size: 17px;
+}
+
+.modal-open{
+	padding: 0px !important;
 }
 
 .modal-dialog{
@@ -770,7 +782,14 @@ input[type=submit]:focus{
 .video{
 	width: 100%;
 	height: 430px;
-	margin-bottom: 30px;
+	margin-bottom: 60px;
+}
+
+.video_text{
+	font-size: 23px;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding-left: 5px;
 }
 
 .pagination{
@@ -1433,6 +1452,10 @@ footer{
 	.header_right{
 		left: -30px !important;
 		transition: 0.5s ease;
+	}
+
+	.header_menu{
+		margin: 0px;
 	}
 }
 

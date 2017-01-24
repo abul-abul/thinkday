@@ -24,6 +24,8 @@
             </p>
             @if($gallerys[0]['pageGallery'])
             <div class="cabaret_scroll_slider">
+                <i class="fa fa-camera" aria-hidden="true"></i>
+                <span class="gallery_news">галерея</span>
                 <div class="gallery_tour">
                    <div class="slide gall clear">
                        @foreach($gallerys[0]['pageGallery'] as $gallery)
@@ -39,6 +41,8 @@
             <div class="video_place">
                 @foreach($gallerys[0]['pageVideo'] as $gallery)
                 <div class="video">
+                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                    <span class="video_text">видео</span>
                     <iframe style="width: 100%;height: 100%;" src="{{$gallery->video}}" frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
