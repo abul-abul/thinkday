@@ -25,6 +25,8 @@ route::get('/category-page/{id}','UsersController@getCategoryPage');
 route::get('/game-category-inner-page/{id}','UsersController@gameCategoryInnerPage');
 route::get('/interesting','UsersController@getInteres');
 route::get('/interesting-category/{id}','UsersController@getInteresCategory');
+route::post('/subscripe','UsersController@postSubscripe');
+route::get('show-more-interest/{id}','UsersController@getShowMoreInterest');
 
 //
 //Route::get('user/login-registration','UsersController@getLoginReg');

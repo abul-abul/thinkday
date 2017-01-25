@@ -15,6 +15,7 @@ use App\Contracts\SportInterface;
 use App\Contracts\GameCategoryInterface;
 use App\Contracts\GamePageInterface;
 use App\Contracts\InteresInterface;
+use App\Contracts\SubscripeInterface;
 
 
 use App\Http\Requests;
@@ -53,26 +54,19 @@ class UsersController extends BaseController
     /**
      * @return mixed
      */
-    public function getHome(NewsInterface $newsRepo,SportInterface $sportRepo)
+    public function getHome(NewsInterface $newsRepo,InteresInterface $interesRepo)
     {
-
-        $news = $newsRepo->getRandomNews();
-        $sports = $sportRepo->getRandomSport();
-//        foreach ($news as $new){
-//            dd($new);
-//            array_push($data["news"],$new);
-//
-//        }
-//        foreach ($sports as $sport){
-//            array_push($data["sport"],$sport);
-//        }
+        $news = $newsRepo->getLastRow();
+        $news_rand = $newsRepo->getRandomNews();
+        $interests = $interesRepo->getLastRow();
+        $interest_rand = $interesRepo->getRandomInteres();
         $data = [
             "news" => $news,
-            "sport" => $sports
+            "news_rands" => $news_rand,
+            'interests' => $interests,
+            "interest_rands" => $interest_rand
         ];
-
-
-        return view('user.home');
+        return view('user.home',$data);
     }
 
     /**
@@ -106,6 +100,21 @@ class UsersController extends BaseController
             'rand_interests' => $randNews,
         ];
         return view('user.interes.interes-category',$data);
+    }
+
+    /**
+     * @param $id
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function getShowMoreInterest($id,InteresInterface $interesRepo)
+    {
+        $result = $interesRepo->showMoreInterest($id);
+        $data = [
+            
+        ];
+        $showView = view('user.show-more-interest', $result)->render();
+        return response()->json(["status"=>"success","resource"=>$showView]);
     }
 
     /**
@@ -222,8 +231,28 @@ class UsersController extends BaseController
             'game' => $result,
             'random_games' => $rand
         ];
-//        dd($data);
         return view('user.game.game-inner-category-page',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param SubscripeInterface $subscripeRepo
+     * @return mixed
+     */
+    public function postSubscripe(request $request,SubscripeInterface $subscripeRepo)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'email' => 'required|email',
+            'question' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            unset($result['_token']);
+            $subscripeRepo->getCreate($result);
+            return redirect()->back()->with('error','Ваше письмо отправлено');
+        }
     }
     /**
      * 

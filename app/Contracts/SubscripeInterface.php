@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-interface InteresInterface
+interface SubscripeInterface
 {
 
     /**
@@ -49,25 +49,5 @@ interface InteresInterface
      */
     public function getUpdate($id,$data);
 
-    /**
-     * @param $category_id
-     * @return mixed
-     */
-    public function getPageGallery($category_id);
 
-    /**
-     * @return mixed
-     */
-    public function getRandomInteres();
-
-    /**
-     * @return mixed
-     */
-    public function getLastRow();
-
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function showMoreInterest($id);
 }

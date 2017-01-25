@@ -96,5 +96,23 @@ class InteresService implements InteresInterface
         return $this->interes->inRandomOrder()->take(8)->get();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLastRow()
+    {
+        return $this->interes->orderBy('id', 'desc')->take(8)->get();
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function showMoreInterest($id)
+    {
+        return $this->interes->where('id','<',$id)->limit(8)->get();
+    }
+
+
 
 }

@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use App\Contracts\NewsInterface;
-use App\News;
+use App\Contracts\SubscripeInterface;
+use App\Subscripe;
 
-class NewsService implements NewsInterface
+class SubscripeService implements SubscripeInterface
 {
 
     /**
@@ -13,7 +13,7 @@ class NewsService implements NewsInterface
      */
     public function __construct()
     {
-        $this->news = new News();
+        $this->subscripe = new Subscripe();
     }
 
     /**
@@ -24,7 +24,7 @@ class NewsService implements NewsInterface
      */
     public function getAll()
     {
-        return $this->news->get();
+        return $this->subscripe->get();
     }
 
     /**
@@ -32,7 +32,7 @@ class NewsService implements NewsInterface
      */
     public function getAllPaginate()
     {
-        return $this->news->paginate(9);
+        return $this->subscripe->paginate(9);
     }
 
 
@@ -44,7 +44,7 @@ class NewsService implements NewsInterface
      */
     public function getCreate($data)
     {
-        return $this->news->create($data);
+        return $this->subscripe->create($data);
     }
 
     /**
@@ -55,7 +55,7 @@ class NewsService implements NewsInterface
      */
     public function getOne($id)
     {
-        return $this->news->find($id);
+        return $this->subscripe->find($id);
     }
 
     /**
@@ -78,33 +78,6 @@ class NewsService implements NewsInterface
     {
         return $this->getOne($id)->update($data);
     }
-
-    /**
-     * @param $category_id
-     * @return mixed
-     */
-    public function getPageGallery($category_id)
-    {
-        return $this->news->where('id',$category_id)->with('pageGallery')->with('pageVideo')->get();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRandomNews()
-    {
-        return $this->news->inRandomOrder()->take(8)->get();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLastRow()
-    {
-        return $this->news->orderBy('id', 'desc')->take(8)->get();
-    }
-
-   
 
 
 }

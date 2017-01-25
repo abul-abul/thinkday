@@ -59,4 +59,9 @@ interface NewsInterface
      * @return mixed
      */
     public function getRandomNews();
+
+    /**
+     * @return mixed
+     */
+    public function getLastRow();
 }

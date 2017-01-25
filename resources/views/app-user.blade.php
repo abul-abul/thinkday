@@ -263,6 +263,7 @@
 
 	{!! HTML::script( asset('assets/user/js/jquery.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/bootstrap.min.js') ) !!}
+	{!! HTML::script(asset('assets/user/js/show_more.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/init.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/user_main.js') ) !!}
 
