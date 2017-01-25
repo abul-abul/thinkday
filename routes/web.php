@@ -23,6 +23,8 @@ route::get('/sport-category/{id}','UsersController@getSportCategory');
 route::get('/game','UsersController@getGame');
 route::get('/category-page/{id}','UsersController@getCategoryPage');
 route::get('/game-category-inner-page/{id}','UsersController@gameCategoryInnerPage');
+route::get('/interesting','UsersController@getInteres');
+route::get('/interesting-category/{id}','UsersController@getInteresCategory');
 
 //
 //Route::get('user/login-registration','UsersController@getLoginReg');
@@ -123,6 +125,13 @@ Route::post('ab-admin/add-sport','AdminController@postAddSport');
 Route::get('ab-admin/del-sport/{id}','AdminController@getDeleteSport');
 Route::get('ab-admin/one-sport/{id}','AdminController@getOneSport');
 Route::post('ab-admin/edit-sport','AdminController@postEditSport');
+
+Route::get('ab-admin/interes-list','AdminController@getInteresList');
+Route::get('ab-admin/add-interes','AdminController@getAddInteres');
+Route::post('ab-admin/add-interes','AdminController@postAddInteres');
+Route::get('ab-admin/del-interes/{id}','AdminController@getDeleteInteres');
+Route::get('ab-admin/one-interes/{id}','AdminController@getOneInteres');
+Route::post('ab-admin/edit-sport','AdminController@postEditInterests');
 
 Route::post('ab-admin/add-game-name','AdminController@postAddGameName');
 Route::get('ab-admin/game-page-list','AdminController@gamePageList');

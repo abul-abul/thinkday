@@ -67,5 +67,9 @@ class AppServiceProvider extends ServiceProvider
             'App\Contracts\GameCategoryInterface',
             'App\Services\GameCategoryService'
         );
+        $this->app->bind(
+            'App\Contracts\InteresInterface',
+            'App\Services\InteresService'
+        );
     }
 }

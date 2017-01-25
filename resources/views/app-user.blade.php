@@ -191,6 +191,14 @@
 					</a>
 				</li>
 				<li class="menu_children">
+					<a href="{{action('UsersController@getInteres')}}" class="menu_link">
+						<span class="link_border">
+							Interest
+							<span class="menu_abs"></span>
+						</span>
+					</a>
+				</li>
+				<li class="menu_children">
 					<a href="{{action('UsersController@getGame')}}" class="menu_link">
 						<span class="link_border">
 							Games

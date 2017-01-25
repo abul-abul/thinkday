@@ -14,7 +14,7 @@
                 @include('message')
                 {!! Form::open(['action' => ['AdminController@postAddGameCategory'],'files' => 'true','class' => 'login-form','files' =>true  ]) !!}
                 <b style="color:#6AAEDF;display:block;margin-top:15px;">Title</b>
-                {!! Form::text('title', null, ['placeholder' => 'Title' , 'class' => 'form-control']) !!}
+                {!! Form::text('title', null, ['placeholder' => 'Title' , 'class' => 'form-control','maxlength' => "15"]) !!}
 
                 <b style="color:#6AAEDF;display:block;margin-top:15px;">Add Category Image </b>
                 <input type="file" name="image">

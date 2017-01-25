@@ -14,6 +14,7 @@ use App\Contracts\NewsInterface;
 use App\Contracts\SportInterface;
 use App\Contracts\GameCategoryInterface;
 use App\Contracts\GamePageInterface;
+use App\Contracts\InteresInterface;
 
 
 use App\Http\Requests;
@@ -52,9 +53,59 @@ class UsersController extends BaseController
     /**
      * @return mixed
      */
-    public function getHome()
+    public function getHome(NewsInterface $newsRepo,SportInterface $sportRepo)
     {
+
+        $news = $newsRepo->getRandomNews();
+        $sports = $sportRepo->getRandomSport();
+//        foreach ($news as $new){
+//            dd($new);
+//            array_push($data["news"],$new);
+//
+//        }
+//        foreach ($sports as $sport){
+//            array_push($data["sport"],$sport);
+//        }
+        $data = [
+            "news" => $news,
+            "sport" => $sports
+        ];
+
+
         return view('user.home');
+    }
+
+    /**
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function getInteres(InteresInterface $interesRepo)
+    {
+        $result = $interesRepo->getAllPaginate();
+        $randNews = $interesRepo->getRandomInteres();
+        $data = [
+            'rand_interests' => $randNews,
+            'interests' => $result
+        ];
+        return view('user.interes.interes',$data);
+    }
+
+    /**
+     * @param $id
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function getInteresCategory($id,InteresInterface $interesRepo)
+    {
+        $gallerys = $interesRepo->getPageGallery($id);
+        $result = $interesRepo->getOne($id);
+        $randNews = $interesRepo->getRandomInteres();
+        $data = [
+            'interests' => $result,
+            'gallerys' => $gallerys,
+            'rand_interests' => $randNews,
+        ];
+        return view('user.interes.interes-category',$data);
     }
 
     /**

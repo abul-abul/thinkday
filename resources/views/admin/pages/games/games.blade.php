@@ -5,7 +5,7 @@
     <b style="color:#6AAEDF;display:block;margin-top:15px;">Add Game Name</b>
 
     <b>Add Name</b>
-    {!! Form::text('name', null, ['placeholder' => 'Game Name' , 'class' => 'form-control']) !!}
+    {!! Form::text('name', null, ['placeholder' => 'Game Name' , 'class' => 'form-control','maxlength' => "23"]) !!}
 
     <b>Add Images</b>
     {!! Form::file('image', null, ['placeholder' => 'Game Name' , 'class' => 'form-control']) !!}

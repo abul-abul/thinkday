@@ -17,9 +17,7 @@ class PageSeeder extends Seeder
         $pages[] = ['page' => 'sport'];
         $pages[] = ['page' => 'news'];
         $pages[] = ['page' => 'games'];
-        $pages[] = ['page' => 'video'];
-        $pages[] = ['page' => 'show_biznes'];
-        $pages[] = ['page' => 'culture'];
+        $pages[] = ['page' => 'interes'];
 
         foreach ($pages as $page) {
             Page::insert([

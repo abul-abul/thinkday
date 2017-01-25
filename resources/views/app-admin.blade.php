@@ -376,6 +376,32 @@
 									</li>
 								</ul>
 							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+										<span class="menu-text">
+											Interest
+										</span>
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+								<b class="arrow"></b>
+								<ul class="submenu">
+									<li class="">
+										<a href="{{action('AdminController@getInteresList')}}">
+											Interest List
+										</a>
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="{{action('AdminController@getAddInteres')}}">
+											Add Interest
+										</a>
+										<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
+
 							<li class="">
 								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
@@ -401,27 +427,7 @@
 								</ul>
 							</li>
 
-							<li class="">
-								<a href="{{action('AdminController@getVideo')}}">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Video
-								</a>
-								<b class="arrow"></b>
-							</li>
-							<li class="">
-								<a href="{{action('AdminController@getShowBiznes')}}">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Show Biznes
-								</a>
-								<b class="arrow"></b>
-							</li>
-							<li class="">
-								<a href="{{action('AdminController@getCulture')}}">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Culture
-								</a>
-								<b class="arrow"></b>
-							</li>
+
 
 						</ul>
 					</li>

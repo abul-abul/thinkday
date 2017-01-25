@@ -19,6 +19,8 @@ use App\Contracts\SportInterface;
 use App\Contracts\PageGalleryServiceInterface;
 use App\Contracts\GamePageInterface;
 use App\Contracts\GameCategoryInterface;
+use App\Contracts\InteresInterface;
+
 use View;
 use Session;
 use Validator;
@@ -760,6 +762,117 @@ class AdminController extends BaseController
         }
         $sportRepo->getUpdate($result['id'],$result);
         return redirect()->action('AdminController@getSportList');
+    }
+
+
+    /**
+     * @return View
+     */
+    public function  getAddInteres()
+    {
+        return view('admin.pages.interes.add-interes');
+    }
+
+
+    /**
+     * @param InteresInterface $interesRepo
+     * @return View
+     */
+    public function getInteresList(InteresInterface $interesRepo)
+    {
+        $result = $interesRepo->getAll();
+        $data = [
+            'interests' => $result,
+        ];
+        return view('admin.pages.interes.interes-list',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function postAddInteres(request $request,InteresInterface $interesRepo)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            if ($request['image']){
+                $logoFile = $result['image']->getClientOriginalExtension();
+                $name = str_random(12);
+                $path = public_path() . '/page_uploade/interes';
+                $result_move =  $result['image']->move($path, $name.'.'.$logoFile);
+                $images = $name.'.'.$logoFile;
+                $data['image'] = $images;
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }else{
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }
+            $interesRepo->getCreate($data);
+        }
+        return redirect(action('AdminController@getInteresList'));
+    }
+
+    /**
+     * @param $id
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function getDeleteInteres($id,InteresInterface $interesRepo)
+    {
+        $res = $interesRepo->getOne($id);
+        if($res->image == ""){
+            $interesRepo->getdelete($id);
+        }else{
+            $path =  public_path().'/page_uploade/interes/'.$res->image;
+            $interesRepo->getdelete($id);
+            File::delete($path);
+        }
+        return redirect()->back()->with('error',"File deleted");
+    }
+
+    /**
+     * @param $id
+     * @param InteresInterface $interesRepo
+     * @return View
+     */
+    public function getOneInteres($id,InteresInterface $interesRepo)
+    {
+        $result = $interesRepo->getOne($id);
+        $data = [
+            'interests' => $result
+        ];
+        return view('admin.pages.interes.edit-interes',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function postEditInterests(request $request,InteresInterface $interesRepo)
+    {
+        $result = $request->all();
+        if(isset($result['image'])){
+            $oldObj = $interesRepo->getOne($result['id']);
+            $oldImg = public_path() .'/page_uploade/interes/' . $oldObj->image;
+            File::delete($oldImg);
+            $logoFile = $result['image']->getClientOriginalExtension();
+            $name = str_random(12);
+            $path = public_path() . '/page_uploade/interes';
+            $result_move = $result['image']->move($path, $name.'.'.$logoFile);
+            $news_images = $name.'.'.$logoFile;
+            $result['image'] = $news_images;
+        }
+        $interesRepo->getUpdate($result['id'],$result);
+        return redirect()->action('AdminController@getInteresList');
     }
 
     /**
