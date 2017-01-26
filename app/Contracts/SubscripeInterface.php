@@ -13,6 +13,12 @@ interface SubscripeInterface
      */
     public function getAll();
 
+
+    /**
+     * @return mixed
+     */
+    public function getAllActiveStatus();
+    
     /**
      * @return mixed
      */

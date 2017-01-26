@@ -20,6 +20,7 @@ use App\Contracts\PageGalleryServiceInterface;
 use App\Contracts\GamePageInterface;
 use App\Contracts\GameCategoryInterface;
 use App\Contracts\InteresInterface;
+use App\Contracts\SubscripeInterface;
 
 use View;
 use Session;
@@ -36,9 +37,9 @@ class AdminController extends BaseController
      * AdminController constructor.
      * @param LanguageInterface $langRepo
      */
-	public function __construct(LanguageInterface $langRepo)
+	public function __construct(LanguageInterface $langRepo,SubscripeInterface $subscripeRepo)
     {
-        parent::__construct($langRepo);
+        parent::__construct($langRepo,$subscripeRepo);
         $this->middleware('authadmin', ['except' => ['getLogin', 'postLogin','getLogout']]);
     }
 
@@ -1210,30 +1211,6 @@ class AdminController extends BaseController
         return redirect()->back()->with('error','game category deleted');
     }
 
-    /**
-     * @return View
-     */
-    public function getVideo()
-    {
-        return view('admin.pages.video.video');
-    }
-
-
-    /**
-     * @return View
-     */
-    public function getShowBiznes()
-    {
-        return view('admin.pages.showbiznes.showbiznes');
-    }
-
-    /**
-     * @return View
-     */
-    public function getCulture()
-    {
-        return view('admin.pages.culture.culture');
-    }
 
     /**
      * @return View
@@ -1387,7 +1364,48 @@ class AdminController extends BaseController
         return response()->json($name);
     }
 
-    
+    /**
+     * @param SubscripeInterface $subscripeRepo
+     * @return View
+     */
+    public function getSubscripe(SubscripeInterface $subscripeRepo)
+    {
+        $result = $subscripeRepo->getAllPaginate();
+        $data = [
+            'subscrips' => $result
+        ];
+        return view('admin.pages.subscripe.subscripe',$data);
+    }
+
+    /**
+     * @param $id
+     * @param SubscripeInterface $subscripeRepo
+     * @return mixed
+     */
+    public function getDeleteSubscripe($id,SubscripeInterface $subscripeRepo)
+    {
+        $subscripeRepo->getdelete($id);
+        return redirect()->back()->with('error','Subscripe deleted');
+    }
+
+    /**
+     * @param $status
+     * @param $id
+     * @param SubscripeInterface $subscripeRepo
+     * @return View
+     */
+    public function getOneSubscripe($status,$id,SubscripeInterface $subscripeRepo)
+    {
+        $result = $subscripeRepo->getOne($id);
+        $status = [
+            'status' => '1'
+        ];
+        $subscripeRepo->getUpdate($id,$status);
+        $data =  [
+            'subscripe' => $result
+        ];
+        return view('admin.pages.subscripe.subscripe-inner',$data);
+    }
 
 
 }

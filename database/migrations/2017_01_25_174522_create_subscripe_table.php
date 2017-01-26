@@ -17,6 +17,7 @@ class CreateSubscripeTable extends Migration
             $table->increments('id');
             $table->string('email')->nullable();
             $table->longText('question')->nullable();
+            $table->enum('status', ['0','1'])->nullable();
             $table->timestamps();
         });
     }

@@ -64,4 +64,11 @@ interface NewsInterface
      * @return mixed
      */
     public function getLastRow();
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getShowMoreNews($id);
+    
 }

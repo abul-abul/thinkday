@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
         $this->call(MainAdminTableSeeder::class);
         $this->call(PageSeeder::class);
+        $this->call(NewsSeeder::class);
+        $this->call(SportSeeder::class);
+        $this->call(InterestSeeder::class);
         Model::reguard();
 
     }

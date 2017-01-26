@@ -55,7 +55,7 @@
 		<div class="services_title">
 			Our services
 		</div>
-		<div class="services_place clear">
+		<div class="services_place clear interst_block_show">
 			@foreach($interests as $interest)
 				<div data-id="{{$interest->id}}" class="services_blocks interest_show_block">
 					<a href="{{action('UsersController@getInteresCategory',$interest->id)}}">
@@ -68,7 +68,7 @@
 					</a>
 				</div>
 			@endforeach
-			<div class="interst_block_show"></div>
+
 		</div>
 		<div class="content_right_place">
 		<div class="posts_place">
@@ -134,15 +134,20 @@
 		</div>
 		<div class="services_place clear">
 			@foreach($news as $new)
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/page_uploade/news/{{$new->image}}" class="service_image" />
-				</a>
-			</div>
+				<div data-id="{{$new->id}}" class="services_blocks news_show_block">
+					<a href="{{action('UsersController@getNewsCategory',$new->id)}}">
+						<div class="ser_bg_abs"></div>
+						<img src="/page_uploade/news/{{$new->image}}" class="service_image" />
+						<div class="service_abs">
+							<i class="fa fa-arrow-right" aria-hidden="true"></i>
+							<span class="ser_abs_text">{{$new->title}}</span>
+						</div>
+					</a>
+				</div>
 			@endforeach
+				<div class="loader"></div>
+
+				<div class="append_news_block"></div>
 		</div>
 		<div class="content_right_place">
 		<div class="posts_place">
@@ -166,11 +171,11 @@
 
 		</div>
 		</div>
-		<div class="more_place">
+		<div class="more_place show_more_news">
 			<div class="all_services">
-				<a href="#" class="all_link">
+
 					<span class="all_ser_text">view more news</span>
-				</a>
+
 			</div>
 		</div>
 	</div>

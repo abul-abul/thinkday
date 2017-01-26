@@ -33,9 +33,9 @@ class UsersController extends BaseController
      *
      * @param LanguageInterface $langRepo
      */
-	public function __construct(LanguageInterface $langRepo)
+	public function __construct(LanguageInterface $langRepo,SubscripeInterface $subscripeRepo)
     {
-        parent::__construct($langRepo);
+        parent::__construct($langRepo,$subscripeRepo);
        // $this->middleware('auth', ['except' => ['getLogin', 'postLogin','getLogout']]);
        // $this->middleware('language');
 
@@ -110,10 +110,26 @@ class UsersController extends BaseController
     public function getShowMoreInterest($id,InteresInterface $interesRepo)
     {
         $result = $interesRepo->showMoreInterest($id);
+
         $data = [
-            
+           'interests' => $result
         ];
-        $showView = view('user.show-more-interest', $result)->render();
+        $showView = view('user.interes.show-more-interest', $data)->render();
+        return response()->json(["status"=>"success","resource"=>$showView]);
+    }
+
+    /**
+     * @param $id
+     * @param NewsInterface $newsRepo
+     * @return mixed
+     */
+    public function getShowMoreNews($id,NewsInterface $newsRepo)
+    {
+        $result = $newsRepo->getShowMoreNews($id);
+        $data = [
+            'news' => $result
+        ];
+        $showView = view('user.news.show-more-news', $data)->render();
         return response()->json(["status"=>"success","resource"=>$showView]);
     }
 
@@ -250,6 +266,8 @@ class UsersController extends BaseController
             return redirect()->back()->withErrors($validator);
         }else{
             unset($result['_token']);
+            $result['status'] = '0';
+
             $subscripeRepo->getCreate($result);
             return redirect()->back()->with('error','Ваше письмо отправлено');
         }

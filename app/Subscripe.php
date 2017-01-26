@@ -8,6 +8,6 @@ class Subscripe extends Model
 {
     protected $table = 'subscripe';
 
-    protected $fillable = ['email','question'];
+    protected $fillable = ['email','question','status'];
     
 }

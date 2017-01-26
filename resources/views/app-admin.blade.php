@@ -198,18 +198,14 @@
 						<li class="green">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
-								<span class="badge badge-success">5</span>
+								<span class="badge badge-success">{{$count_subscripe}}</span>
 							</a>
 
 							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
 									<i class="ace-icon fa fa-envelope-o"></i>
-									5 Messages
+									<span><a href="{{action('AdminController@getSubscripe')}}">{{$count_subscripe}} Messages</a></span>
 								</li>
-
-							
-
-								
 							</ul>
 						</li>
 
@@ -525,6 +521,8 @@
 						</ul>
 						
 					</li>
+
+
 
 					<li class="">
 						<a href="{{action('AdminController@getYoutube')}}">

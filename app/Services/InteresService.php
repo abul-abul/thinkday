@@ -110,7 +110,7 @@ class InteresService implements InteresInterface
      */
     public function showMoreInterest($id)
     {
-        return $this->interes->where('id','<',$id)->limit(8)->get();
+        return $this->interes->where('id','>',$id)->limit(8)->get();
     }
 
 

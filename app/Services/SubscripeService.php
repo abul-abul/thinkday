@@ -30,6 +30,14 @@ class SubscripeService implements SubscripeInterface
     /**
      * @return mixed
      */
+    public function getAllActiveStatus()
+    {
+        return $this->subscripe->where('status','0')->get();
+    }
+
+    /**
+     * @return mixed
+     */
     public function getAllPaginate()
     {
         return $this->subscripe->paginate(9);

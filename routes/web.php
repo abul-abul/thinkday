@@ -27,6 +27,7 @@ route::get('/interesting','UsersController@getInteres');
 route::get('/interesting-category/{id}','UsersController@getInteresCategory');
 route::post('/subscripe','UsersController@postSubscripe');
 route::get('show-more-interest/{id}','UsersController@getShowMoreInterest');
+route::get('show-more-news/{id}','UsersController@getShowMoreNews');
 
 //
 //Route::get('user/login-registration','UsersController@getLoginReg');
@@ -149,6 +150,12 @@ Route::get('ab-admin/language','AdminController@getLanguage');
 Route::post('ab-admin/add-language','AdminController@postAddLanguage');
 Route::get('ab-admin/language-list','AdminController@getLanguageList');
 Route::get('ab-admin/language-delete/{id}','AdminController@getDeleteLanguage');
+
+
+
+Route::get('ab-admin/subscripe','AdminController@getSubscripe');
+Route::get('ab-admin/subscripe-delete/{id}','AdminController@getDeleteSubscripe');
+Route::get('ab-admin/subscripe-inner/{status}/{id}','AdminController@getOneSubscripe');
 
 
 
