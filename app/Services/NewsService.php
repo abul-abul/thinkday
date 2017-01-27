@@ -85,7 +85,7 @@ class NewsService implements NewsInterface
      */
     public function getPageGallery($category_id)
     {
-        return $this->news->where('id',$category_id)->with('pageGallery')->with('pageVideo')->get();
+        return $this->news->where('id',$category_id)->where('page_id','2')->with('pageGallery')->with('pageVideo')->get();
     }
 
     /**

@@ -22,11 +22,11 @@
             <p class="news_desc_place">
               <span>{{$sports->description}}</span>
             </p>
-            @if($gallerys[0]['pageGallery'])
+            @if(count($gallerys) != 0)
             <div class="cabaret_scroll_slider">
                 <div class="gallery_tour">
                    <div class="slide gall clear">
-                       @foreach($gallerys[0]['pageGallery'] as $gallery)
+                       @foreach($gallerys as $gallery)
                            <a href="/page_uploade/page_gallery/{{$gallery->image}}">
                              <div class="img" style='background: url("/page_uploade/page_gallery/{{$gallery->image}}") no-repeat;background-size: cover;height:150px;width:200px'></div>
                            </a>
@@ -35,9 +35,9 @@
                 </div>
             </div>
             @endif
-            @if($gallerys[0]['pageVideo'])
+            @if(count($videos) != 0)
             <div class="video_place">
-                @foreach($gallerys[0]['pageVideo'] as $gallery)
+                @foreach($videos as $gallery)
                 <div class="video">
                     <iframe style="width: 100%;height: 100%;" src="{{$gallery->video}}" frameborder="0" allowfullscreen>
                     </iframe>

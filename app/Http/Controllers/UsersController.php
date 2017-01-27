@@ -16,6 +16,8 @@ use App\Contracts\GameCategoryInterface;
 use App\Contracts\GamePageInterface;
 use App\Contracts\InteresInterface;
 use App\Contracts\SubscripeInterface;
+use App\Contracts\PageGalleryServiceInterface;
+use App\Contracts\YoutubeInerface;
 
 
 use App\Http\Requests;
@@ -87,20 +89,27 @@ class UsersController extends BaseController
     /**
      * @param $id
      * @param InteresInterface $interesRepo
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     * @param YoutubeInerface $youtubeRepo
      * @return mixed
      */
-    public function getInteresCategory($id,InteresInterface $interesRepo)
+    public function getInteresCategory($id,InteresInterface $interesRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo)
     {
-        $gallerys = $interesRepo->getPageGallery($id);
+        $gallerys = $pageGalleryRepo->getPageCategory(4,$id);
+        $video = $youtubeRepo->getPageCategoryVideo(4,$id);
+
         $result = $interesRepo->getOne($id);
         $randNews = $interesRepo->getRandomInteres();
         $data = [
             'interests' => $result,
             'gallerys' => $gallerys,
+            'videos' => $video,
             'rand_interests' => $randNews,
         ];
         return view('user.interes.interes-category',$data);
     }
+
+
 
     /**
      * @param $id
@@ -151,20 +160,26 @@ class UsersController extends BaseController
     /**
      * @param $id
      * @param NewsInterface $newsRepo
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     * @param YoutubeInerface $youtubeRepo
      * @return mixed
      */
-    public function getNewsCategory($id,NewsInterface $newsRepo)
+    public function getNewsCategory($id,NewsInterface $newsRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo)
     {
-        $gallerys = $newsRepo->getPageGallery($id);
+        $gallerys = $pageGalleryRepo->getPageCategory(2,$id);
+        $video = $youtubeRepo->getPageCategoryVideo(2,$id);
+
         $result = $newsRepo->getOne($id);
         $randNews = $newsRepo->getRandomNews();
         $data = [
             'news' => $result,
             'gallerys' => $gallerys,
+            'videos' => $video,
             'rand_news' => $randNews,
         ];
         return view('user.news.news-category',$data);
     }
+
 
     /**
      * @param SportInterface $sportRepo
@@ -186,14 +201,17 @@ class UsersController extends BaseController
      * @param SportInterface $sportRepo
      * @return mixed
      */
-    public function getSportCategory($id,SportInterface $sportRepo)
+    public function getSportCategory($id,SportInterface $sportRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo)
     {
-        $gallerys = $sportRepo->getPageGallery($id);
+        $gallerys = $pageGalleryRepo->getPageCategory(1,$id);
+
+        $video = $youtubeRepo->getPageCategoryVideo(1,$id);
         $result = $sportRepo->getOne($id);
         $randNews = $sportRepo->getRandomSport();
         $data = [
             'sports' => $result,
             'gallerys' => $gallerys,
+            'videos' => $video,
             'rand_sports' => $randNews,
         ];
         return view('user.sport.sport-category',$data);

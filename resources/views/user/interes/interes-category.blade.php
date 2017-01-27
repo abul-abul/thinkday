@@ -22,13 +22,13 @@
             <p class="news_desc_place">
               <span>{{$interests->description}}</span>
             </p>
-            @if(count($gallerys[0]['pageGallery']) != 0)
+            @if(count($gallerys) != 0)
             <div class="cabaret_scroll_slider">
                 <i class="fa fa-camera" aria-hidden="true"></i>
                 <span class="gallery_news">галерея</span>
                 <div class="gallery_tour">
                    <div class="slide gall clear">
-                       @foreach($gallerys[0]['pageGallery'] as $gallery)
+                       @foreach($gallerys as $gallery)
                            <a href="/page_uploade/page_gallery/{{$gallery->image}}">
                              <div class="img" style='background: url("/page_uploade/page_gallery/{{$gallery->image}}") no-repeat;background-size: cover;height:150px;width:200px'></div>
                            </a>
@@ -37,9 +37,9 @@
                 </div>
             </div>
             @endif
-            @if($gallerys[0]['pageVideo'])
+            @if(count($videos) != 0)
             <div class="video_place">
-                @foreach($gallerys[0]['pageVideo'] as $gallery)
+                @foreach($videos as $gallery)
                 <div class="video">
                     <i class="fa fa-video-camera" aria-hidden="true"></i>
                     <span class="video_text">видео</span>
