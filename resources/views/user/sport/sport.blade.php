@@ -60,16 +60,21 @@
             </div>
         </div>
         <div class="us_place_center">
+
             <div class="us_title_place">
-                <span class="us_title">contact with us</span>
+                <span class="us_title">Контакт с нами</span>
             </div>
-            <form action="" method="post">
-                <input type="email" id="question_email" placeholder="Email" />
+
+            @include('message')
+
+            {!! Form::open(['action' => ['UsersController@postSubscripe'], ]) !!}
+
+                {!! Form::text('email',null, ['placeholder' => 'Эл.адрес', 'class' => 'e-mail form-control','id' => 'question_email']) !!}
                 <br>
-                <textarea placeholder="write your question"></textarea>
+                {!! Form::textarea('question',null, ['placeholder' => 'пишите свой вопрос', 'class' => 'e-mail']) !!}
                 <br>
-                <input type="submit" value="send" class="question_send" />
-            </form>
+                <input type="submit" value="Отправить" class="question_send" />
+                {!! Form::close() !!}
         </div>
         <div class="us_abs">
             <div class="us_rel">

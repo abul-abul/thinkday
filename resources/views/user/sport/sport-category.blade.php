@@ -24,6 +24,9 @@
             </p>
             @if($gallerys[0]['pageGallery'])
             <div class="cabaret_scroll_slider">
+                <i class="fa fa-camera" aria-hidden="true"></i>
+                <span class="gallery_news">галерея</span>
+                <span class="border_bottom"></span>
                 <div class="gallery_tour">
                    <div class="slide gall clear">
                        @foreach($gallerys[0]['pageGallery'] as $gallery)
@@ -39,6 +42,9 @@
             <div class="video_place">
                 @foreach($gallerys[0]['pageVideo'] as $gallery)
                 <div class="video">
+                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                    <span class="video_text">видео</span>
+                    <span class="border_bottom"></span>
                     <iframe style="width: 100%;height: 100%;" src="{{$gallery->video}}" frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
@@ -79,16 +85,21 @@
             </div>
         </div>
         <div class="us_place_center">
+
             <div class="us_title_place">
-                <span class="us_title">contact with us</span>
+                <span class="us_title">Контакт с нами</span>
             </div>
-            <form action="" method="post">
-                <input type="email" id="question_email" placeholder="Email" />
+
+            @include('message')
+
+            {!! Form::open(['action' => ['UsersController@postSubscripe'], ]) !!}
+
+                {!! Form::text('email',null, ['placeholder' => 'Эл.адрес', 'class' => 'e-mail form-control','id' => 'question_email']) !!}
                 <br>
-                <textarea placeholder="write your question"></textarea>
+                {!! Form::textarea('question',null, ['placeholder' => 'пишите свой вопрос', 'class' => 'e-mail']) !!}
                 <br>
-                <input type="submit" value="send" class="question_send" />
-            </form>
+                <input type="submit" value="Отправить" class="question_send" />
+                {!! Form::close() !!}
         </div>
         <div class="us_abs">
             <div class="us_rel">

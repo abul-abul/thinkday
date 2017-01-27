@@ -12,7 +12,6 @@
 	{!! HTML::style( asset('assets/admin/plugins/css/ace-rtl.css')) !!}
 
 
-	{!! HTML::style( asset('assets/user/css/full-slider.css')) !!}
 	{!! HTML::style( asset('assets/user/css/font-face.css')) !!}
 	{!! HTML::style( asset('assets/user/css/style.css')) !!}
 
@@ -29,17 +28,26 @@
 	      <div class="modal-content modal_place">
 	        <div class="modal-header modal_head">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Registration</span>
+	          <span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Логин</span>
 	          <span class="log_middle">/</span>
-	          <span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Login</span>
+	          <span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Регистрация</span>
 	        </div>	          
 			  <div class="panel-group" id="accordion">
 			    <div class="panel panel-default">
 			      <div id="collapse1" class="panel-collapse collapse in">
 			        <div class="panel-body">
-				        <input type="email" class="email" placeholder="Email" />
-				        <input type="password" class="pass" placeholder="Password" />
-				        <input type="submit" class="log_btn" value="Login">
+				        <input type="email" class="email" placeholder="Эл.адрес" />
+				        <input type="password" class="pass" placeholder="Пароль" />
+				        <a href="#" class="user_soc_links">
+							<i class="fa fa-facebook-square" aria-hidden="true"></i>
+						</a>
+						<a href="#" class="user_soc_links">
+							<i class="fa fa-google-plus-square" aria-hidden="true"></i>
+						</a>
+						<a href="#" class="user_soc_links">
+							<i class="fa fa-twitter-square" aria-hidden="true"></i>
+						</a>
+				        <input type="submit" class="log_btn" value="Логин">
 			        </div>
 			      </div>
 			    </div>
@@ -47,12 +55,21 @@
 			      <div id="collapse2" class="panel-collapse collapse">
 			      	<div class="panel-body">
 			        	<form action="" method="post">
-			        		<input type="text" class="name" placeholder="Name" />
-			        		<input type="text" class="name" placeholder="Surname" />
-			        		<input type="email" class="email" placeholder="Email" />
-			        		<input type="password" class="pass" placeholder="Password" />
-			        		<input type="password" class="pass" placeholder="Re-password" />
-			        		<input type="submit" class="reg_btn" value="Registration">
+			        		<input type="text" class="name" placeholder="Имя" />
+			        		<input type="text" class="name" placeholder="Фамиля" />
+			        		<input type="email" class="email" placeholder="Эл.адрес" />
+			        		<input type="password" class="pass" placeholder="Пароль" />
+			        		<input type="password" class="pass" placeholder="Пов-пароль" />
+			        		<a href="#" class="user_soc_links">
+								<i class="fa fa-facebook-square" aria-hidden="true"></i>
+							</a>
+							<a href="#" class="user_soc_links">
+								<i class="fa fa-google-plus-square" aria-hidden="true"></i>
+							</a>
+							<a href="#" class="user_soc_links">
+								<i class="fa fa-twitter-square" aria-hidden="true"></i>
+							</a>
+			        		<input type="submit" class="reg_btn" value="Регистрация">
 			        	</form>
 			        </div>
 			      </div>
@@ -71,30 +88,9 @@
 					</a>
 				</div>
 				<div class="center_hide">
-					<div class="day_place2">
-						<span class="year color">2016</span>
-						<span class="day color">Դեկտեդմբեր 29</span>
-					</div>
-					<div class="currency_place2">
-						<div class="currency_place_child">
-							<span class="currency_name color">USD</span>
-							<span class="currency_number color">482.68</span>
-						</div>
-						<div class="currency_place_child">
-							<span class="currency_name color">EUR</span>
-							<span class="currency_number color">504.35</span>
-						</div>
-						<div class="currency_place_child">
-							<span class="currency_name color">RUB</span>
-							<span class="currency_number color">7.82</span>
-						</div>
-					</div>
-					<div class="weather_place2">
-						<span class="weather color">Yerevan -10°</span>
-					</div>
 					<div class="login_place2">
 						<span class="login_btn" data-toggle="modal" data-target="#myModal">
-							Registration / Login
+							Логин / Регистрация
 						</span>
 					</div>
 				</div>
@@ -103,29 +99,8 @@
 		<div class="center_right_top">
 			<div class="login_place">
 				<span class="login_btn" data-toggle="modal" data-target="#myModal">
-					Registration / Login
+					Логин / Регистрация
 				</span>
-			</div>
-			<div class="weather_place">
-				<span class="weather">Yerevan -10°</span>
-			</div>
-			<div class="currency_place">
-				<div class="currency_place_child">
-					<span class="currency_name">USD</span>
-					<span class="currency_number">482.68</span>
-				</div>
-				<div class="currency_place_child">
-					<span class="currency_name">EUR</span>
-					<span class="currency_number">504.35</span>
-				</div>
-				<div class="currency_place_child">
-					<span class="currency_name">RUB</span>
-					<span class="currency_number">7.82</span>
-				</div>
-			</div>
-			<div class="day_place">
-				<span class="year">2016</span>
-				<span class="day">Դեկտեդմբեր 29</span>
 			</div>
 		</div>
 		<div class="center_right">
@@ -134,7 +109,7 @@
 				<li class="menu_children">
 					<a href="{{action('UsersController@getHome')}}" class="menu_link">
 						<span class="link_border">
-							home
+							Главный
 							<span class="menu_abs"></span>
 						</span>
 					</a>
@@ -177,7 +152,7 @@
 				<li class="menu_children">
 					<a href="{{action('UsersController@getNews')}}" class="menu_link">
 						<span class="link_border">
-							News
+							Новости
 							<span class="menu_abs"></span>
 						</span>
 					</a>
@@ -185,7 +160,7 @@
 				<li class="menu_children">
 					<a href="{{action('UsersController@getSport')}}" class="menu_link">
 						<span class="link_border">
-							Sport
+							Спорт
 							<span class="menu_abs"></span>
 						</span>
 					</a>
@@ -193,7 +168,7 @@
 				<li class="menu_children">
 					<a href="{{action('UsersController@getInteres')}}" class="menu_link">
 						<span class="link_border">
-							Interest
+							Интересно
 							<span class="menu_abs"></span>
 						</span>
 					</a>
@@ -201,7 +176,7 @@
 				<li class="menu_children">
 					<a href="{{action('UsersController@getGame')}}" class="menu_link">
 						<span class="link_border">
-							Games
+							Игры
 							<span class="menu_abs"></span>
 						</span>
 					</a>
@@ -209,7 +184,7 @@
 				<li id="contact" class="menu_children">
 					<a class="menu_link">
 						<span class="link_border">
-							Contacts
+							Контакт
 							<span class="menu_abs"></span>
 						</span>
 					</a>

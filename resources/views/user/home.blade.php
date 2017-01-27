@@ -1,59 +1,9 @@
 @extends('app-user')
 @section('user-content')
 
-	<div class="slide_place">
-		<div id="myCarousel" class="carousel slide">
-	        <!-- Indicators -->
-	        <ol class="carousel-indicators">
-	            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	            <li data-target="#myCarousel" data-slide-to="1"></li>
-	            <li data-target="#myCarousel" data-slide-to="2"></li>
-	        </ol>
-
-	        <!-- Wrapper for Slides -->
-	        <div class="carousel-inner">
-	            <div class="item active">
-	                <!-- Set the first background image using inline CSS below. -->
-	                <div class="fill" style="background-image:url('/assets/user/images/slide1.jpg');"></div>
-	                <div class="carousel-caption">
-	                    <h2>
-	                    	<a href="#" class="slider_link">Caption 1</a>
-	                    </h2>
-	                </div>
-	            </div>
-	            <div class="item">
-	                <!-- Set the second background image using inline CSS below. -->
-	                <div class="fill" style="background-image:url('/assets/user/images/slide2.jpg');"></div>
-	                <div class="carousel-caption">
-	                    <h2>
-	                    	<a href="#" class="slider_link">Caption 2</a>
-	                    </h2>
-	                </div>
-	            </div>
-	            <div class="item">
-	                <!-- Set the third background image using inline CSS below. -->
-	                <div class="fill" style="background-image:url('/assets/user/images/slide3.jpg');"></div>
-	                <div class="carousel-caption">
-	                    <h2>
-	                    	<a href="#" class="slider_link">Caption 3</a>
-	                    </h2>
-	                </div>
-	            </div>
-	        </div>
-
-	        <!-- Controls -->
-	        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-	            <span class="icon-prev"></span>
-	        </a>
-	        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-	            <span class="icon-next"></span>
-	        </a>
-
-	    </div>
-	</div>
 	<div class="content">
 		<div class="services_title">
-			Our services
+			Интересно
 		</div>
 		<div class="services_place clear interst_block_show">
 			@foreach($interests as $interest)
@@ -108,18 +58,18 @@
 		<div class="us_place_center">
 
 			<div class="us_title_place">
-				<span class="us_title">contact with us</span>
+				<span class="us_title">Контакт с нами</span>
 			</div>
 
 			@include('message')
 
 			{!! Form::open(['action' => ['UsersController@postSubscripe'], ]) !!}
 
-				{!! Form::text('email',null, ['placeholder' => 'Email', 'class' => 'e-mail form-control','id' => 'question_email']) !!}
+				{!! Form::text('email',null, ['placeholder' => 'Эл.адрес', 'class' => 'e-mail form-control','id' => 'question_email']) !!}
 				<br>
-				{!! Form::textarea('question',null, ['placeholder' => 'write your question', 'class' => 'e-mail']) !!}
+				{!! Form::textarea('question',null, ['placeholder' => 'пишите свой вопрос', 'class' => 'e-mail']) !!}
 				<br>
-				<input type="submit" value="send" class="question_send" />
+				<input type="submit" value="Отправить" class="question_send" />
 				{!! Form::close() !!}
 		</div>
 		<div class="us_abs">
@@ -130,7 +80,7 @@
 	</div>
 	<div class="content">
 		<div class="services_title">
-			LATEST NEWS
+			Новости
 		</div>
 		<div class="services_place clear">
 			@foreach($news as $new)
@@ -174,7 +124,7 @@
 		<div class="more_place show_more_news">
 			<div class="all_services">
 
-					<span class="all_ser_text">view more news</span>
+					<span class="all_ser_text">Еще</span>
 
 			</div>
 		</div>
