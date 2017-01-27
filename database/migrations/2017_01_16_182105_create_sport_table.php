@@ -18,6 +18,7 @@ class CreateSportTable extends Migration
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
+            $table->tinyInteger('page_id')->default('1');
             $table->timestamps();
         });
     }

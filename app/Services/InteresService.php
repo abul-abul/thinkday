@@ -85,7 +85,7 @@ class InteresService implements InteresInterface
      */
     public function getPageGallery($category_id)
     {
-        return $this->interes->where('id',$category_id)->with('pageGallery')->with('pageVideo')->get();
+        return $this->interes->where('id',$category_id)->where('page_id','4')->with('pageGallery')->with('pageVideo')->get();
     }
 
     /**
