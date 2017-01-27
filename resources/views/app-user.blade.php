@@ -60,15 +60,6 @@
 			        		<input type="email" class="email" placeholder="Эл.адрес" />
 			        		<input type="password" class="pass" placeholder="Пароль" />
 			        		<input type="password" class="pass" placeholder="Пов-пароль" />
-			        		<a href="#" class="user_soc_links">
-								<i class="fa fa-facebook-square" aria-hidden="true"></i>
-							</a>
-							<a href="#" class="user_soc_links">
-								<i class="fa fa-google-plus-square" aria-hidden="true"></i>
-							</a>
-							<a href="#" class="user_soc_links">
-								<i class="fa fa-twitter-square" aria-hidden="true"></i>
-							</a>
 			        		<input type="submit" class="reg_btn" value="Регистрация">
 			        	</form>
 			        </div>
