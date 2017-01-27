@@ -29,10 +29,14 @@ route::post('/subscripe','UsersController@postSubscripe');
 route::get('show-more-interest/{id}','UsersController@getShowMoreInterest');
 route::get('show-more-news/{id}','UsersController@getShowMoreNews');
 
+Route::post('user/registration','UsersController@postRegistration');
+Route::post('user/login','UsersController@postLogin');
+Route::get('user/profile','UsersController@getUserProfile');
+
 //
 //Route::get('user/login-registration','UsersController@getLoginReg');
-//Route::post('user/registration','UsersController@postRegistration');
-//Route::post('user/login','UsersController@postLogin');
+
+//
 //Route::get('user/dashbord','UsersController@getDeshbord');
 //
 //Route::get('user/facebook-login','UsersController@getFacebookLogin');

@@ -28,7 +28,7 @@ interface UserInterface
      * @param @emil
      * @return user
      */
-    public function getAllSocial($email);
+    public function getAllEmail($email);
 
     /**
      * Update token 

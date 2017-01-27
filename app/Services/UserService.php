@@ -9,11 +9,9 @@ use App\User;
 class UserService implements UserInterface
 {
 
-	/**
-	* Create a new instance of UserService class
-	*
-	* @return void
-	*/
+    /**
+     * UserService constructor.
+     */
 	public function __construct()
 	{
         $this->user = new User();
@@ -47,7 +45,7 @@ class UserService implements UserInterface
      * @param @emil
      * @return user
      */
-    public function getAllSocial($email)
+    public function getAllEmail($email)
     {
         return $this->user->where('email',$email)->first();
     }

@@ -20,56 +20,7 @@
 <body>
 
 <header>
-	<!-- Modal -->
-	  <div class="modal fade" id="myModal" role="dialog">
-	    <div class="modal-dialog">
-	    
-	      <!-- Modal content-->
-	      <div class="modal-content modal_place">
-	        <div class="modal-header modal_head">
-	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Логин</span>
-	          <span class="log_middle">/</span>
-	          <span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Регистрация</span>
-	        </div>	          
-			  <div class="panel-group" id="accordion">
-			    <div class="panel panel-default">
-			      <div id="collapse1" class="panel-collapse collapse in">
-			        <div class="panel-body">
-				        <input type="email" class="email" placeholder="Эл.адрес" />
-				        <input type="password" class="pass" placeholder="Пароль" />
-				        <a href="#" class="user_soc_links">
-							<i class="fa fa-facebook-square" aria-hidden="true"></i>
-						</a>
-						<a href="#" class="user_soc_links">
-							<i class="fa fa-google-plus-square" aria-hidden="true"></i>
-						</a>
-						<a href="#" class="user_soc_links">
-							<i class="fa fa-twitter-square" aria-hidden="true"></i>
-						</a>
-				        <input type="submit" class="log_btn" value="Логин">
-			        </div>
-			      </div>
-			    </div>
-			    <div class="panel panel-default">
-			      <div id="collapse2" class="panel-collapse collapse">
-			      	<div class="panel-body">
-			        	<form action="" method="post">
-			        		<input type="text" class="name" placeholder="Имя" />
-			        		<input type="text" class="name" placeholder="Фамиля" />
-			        		<input type="email" class="email" placeholder="Эл.адрес" />
-			        		<input type="password" class="pass" placeholder="Пароль" />
-			        		<input type="password" class="pass" placeholder="Пов-пароль" />
-			        		<input type="submit" class="reg_btn" value="Регистрация">
-			        	</form>
-			        </div>
-			      </div>
-			    </div>
-			  </div>   
-	      </div>
-	    </div>
-	  </div>
-	<!-- End Modal -->
+
 	<div class="header_center">
 		<div class="center_left">
 			<div class="header_left">
@@ -105,41 +56,7 @@
 						</span>
 					</a>
 				</li>
-				{{--<li class="menu_children">--}}
-					{{--<a href="#" class="menu_link">--}}
-						{{--<span class="link_border">--}}
-							{{--Vehicle Gallery--}}
-							{{--<i class="fa fa-sort-desc" aria-hidden="true"></i>--}}
-							{{--<span class="menu_abs"></span>--}}
-						{{--</span>--}}
-					{{--</a>--}}
-					{{--<ul class="sub_menu_abs">--}}
-						{{--<li class="sub_menu_li">--}}
-							{{--<i class="fa fa-angle-double-right" aria-hidden="true"></i>--}}
-							{{--<a href="#">--}}
-								{{--Masonary Gird--}}
-							{{--</a>--}}
-						{{--</li>--}}
-						{{--<li class="sub_menu_li">--}}
-							{{--<i class="fa fa-angle-double-right" aria-hidden="true"></i>--}}
-							{{--<a href="#">--}}
-								{{--Gird With Padding--}}
-							{{--</a>--}}
-						{{--</li>--}}
-						{{--<li class="sub_menu_li">--}}
-							{{--<i class="fa fa-angle-double-right" aria-hidden="true"></i>--}}
-							{{--<a href="#">--}}
-								{{--Gird With No Padding--}}
-							{{--</a>--}}
-						{{--</li>--}}
-						{{--<li class="sub_menu_li">--}}
-							{{--<i class="fa fa-angle-double-right" aria-hidden="true"></i>--}}
-							{{--<a href="#">--}}
-								{{--Cobbies Gird--}}
-							{{--</a>--}}
-						{{--</li>--}}
-					{{--</ul>--}}
-				{{--</li>--}}
+
 				<li class="menu_children">
 					<a href="{{action('UsersController@getNews')}}" class="menu_link">
 						<span class="link_border">
@@ -227,9 +144,62 @@
 </div>
 
 
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content modal_place">
+			<div class="modal-header modal_head">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Логин</span>
+				<span class="log_middle">/</span>
+				<span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Регистрация</span>
+			</div>
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<input type="email" class="email login_email" placeholder="Эл.адрес" />
+							<input type="password" class="pass login_password" placeholder="Пароль" />
+							<a href="#" class="user_soc_links">
+								<i class="fa fa-facebook-square" aria-hidden="true"></i>
+							</a>
+							<a href="#" class="user_soc_links">
+								<i class="fa fa-google-plus-square" aria-hidden="true"></i>
+							</a>
+							<a href="#" class="user_soc_links">
+								<i class="fa fa-twitter-square" aria-hidden="true"></i>
+							</a>
+							<input type="submit" class="log_btn login_submit" value="Логин">
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div id="collapse2" class="panel-collapse collapse">
+						<div class="panel-body">
+							<input type="hidden" class="token" content="{{ csrf_token() }}">
+							<input type="text" class="reg_name" placeholder="Имя" />
+							<input type="text" class="reg_surname" placeholder="Фамиля" />
+							<input type="email" class="reg_email" placeholder="Эл.адрес" />
+							<input type="password" class="reg_pass" placeholder="Пароль" />
+							<input type="password" class="reg_rebeatpass" placeholder="Пов-пароль" />
+							<input type="button" class="reg_btn reg_submit" value="Регистрация">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Modal -->
+
 	{!! HTML::script( asset('assets/user/js/jquery.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/bootstrap.min.js') ) !!}
 	{!! HTML::script(asset('assets/user/js/show_more.js') ) !!}
+    {!! HTML::script( asset('assets/user/js/registation_login.js') ) !!}
+
 	{!! HTML::script( asset('assets/user/js/init.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/user_main.js') ) !!}
 

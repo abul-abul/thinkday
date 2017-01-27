@@ -44,6 +44,7 @@ class UsersController extends BaseController
     }
 
 
+
     /**
      * @return mixed
      * @internal param Request $request
@@ -290,42 +291,59 @@ class UsersController extends BaseController
             return redirect()->back()->with('error','Ваше письмо отправлено');
         }
     }
+
     /**
-     * 
+     * @param UserRequest $request
+     * @param UserInterface $userRepo
+     * @return mixed
      */
-//    public function postRegistration(UserRequest $request,UserInterface $userRepo)
-//    {
-//        $result = $request->inputs();
-//        $userRepo->createOne($result);
-//        return redirect()->back();
-//    }
-//
-//    /**
-//     *
-//     */
-//    public function postLogin(Request $request)
-//    {
-//        $result = $request->all();
-//        $password = $request->get('password');
-//        $email = $request->get('email');
-//
-//        $validator = Validator::make($result, [
-//            'email' => 'required|email',
-//            'password' => 'required',
-//        ]);
-//        if ($validator->fails()) {
-//            return redirect()->back()->withErrors($validator);
-//        }else{
-//            if(Auth::attempt([
-//                'email' => $email,
-//                'password' => $password,
-//                'role' => 'user'
-//            ]))
-//            {
-//                return redirect()->action('UsersController@getDeshbord');
-//            }
-//        }
-//    }
+    public function postRegistration(UserRequest $request,UserInterface $userRepo)
+    {
+        $result = $request->inputs();
+        $user =  $userRepo->createOne($result);
+        return response()->json($user);
+    }
+
+
+    /**
+     * @param Request $request
+     * @param UserInterface $userRepo
+     * @return mixed
+     */
+    public function postLogin(Request $request,UserInterface $userRepo)
+    {
+        $result = $request->all();
+        $password = $request->get('password');
+        $email = $request->get('email');
+
+        $validator = Validator::make($result, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        if ($validator->fails()) {
+           // return redirect()->back()->withErrors($validator);
+        }else{
+            if(Auth::attempt([
+                'email' => $email,
+                'password' => $password,
+                'role' => 'user'
+            ]))
+            {
+                $user = $userRepo->getAllEmail($email);
+                Auth::login($user);
+                return response()->json(['error'=>'success']);
+            }else{
+                return response()->json(['error'=>'error']);
+            }
+        }
+    }
+
+    public function getUserProfile()
+    {
+        return view('user.user_profile.user_profile');
+    }
+
+
 //
 //    /**
 //     *
