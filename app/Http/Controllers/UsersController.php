@@ -14,6 +14,8 @@ use App\Contracts\NewsInterface;
 use App\Contracts\SportInterface;
 use App\Contracts\GameCategoryInterface;
 use App\Contracts\GamePageInterface;
+use App\Contracts\InteresInterface;
+use App\Contracts\SubscripeInterface;
 
 
 use App\Http\Requests;
@@ -31,9 +33,9 @@ class UsersController extends BaseController
      *
      * @param LanguageInterface $langRepo
      */
-	public function __construct(LanguageInterface $langRepo)
+	public function __construct(LanguageInterface $langRepo,SubscripeInterface $subscripeRepo)
     {
-        parent::__construct($langRepo);
+        parent::__construct($langRepo,$subscripeRepo);
        // $this->middleware('auth', ['except' => ['getLogin', 'postLogin','getLogout']]);
        // $this->middleware('language');
 
@@ -52,9 +54,83 @@ class UsersController extends BaseController
     /**
      * @return mixed
      */
-    public function getHome()
+    public function getHome(NewsInterface $newsRepo,InteresInterface $interesRepo)
     {
-        return view('user.home');
+        $news = $newsRepo->getLastRow();
+        $news_rand = $newsRepo->getRandomNews();
+        $interests = $interesRepo->getLastRow();
+        $interest_rand = $interesRepo->getRandomInteres();
+        $data = [
+            "news" => $news,
+            "news_rands" => $news_rand,
+            'interests' => $interests,
+            "interest_rands" => $interest_rand
+        ];
+        return view('user.home',$data);
+    }
+
+    /**
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function getInteres(InteresInterface $interesRepo)
+    {
+        $result = $interesRepo->getAllPaginate();
+        $randNews = $interesRepo->getRandomInteres();
+        $data = [
+            'rand_interests' => $randNews,
+            'interests' => $result
+        ];
+        return view('user.interes.interes',$data);
+    }
+
+    /**
+     * @param $id
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function getInteresCategory($id,InteresInterface $interesRepo)
+    {
+        $gallerys = $interesRepo->getPageGallery($id);
+        $result = $interesRepo->getOne($id);
+        $randNews = $interesRepo->getRandomInteres();
+        $data = [
+            'interests' => $result,
+            'gallerys' => $gallerys,
+            'rand_interests' => $randNews,
+        ];
+        return view('user.interes.interes-category',$data);
+    }
+
+    /**
+     * @param $id
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function getShowMoreInterest($id,InteresInterface $interesRepo)
+    {
+        $result = $interesRepo->showMoreInterest($id);
+
+        $data = [
+           'interests' => $result
+        ];
+        $showView = view('user.interes.show-more-interest', $data)->render();
+        return response()->json(["status"=>"success","resource"=>$showView]);
+    }
+
+    /**
+     * @param $id
+     * @param NewsInterface $newsRepo
+     * @return mixed
+     */
+    public function getShowMoreNews($id,NewsInterface $newsRepo)
+    {
+        $result = $newsRepo->getShowMoreNews($id);
+        $data = [
+            'news' => $result
+        ];
+        $showView = view('user.news.show-more-news', $data)->render();
+        return response()->json(["status"=>"success","resource"=>$showView]);
     }
 
     /**
@@ -171,8 +247,30 @@ class UsersController extends BaseController
             'game' => $result,
             'random_games' => $rand
         ];
-//        dd($data);
         return view('user.game.game-inner-category-page',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param SubscripeInterface $subscripeRepo
+     * @return mixed
+     */
+    public function postSubscripe(request $request,SubscripeInterface $subscripeRepo)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'email' => 'required|email',
+            'question' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            unset($result['_token']);
+            $result['status'] = '0';
+
+            $subscripeRepo->getCreate($result);
+            return redirect()->back()->with('error','Ваше письмо отправлено');
+        }
     }
     /**
      * 

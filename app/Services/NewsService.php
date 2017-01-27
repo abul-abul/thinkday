@@ -96,5 +96,22 @@ class NewsService implements NewsInterface
         return $this->news->inRandomOrder()->take(8)->get();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLastRow()
+    {
+        return $this->news->orderBy('id', 'desc')->take(8)->get();
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getShowMoreNews($id)
+    {
+        return $this->news->where('id','>',$id)->limit(8)->get();
+    }
+
 
 }

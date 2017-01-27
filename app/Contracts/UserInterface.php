@@ -20,6 +20,8 @@ interface UserInterface
      */	
     public function getOne($id);
 
+
+
     /**
      * Select all social login Email
      *

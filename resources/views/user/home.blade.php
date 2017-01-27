@@ -55,275 +55,47 @@
 		<div class="services_title">
 			Our services
 		</div>
-		<div class="services_place clear">
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service1.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our works</span>
-					</div>
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service2.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our partners</span>
-					</div>
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service3.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our blogs</span>
-					</div>
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service4.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our videos</span>
-					</div>
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service5.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our images images images</span>
-					</div>
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service6.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our works</span>
-					</div>
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service4.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our videos</span>
-					</div>
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service5.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our images images images</span>
-					</div>
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs"></div>
-					<img src="/assets/user/images/service6.jpg" class="service_image" />
-					<div class="service_abs">
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						<span class="ser_abs_text">our works</span>
-					</div>
-				</a>
-			</div>
+		<div class="services_place clear interst_block_show">
+			@foreach($interests as $interest)
+				<div data-id="{{$interest->id}}" class="services_blocks interest_show_block">
+					<a href="{{action('UsersController@getInteresCategory',$interest->id)}}">
+						<div class="ser_bg_abs"></div>
+						<img src="/page_uploade/interes/{{$interest->image}}" class="service_image" />
+						<div class="service_abs">
+							<i class="fa fa-arrow-right" aria-hidden="true"></i>
+							<span class="ser_abs_text">{{$interest->title}}</span>
+						</div>
+					</a>
+				</div>
+			@endforeach
+
 		</div>
 		<div class="content_right_place">
 		<div class="posts_place">
-			<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service1.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service2.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service3.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service4.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service5.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service6.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service1.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service2.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service3.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service4.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service5.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
+				@foreach($news_rands as $news_rand)
+					<div class="posts">
+						<a href="{{action('UsersController@getNewsCategory',$news_rand->id)}}">
+							<div class="posts_image_place">
+								<img src="/page_uploade/news/{{$news_rand->image}}" class="posts_image" />
+							</div>
+							<p class="posts_title">
+								{{$news_rand->title}}
+							</p>
+							<p class="posts_text">
+								{{substr($news_rand->description, 0,80)}} ...
+
+							</p>
+						</a>
+					</div>
+				@endforeach
 		</div>
 		<div class="advertising_place">
-			advertising_place advertising_place advertising_place advertising_place advertising_place
+
 		</div>
 		</div>
-		<div class="more_place">
+		<div class="more_place show_more_interest">
 			<div class="all_services">
-				<a href="#" class="all_link">
-					<span class="all_ser_text">view more news</span>
-				</a>
+				<span class="all_ser_text">Еще</span>
 			</div>
 		</div>
 	</div>
@@ -334,16 +106,21 @@
 			</div>
 		</div>
 		<div class="us_place_center">
+
 			<div class="us_title_place">
 				<span class="us_title">contact with us</span>
 			</div>
-			<form action="" method="post">
-				<input id="question_email" type="email" class="e-mail" placeholder="Email" />
+
+			@include('message')
+
+			{!! Form::open(['action' => ['UsersController@postSubscripe'], ]) !!}
+
+				{!! Form::text('email',null, ['placeholder' => 'Email', 'class' => 'e-mail form-control','id' => 'question_email']) !!}
 				<br>
-				<textarea placeholder="write your question"></textarea>
+				{!! Form::textarea('question',null, ['placeholder' => 'write your question', 'class' => 'e-mail']) !!}
 				<br>
 				<input type="submit" value="send" class="question_send" />
-			</form>
+				{!! Form::close() !!}
 		</div>
 		<div class="us_abs">
 			<div class="us_rel">
@@ -356,256 +133,49 @@
 			LATEST NEWS
 		</div>
 		<div class="services_place clear">
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service1.jpg" class="service_image" />
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service2.jpg" class="service_image" />
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service3.jpg" class="service_image" />
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service1.jpg" class="service_image" />
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service2.jpg" class="service_image" />
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service3.jpg" class="service_image" />
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service1.jpg" class="service_image" />
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service2.jpg" class="service_image" />
-				</a>
-			</div>
-			<div class="services_blocks">
-				<a href="#">
-					<div class="ser_bg_abs_1">
-						<i class="fa fa-link" aria-hidden="true"></i>
-					</div>
-					<img src="/assets/user/images/service3.jpg" class="service_image" />
-				</a>
-			</div>
+			@foreach($news as $new)
+				<div data-id="{{$new->id}}" class="services_blocks news_show_block">
+					<a href="{{action('UsersController@getNewsCategory',$new->id)}}">
+						<div class="ser_bg_abs"></div>
+						<img src="/page_uploade/news/{{$new->image}}" class="service_image" />
+						<div class="service_abs">
+							<i class="fa fa-arrow-right" aria-hidden="true"></i>
+							<span class="ser_abs_text">{{$new->title}}</span>
+						</div>
+					</a>
+				</div>
+			@endforeach
+				<div class="loader"></div>
+
+				<div class="append_news_block"></div>
 		</div>
 		<div class="content_right_place">
 		<div class="posts_place">
-			<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service1.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
+			@foreach($interest_rands as $interest_rand)
 				<div class="posts">
-					<a href="#">
+					<a href="{{action('UsersController@getInteresCategory',$interest_rand->id)}}">
 						<div class="posts_image_place">
-							<img src="/assets/user/images/service2.jpg" class="posts_image" />
+							<img src="/page_uploade/interes/{{$interest_rand->image}}" class="posts_image" />
 						</div>
 						<p class="posts_title">
-							Day News on one string
+							{{$interest_rand->title}}
 						</p>
 						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
+							{{substr($interest_rand->description, 0,80)}} ...
 						</p>
 					</a>
 				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service3.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service4.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service5.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service6.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service1.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service2.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service3.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service4.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
-				<div class="posts">
-					<a href="#">
-						<div class="posts_image_place">
-							<img src="/assets/user/images/service5.jpg" class="posts_image" />
-						</div>
-						<p class="posts_title">
-							Day News on one string
-						</p>
-						<p class="posts_text">
-							Some one is looser,but some one is clever.
-							But every one is man.
-							We are people.
-						</p>
-					</a>
-				</div>
+			@endforeach
 		</div>
 		<div class="advertising_place">
-			advertising_place advertising_place advertising_place advertising_place advertising_place
+
 		</div>
 		</div>
-		<div class="more_place">
+		<div class="more_place show_more_news">
 			<div class="all_services">
-				<a href="#" class="all_link">
+
 					<span class="all_ser_text">view more news</span>
-				</a>
+
 			</div>
 		</div>
 	</div>

@@ -23,6 +23,11 @@ route::get('/sport-category/{id}','UsersController@getSportCategory');
 route::get('/game','UsersController@getGame');
 route::get('/category-page/{id}','UsersController@getCategoryPage');
 route::get('/game-category-inner-page/{id}','UsersController@gameCategoryInnerPage');
+route::get('/interesting','UsersController@getInteres');
+route::get('/interesting-category/{id}','UsersController@getInteresCategory');
+route::post('/subscripe','UsersController@postSubscripe');
+route::get('show-more-interest/{id}','UsersController@getShowMoreInterest');
+route::get('show-more-news/{id}','UsersController@getShowMoreNews');
 
 //
 //Route::get('user/login-registration','UsersController@getLoginReg');
@@ -124,6 +129,13 @@ Route::get('ab-admin/del-sport/{id}','AdminController@getDeleteSport');
 Route::get('ab-admin/one-sport/{id}','AdminController@getOneSport');
 Route::post('ab-admin/edit-sport','AdminController@postEditSport');
 
+Route::get('ab-admin/interes-list','AdminController@getInteresList');
+Route::get('ab-admin/add-interes','AdminController@getAddInteres');
+Route::post('ab-admin/add-interes','AdminController@postAddInteres');
+Route::get('ab-admin/del-interes/{id}','AdminController@getDeleteInteres');
+Route::get('ab-admin/one-interes/{id}','AdminController@getOneInteres');
+Route::post('ab-admin/edit-sport','AdminController@postEditInterests');
+
 Route::post('ab-admin/add-game-name','AdminController@postAddGameName');
 Route::get('ab-admin/game-page-list','AdminController@gamePageList');
 Route::get('ab-admin/delete-game-name/{id}','AdminController@getDeleteGameName');
@@ -138,6 +150,12 @@ Route::get('ab-admin/language','AdminController@getLanguage');
 Route::post('ab-admin/add-language','AdminController@postAddLanguage');
 Route::get('ab-admin/language-list','AdminController@getLanguageList');
 Route::get('ab-admin/language-delete/{id}','AdminController@getDeleteLanguage');
+
+
+
+Route::get('ab-admin/subscripe','AdminController@getSubscripe');
+Route::get('ab-admin/subscripe-delete/{id}','AdminController@getDeleteSubscripe');
+Route::get('ab-admin/subscripe-inner/{status}/{id}','AdminController@getOneSubscripe');
 
 
 

@@ -19,6 +19,9 @@ use App\Contracts\SportInterface;
 use App\Contracts\PageGalleryServiceInterface;
 use App\Contracts\GamePageInterface;
 use App\Contracts\GameCategoryInterface;
+use App\Contracts\InteresInterface;
+use App\Contracts\SubscripeInterface;
+
 use View;
 use Session;
 use Validator;
@@ -34,9 +37,9 @@ class AdminController extends BaseController
      * AdminController constructor.
      * @param LanguageInterface $langRepo
      */
-	public function __construct(LanguageInterface $langRepo)
+	public function __construct(LanguageInterface $langRepo,SubscripeInterface $subscripeRepo)
     {
-        parent::__construct($langRepo);
+        parent::__construct($langRepo,$subscripeRepo);
         $this->middleware('authadmin', ['except' => ['getLogin', 'postLogin','getLogout']]);
     }
 
@@ -762,6 +765,117 @@ class AdminController extends BaseController
         return redirect()->action('AdminController@getSportList');
     }
 
+
+    /**
+     * @return View
+     */
+    public function  getAddInteres()
+    {
+        return view('admin.pages.interes.add-interes');
+    }
+
+
+    /**
+     * @param InteresInterface $interesRepo
+     * @return View
+     */
+    public function getInteresList(InteresInterface $interesRepo)
+    {
+        $result = $interesRepo->getAll();
+        $data = [
+            'interests' => $result,
+        ];
+        return view('admin.pages.interes.interes-list',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function postAddInteres(request $request,InteresInterface $interesRepo)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            if ($request['image']){
+                $logoFile = $result['image']->getClientOriginalExtension();
+                $name = str_random(12);
+                $path = public_path() . '/page_uploade/interes';
+                $result_move =  $result['image']->move($path, $name.'.'.$logoFile);
+                $images = $name.'.'.$logoFile;
+                $data['image'] = $images;
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }else{
+                $data['description'] = $result['description'];
+                $data['title'] = $result['title'];
+            }
+            $interesRepo->getCreate($data);
+        }
+        return redirect(action('AdminController@getInteresList'));
+    }
+
+    /**
+     * @param $id
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function getDeleteInteres($id,InteresInterface $interesRepo)
+    {
+        $res = $interesRepo->getOne($id);
+        if($res->image == ""){
+            $interesRepo->getdelete($id);
+        }else{
+            $path =  public_path().'/page_uploade/interes/'.$res->image;
+            $interesRepo->getdelete($id);
+            File::delete($path);
+        }
+        return redirect()->back()->with('error',"File deleted");
+    }
+
+    /**
+     * @param $id
+     * @param InteresInterface $interesRepo
+     * @return View
+     */
+    public function getOneInteres($id,InteresInterface $interesRepo)
+    {
+        $result = $interesRepo->getOne($id);
+        $data = [
+            'interests' => $result
+        ];
+        return view('admin.pages.interes.edit-interes',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param InteresInterface $interesRepo
+     * @return mixed
+     */
+    public function postEditInterests(request $request,InteresInterface $interesRepo)
+    {
+        $result = $request->all();
+        if(isset($result['image'])){
+            $oldObj = $interesRepo->getOne($result['id']);
+            $oldImg = public_path() .'/page_uploade/interes/' . $oldObj->image;
+            File::delete($oldImg);
+            $logoFile = $result['image']->getClientOriginalExtension();
+            $name = str_random(12);
+            $path = public_path() . '/page_uploade/interes';
+            $result_move = $result['image']->move($path, $name.'.'.$logoFile);
+            $news_images = $name.'.'.$logoFile;
+            $result['image'] = $news_images;
+        }
+        $interesRepo->getUpdate($result['id'],$result);
+        return redirect()->action('AdminController@getInteresList');
+    }
+
     /**
      * @param $page_id
      * @param $category_id
@@ -1097,30 +1211,6 @@ class AdminController extends BaseController
         return redirect()->back()->with('error','game category deleted');
     }
 
-    /**
-     * @return View
-     */
-    public function getVideo()
-    {
-        return view('admin.pages.video.video');
-    }
-
-
-    /**
-     * @return View
-     */
-    public function getShowBiznes()
-    {
-        return view('admin.pages.showbiznes.showbiznes');
-    }
-
-    /**
-     * @return View
-     */
-    public function getCulture()
-    {
-        return view('admin.pages.culture.culture');
-    }
 
     /**
      * @return View
@@ -1274,7 +1364,48 @@ class AdminController extends BaseController
         return response()->json($name);
     }
 
-    
+    /**
+     * @param SubscripeInterface $subscripeRepo
+     * @return View
+     */
+    public function getSubscripe(SubscripeInterface $subscripeRepo)
+    {
+        $result = $subscripeRepo->getAllPaginate();
+        $data = [
+            'subscrips' => $result
+        ];
+        return view('admin.pages.subscripe.subscripe',$data);
+    }
+
+    /**
+     * @param $id
+     * @param SubscripeInterface $subscripeRepo
+     * @return mixed
+     */
+    public function getDeleteSubscripe($id,SubscripeInterface $subscripeRepo)
+    {
+        $subscripeRepo->getdelete($id);
+        return redirect()->back()->with('error','Subscripe deleted');
+    }
+
+    /**
+     * @param $status
+     * @param $id
+     * @param SubscripeInterface $subscripeRepo
+     * @return View
+     */
+    public function getOneSubscripe($status,$id,SubscripeInterface $subscripeRepo)
+    {
+        $result = $subscripeRepo->getOne($id);
+        $status = [
+            'status' => '1'
+        ];
+        $subscripeRepo->getUpdate($id,$status);
+        $data =  [
+            'subscripe' => $result
+        ];
+        return view('admin.pages.subscripe.subscripe-inner',$data);
+    }
 
 
 }

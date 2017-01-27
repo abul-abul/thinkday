@@ -191,6 +191,14 @@
 					</a>
 				</li>
 				<li class="menu_children">
+					<a href="{{action('UsersController@getInteres')}}" class="menu_link">
+						<span class="link_border">
+							Interest
+							<span class="menu_abs"></span>
+						</span>
+					</a>
+				</li>
+				<li class="menu_children">
 					<a href="{{action('UsersController@getGame')}}" class="menu_link">
 						<span class="link_border">
 							Games
@@ -255,6 +263,7 @@
 
 	{!! HTML::script( asset('assets/user/js/jquery.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/bootstrap.min.js') ) !!}
+	{!! HTML::script(asset('assets/user/js/show_more.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/init.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/user_main.js') ) !!}
 
