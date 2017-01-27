@@ -148,11 +148,10 @@
                     </p>
                 </div>
             </div>
-            @if(count($gallerys[0]['pageGallery']) != 0)
-=======
+
 
             @if(count($gallerys) != 0)
->>>>>>> e579d406f00f64dfaf188c46f2854186a7bb1635
+
                 <div class="cabaret_scroll_slider">
                     <i class="fa fa-camera" aria-hidden="true"></i>
                     <span class="gallery_news">галерея</span>
