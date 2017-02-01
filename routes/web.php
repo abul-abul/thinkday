@@ -33,20 +33,15 @@ Route::post('user/registration','UsersController@postRegistration');
 Route::post('user/login','UsersController@postLogin');
 Route::get('user/profile','UsersController@getUserProfile');
 
-//
-//Route::get('user/login-registration','UsersController@getLoginReg');
 
-//
-//Route::get('user/dashbord','UsersController@getDeshbord');
-//
 Route::get('user/facebook-login','UsersController@getFacebookLogin');
 Route::get('user/facebook-callback','UsersController@getFacebookCallback');
-//
-//Route::get('user/twitter-login','UsersController@getTwitterLogin');
-//Route::get('user/twitter-callback','UsersController@getTwitterCallback');
-//
-//Route::get('user/google-login','UsersController@getGoogleLogin');
-//Route::get('user/google-callback','UsersController@getGoogleCallback');
+
+Route::get('user/twitter-login','UsersController@getTwitterLogin');
+Route::get('user/twitter-callback','UsersController@getTwitterCallback');
+
+Route::get('user/google-login','UsersController@getGoogleLogin');
+Route::get('user/google-callback','UsersController@getGoogleCallback');
 //Route::post('user/add-message','UsersController@postAddMessage');
 //
 //Route::get('video','UsersController@getVideo');
@@ -165,6 +160,9 @@ Route::get('ab-admin/subscripe-inner/{status}/{id}','AdminController@getOneSubsc
 
 Route::get('ab-admin/all-users','AdminController@getAllUsers');
 Route::get('ab-admin/user-delete/{id}','AdminController@getDeleteUser');
+Route::get('ab-admin/facebook-users','AdminController@getFacebookUsers');
+Route::get('ab-admin/google-users','AdminController@getGoogleUsers');
+Route::get('ab-admin/tweeter-users','AdminController@getTweeterUsers');
 
 
 

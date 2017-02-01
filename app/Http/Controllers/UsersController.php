@@ -364,7 +364,7 @@ class UsersController extends BaseController
 
         $id = $user->id;
         $token = $user->token;
-
+        $fullName = $user->name;
 
         $exp = explode(' ', $fullName);
         $firstname = $exp[0];
@@ -375,9 +375,9 @@ class UsersController extends BaseController
 
         $firstEmail = $userRepo->getAllSocial($email);
         if(count($firstEmail) == 0){
-             $data = [
+            $data = [
                 'facebook_id' => $id,
-                'firstname' => $username,
+                'firstname' => $firstname,
                 'lastname' => $lastname,
                 'email' => $email,
                 'profile_picture' => $userAvatar,
@@ -391,132 +391,119 @@ class UsersController extends BaseController
                 'facebook_token' => $token
             ];
             $userRepo->updateSocialToken($email,$tokenData);
+            return redirect()->action('UsersController@getUserProfile');
         }
-        return redirect()->action('UsersController@getDeshbord');
+        return redirect()->action('UsersController@getUserProfile');
+
     }
-//
-//    /**
-//     * Get facebook login
-//     */
-//    public function getTwitterLogin()
-//    {
-//        return Socialite::with('twitter')->redirect();
-//    }
-//
-//    /**
-//     * get Facebook callback
-//     * GET user/facebook-callback
-//     *
-//     * @return redirect
-//     */
-//    public function getTwitterCallback(UserInterface $userRepo)
-//    {
-//        $user = Socialite::with('twitter')->user();
-//
-//        $id = $user->id;
-//        $token = $user->token;
-//        $fullName = $user->getName();
-//
-//        $exp = explode(' ', $fullName);
-//        $username = $exp[0];
-//        $lastname = $exp[1];
-//        $email = $user->getEmail();
-//
-//        $userAvatar =  $user->getAvatar();
-//
-//        $firstEmail = $userRepo->getAllSocial($email);
-//        if(count($firstEmail) == 0){
-//             $data = [
-//                'twitter_id' => $id,
-//                'username' => $username,
-//                'lastname' => $lastname,
-//                'email' => $email,
-//                'profile_picture' => $userAvatar,
-//                'twitter_token' => $token
-//            ];
-//            $result = $userRepo->createOne($data);
-//            Auth::login($userRepo->getOne($result->id));
-//        }else{
-//            Auth::login($firstEmail);
-//            $tokenData = [
-//                'twitter_token' => $token
-//            ];
-//            $userRepo->updateSocialToken($email,$tokenData);
-//        }
-//        return redirect()->action('UsersController@getDeshbord');
-//    }
-//
-//    /**
-//     * Get facebook login
-//     */
-//    public function getGoogleLogin()
-//    {
-//        return Socialite::with('google')->redirect();
-//    }
-//
-//     /**
-//     * get Facebook callback
-//     * GET user/facebook-callback
-//     *
-//     * @return redirect
-//     */
-//    public function getGoogleCallback(UserInterface $userRepo)
-//    {
-//        $user = Socialite::with('google')->user();
-//        $id = $user->id;
-//        $token = $user->token;
-//        $fullName = $user->getName();
-//
-//        $exp = explode(' ', $fullName);
-//        $username = $exp[0];
-//        $lastname = $exp[1];
-//        $email = $user->getEmail();
-//
-//        $userAvatar =  $user->getAvatar();
-//
-//        $firstEmail = $userRepo->getAllSocial($email);
-//        if(count($firstEmail) == 0){
-//             $data = [
-//                'google_id' => $id,
-//                'username' => $username,
-//                'lastname' => $lastname,
-//                'email' => $email,
-//                'profile_picture' => $userAvatar,
-//                'google_token' => $token
-//            ];
-//            $result = $userRepo->createOne($data);
-//            Auth::login($userRepo->getOne($result->id));
-//        }else{
-//            Auth::login($firstEmail);
-//            $tokenData = [
-//                'google_token' => $token
-//            ];
-//            $userRepo->updateSocialToken($email,$tokenData);
-//        }
-//        return redirect()->action('UsersController@getDeshbord');
-//    }
+
 
 
     /**
-     * 
+     * Get facebook login
      */
-    // public function getFile(Filesystem $filesystem)
-    // {
-    //    //$x = Storage::disk('local')->put('filez.txt', 'Contents');
-    //     $filename = base_path().'pagination.php';
+    public function getTwitterLogin()
+    {
+        return Socialite::with('twitter')->redirect();
+    }
+
+    /**
+     * get Facebook callback
+     * GET user/facebook-callback
+     *
+     * @return redirect
+     */
+    public function getTwitterCallback(UserInterface $userRepo)
+    {
+        $user = Socialite::with('twitter')->user();
+
+        $id = $user->id;
+        $token = $user->token;
+        $fullName = $user->name;
+
+
+        $exp = explode(' ', $fullName);
+        $firstname = $exp[0];
+        $lastname = $exp[1];
+        $email = $user->getEmail();
+
+        $userAvatar =  $user->getAvatar();
+
+        $firstEmail = $userRepo->getAllSocial($email);
+        if(count($firstEmail) == 0){
+            $data = [
+                'twitter_id' => $id,
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'email' => $email,
+                'profile_picture' => $userAvatar,
+                'twitter_token' => $token,
+            ];
+            $result = $userRepo->createOne($data);
+            Auth::login($userRepo->getOne($result->id));
+        }else{
+            Auth::login($firstEmail);
+            $tokenData = [
+                'twitter_token' => $token
+            ];
+            $userRepo->updateSocialToken($email,$tokenData);
+        }
+        return redirect()->action('UsersController@getUserProfile');
+    }
+
+    /**
+     * Get facebook login
+     */
+    public function getGoogleLogin()
+    {
+        return Socialite::with('google')->redirect();
+    }
+
+     /**
+     * get Facebook callback
+     * GET user/facebook-callback
+     *
+     * @return redirect
+     */
+    public function getGoogleCallback(UserInterface $userRepo)
+    {
+        $user = Socialite::with('google')->user();
+
+        $id = $user->id;
+        $token = $user->token;
+        $fullName = $user->name;
+
+
+        $exp = explode(' ', $fullName);
+        $firstname = $exp[0];
+        $lastname = $exp[1];
+        $email = $user->getEmail();
+
+        $userAvatar =  $user->getAvatar();
+
+        $firstEmail = $userRepo->getAllSocial($email);
+        if(count($firstEmail) == 0){
+             $data = [
+                'google_id' => $id,
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'email' => $email,
+                'profile_picture' => $userAvatar,
+                'google_token' => $token,
+             ];
+            $result = $userRepo->createOne($data);
+            Auth::login($userRepo->getOne($result->id));
+        }else{
+            Auth::login($firstEmail);
+            $tokenData = [
+                'google_token' => $token
+            ];
+            $userRepo->updateSocialToken($email,$tokenData);
+        }
+        return redirect()->action('UsersController@getUserProfile');
+    }
+
         
 
-    //    // $disk = Storage::disk('local');
-    //     // $filesystem->append()
-    //     // $path = base_path().'pagination.php';
-
-    //     // $filesystem->append($path, 'Appended Text');
-    //   //  $file = $filesystem->get('hello.txt');
-
-    //  //   dd($file);
-    // }
-    /**
-     * 
-     */
 
 }

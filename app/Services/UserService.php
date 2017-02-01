@@ -47,7 +47,7 @@ class UserService implements UserInterface
     {
         return $this->getOne($id)->delete();
     }
-    
+
     /**
      * Select all social login Email
      *
@@ -117,7 +117,7 @@ class UserService implements UserInterface
      */
     public function getAllUserFacebook()
     {
-        return $this->user->where('facebook_id','!=', null)->get();
+        return $this->user->where('facebook_id','!=', null)->paginate(10);
     }
 
     /**
@@ -128,7 +128,7 @@ class UserService implements UserInterface
      */
     public function getAllUserGoogle()
     {
-        return $this->user->where('google_id','!=', null)->get();
+        return $this->user->where('google_id','!=', null)->paginate(10);
     }
 
     /**
@@ -139,6 +139,7 @@ class UserService implements UserInterface
      */
     public function getAllUserTweeter()
     {
-        return $this->user->where('twitter_id','!=', null)->get();
+        return $this->user->where('twitter_id','!=', null)->paginate(10);
     }
+    
 }

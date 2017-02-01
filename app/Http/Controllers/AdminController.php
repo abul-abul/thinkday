@@ -1431,5 +1431,44 @@ class AdminController extends BaseController
         return redirect()->back()->with('error','users deleted');
     }
 
+    /**
+     * @param UserInterface $userRepo
+     * @return View
+     */
+    public function getFacebookUsers(UserInterface $userRepo)
+    {
+        $result = $userRepo->getAllUserFacebook();
+        $data = [
+            'users' => $result
+        ];
+        return view('admin.users.facebook-user-list',$data);
+    }
+
+    /**
+     * @param UserInterface $userRepo
+     * @return View
+     */
+    public function getGoogleUsers(UserInterface $userRepo)
+    {
+        $result = $userRepo->getAllUserGoogle();
+        $data = [
+            'users' => $result
+        ];
+        return view('admin.users.google-user-list',$data);
+    }
+
+    /**
+     * @param UserInterface $userRepo
+     * @return View
+     */
+    public function getTweeterUsers(UserInterface $userRepo)
+    {
+        $result = $userRepo->getAllUserTweeter();
+        $data = [
+            'users' => $result
+        ];
+        return view('admin.users.tweeter-user-list',$data);
+    }
+
 
 }

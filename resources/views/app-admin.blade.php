@@ -283,24 +283,24 @@
 							</li>
 
 							<li class="">
-								<a href="#">
+								<a href="{{action('AdminController@getFacebookUsers')}}">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Facebook user list
+									Facebook users list
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 							
 							<li class="">
-								<a href="{{action('AdminController@getAddArticle')}}">
+								<a href="{{action('AdminController@getGoogleUsers')}}">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Google user list
+									Google users list
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 							<li class="">
-								<a href="{{action('AdminController@getAddArticle')}}">
+								<a href="{{action('AdminController@getTweeterUsers')}}">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Twitter user list
 								</a>
