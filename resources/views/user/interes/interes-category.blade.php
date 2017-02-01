@@ -3,6 +3,7 @@
 
     {!! HTML::style( asset('assets/user/css/jquery.mCustomScrollbar.css')) !!}
     {!! HTML::style( asset('assets/user/css/lightgallery.css')) !!}
+    {!! HTML::style( asset('assets/user/css/star-rating.css')) !!}
 
 
     <div class="content">
@@ -13,6 +14,11 @@
             <p class="news_date_place">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
                 <span>{{date('d.m.Y', strtotime($interests->created_at))}}</span>
+                <div class="container">
+                <form>
+                    <input type="text" class="rating rating-loading" value="3.75" data-size="xl" title="">
+                </form>
+                </div>
             </p>
             @if($interests->image)
             <div class="news_image_place">
@@ -115,5 +121,6 @@
     {!! HTML::script(asset('assets/user/js/jquery.mCustomScrollbar.concat.min.js'))!!}
     {!! HTML::script(asset('assets/user/js/lightgallery.js'))!!}
     {!! HTML::script(asset('assets/user/js/lightgalleryCall.js'))!!}
+    {!! HTML::script(asset('assets/user/js/star-rating.js'))!!}
 
 @endsection
