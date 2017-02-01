@@ -1407,5 +1407,29 @@ class AdminController extends BaseController
         return view('admin.pages.subscripe.subscripe-inner',$data);
     }
 
+    /**
+     * @param UserInterface $userRepo
+     * @return View
+     */
+    public function getAllUsers(UserInterface $userRepo)
+    {
+        $result = $userRepo->getAllPaginate();
+        $data = [
+            'users' => $result
+        ];
+        return view('admin.users.users-list',$data);
+    }
+
+    /**
+     * @param $id
+     * @param UserInterface $userRepo
+     * @return mixed
+     */
+    public function getDeleteUser($id,UserInterface $userRepo)
+    {
+        $userRepo->getDelete($id);
+        return redirect()->back()->with('error','users deleted');
+    }
+
 
 }

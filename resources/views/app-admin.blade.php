@@ -276,14 +276,14 @@
 
 						<ul class="submenu">
 							<li class="">
-								<a href="">
+								<a href="{{action('AdminController@getAllUsers')}}">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Users List
 								</a>
 							</li>
 
 							<li class="">
-								<a href="{{action('AdminController@getAddArticle')}}">
+								<a href="#">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Facebook user list
 								</a>

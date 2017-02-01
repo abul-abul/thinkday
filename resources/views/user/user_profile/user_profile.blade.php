@@ -1,8 +1,5 @@
 @extends('app-user')
 @section('user-content')
-hello {{Auth::User()->firstname}}
-
-		
 
 
 		<div class="user_content">

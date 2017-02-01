@@ -163,7 +163,7 @@
 						<div class="panel-body">
 							<input type="email" class="email login_email" placeholder="Эл.адрес" />
 							<input type="password" class="pass login_password" placeholder="Пароль" />
-							<a href="#" class="user_soc_links">
+							<a target="_blank" href="{{action('UsersController@getFacebookLogin')}}" class="user_soc_links">
 								<i class="fa fa-facebook-square" aria-hidden="true"></i>
 							</a>
 							<a href="#" class="user_soc_links">

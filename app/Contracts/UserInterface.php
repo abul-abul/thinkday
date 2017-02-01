@@ -20,6 +20,16 @@ interface UserInterface
      */	
     public function getOne($id);
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getDelete($id);
+
+    /**
+     * @return mixed
+     */
+    public function getAllPaginate();
 
 
     /**
@@ -75,4 +85,13 @@ interface UserInterface
      * 
      */
     public function getUserReg();
+
+    /**
+     * Select all social login Email
+     *
+     * @param @emil
+     * @return user
+     */
+    public function getAllSocial($email);
+    
 }

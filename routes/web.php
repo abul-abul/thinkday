@@ -39,8 +39,8 @@ Route::get('user/profile','UsersController@getUserProfile');
 //
 //Route::get('user/dashbord','UsersController@getDeshbord');
 //
-//Route::get('user/facebook-login','UsersController@getFacebookLogin');
-//Route::get('user/facebook-callback','UsersController@getFacebookCallback');
+Route::get('user/facebook-login','UsersController@getFacebookLogin');
+Route::get('user/facebook-callback','UsersController@getFacebookCallback');
 //
 //Route::get('user/twitter-login','UsersController@getTwitterLogin');
 //Route::get('user/twitter-callback','UsersController@getTwitterCallback');
@@ -160,6 +160,11 @@ Route::get('ab-admin/language-delete/{id}','AdminController@getDeleteLanguage');
 Route::get('ab-admin/subscripe','AdminController@getSubscripe');
 Route::get('ab-admin/subscripe-delete/{id}','AdminController@getDeleteSubscripe');
 Route::get('ab-admin/subscripe-inner/{status}/{id}','AdminController@getOneSubscripe');
+
+
+
+Route::get('ab-admin/all-users','AdminController@getAllUsers');
+Route::get('ab-admin/user-delete/{id}','AdminController@getDeleteUser');
 
 
 

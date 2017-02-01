@@ -344,65 +344,56 @@ class UsersController extends BaseController
     }
 
 
-//
-//    /**
-//     *
-//     */
-//    public function getDeshbord()
-//    {
-//        return view('user.dashbord');
-//    }
-//
-//    /**
-//     * Get facebook login
-//     */
-//    public function getFacebookLogin()
-//    {
-//        return Socialite::with('facebook')->redirect();
-//    }
-//
-//    /**
-//     * get Facebook callback
-//     * GET user/facebook-callback
-//     *
-//     * @return redirect
-//     */
-//    public function getFacebookCallback(UserInterface $userRepo)
-//    {
-//        $user = Socialite::with('facebook')->user();
-//
-//        $id = $user->id;
-//        $token = $user->token;
-//        $fullName = $user->getName();
-//
-//        $exp = explode(' ', $fullName);
-//        $username = $exp[0];
-//        $lastname = $exp[1];
-//        $email = $user->getEmail();
-//
-//        $userAvatar =  $user->getAvatar();
-//
-//        $firstEmail = $userRepo->getAllSocial($email);
-//        if(count($firstEmail) == 0){
-//             $data = [
-//                'facebook_id' => $id,
-//                'username' => $username,
-//                'lastname' => $lastname,
-//                'email' => $email,
-//                'profile_picture' => $userAvatar,
-//                'facebook_token' => $token,
-//            ];
-//            $result = $userRepo->createOne($data);
-//            Auth::login($userRepo->getOne($result->id));
-//        }else{
-//            Auth::login($firstEmail);
-//            $tokenData = [
-//                'facebook_token' => $token
-//            ];
-//            $userRepo->updateSocialToken($email,$tokenData);
-//        }
-//        return redirect()->action('UsersController@getDeshbord');
-//    }
+    /**
+     * Get facebook login
+     */
+    public function getFacebookLogin()
+    {
+        return Socialite::with('facebook')->redirect();
+    }
+
+    /**
+     * get Facebook callback
+     * GET user/facebook-callback
+     *
+     * @return redirect
+     */
+    public function getFacebookCallback(UserInterface $userRepo)
+    {
+        $user = Socialite::with('facebook')->user();
+
+        $id = $user->id;
+        $token = $user->token;
+
+
+        $exp = explode(' ', $fullName);
+        $firstname = $exp[0];
+        $lastname = $exp[1];
+        $email = $user->getEmail();
+
+        $userAvatar =  $user->getAvatar();
+
+        $firstEmail = $userRepo->getAllSocial($email);
+        if(count($firstEmail) == 0){
+             $data = [
+                'facebook_id' => $id,
+                'firstname' => $username,
+                'lastname' => $lastname,
+                'email' => $email,
+                'profile_picture' => $userAvatar,
+                'facebook_token' => $token,
+            ];
+            $result = $userRepo->createOne($data);
+            Auth::login($userRepo->getOne($result->id));
+        }else{
+            Auth::login($firstEmail);
+            $tokenData = [
+                'facebook_token' => $token
+            ];
+            $userRepo->updateSocialToken($email,$tokenData);
+        }
+        return redirect()->action('UsersController@getDeshbord');
+    }
 //
 //    /**
 //     * Get facebook login

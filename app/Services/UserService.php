@@ -40,6 +40,26 @@ class UserService implements UserInterface
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+    public function getDelete($id)
+    {
+        return $this->getOne($id)->delete();
+    }
+    
+    /**
+     * Select all social login Email
+     *
+     * @param @emil
+     * @return user
+     */
+    public function getAllSocial($email)
+    {
+        return $this->user->where('email',$email)->first();
+    }
+
+    /**
      * Select all social login Email
      *
      * @param @emil
@@ -71,6 +91,14 @@ class UserService implements UserInterface
     public function getAllUser()
     {
         return $this->user->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllPaginate()
+    {
+        return $this->user->where('role','user')->paginate(10);
     }
 
     /**
