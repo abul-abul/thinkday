@@ -21,8 +21,8 @@
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">DDAY</span>
-									<span class="white" id="id-text2">Application</span>
+									<span class="red">Think Day</span>
+									<span class="white" id="id-text2"></span>
 								</h1>
 								<h4 class="blue" id="id-company-text">&copy; Company Name</h4>
 							</div>
@@ -47,22 +47,20 @@
 														<fieldset>
 															<label class="block clearfix">
 																<span class="block input-icon input-icon-right">
-																@if(isset($cookie_user))
-		        												{!! Form::text('email',$cookie_user->email, ['placeholder' => 'Email', 'class' => 'form-control']) !!}
-		        												@else
+
+
 		        													{!! Form::text('email',null, ['placeholder' => 'Email', 'class' => 'form-control']) !!}
-		        												@endif
+
 																	<i class="ace-icon fa fa-user"></i>
 																</span>
 															</label>
 
 															<label class="block clearfix">
 																<span class="block input-icon input-icon-right">
-														{{-- 		@if(isset($cookie_user))
-																	<input class="form-control" type="password" value="{{$cookie_user->password}}}">
-																@else --}}
+
+
 																	{!! Form::password('password',  ['placeholder' => 'Password', 'class' => 'form-control']) !!}
-															{{-- 	@endif --}}	
+
 																	<i class="ace-icon fa fa-lock"></i>
 																</span>
 															</label>
@@ -71,7 +69,10 @@
 
 															<div class="clearfix">
 																<label class="inline">
-																	<input name="remember_me" type="checkbox" class="ace" />
+																	{!! Form::checkbox('remember_me', ['class' => 'ace']) !!}
+
+
+																	{{--<input name="remember_me" type="checkbox" class="ace" />--}}
 																	<span class="lbl"> Remember Me</span>
 																</label>
 

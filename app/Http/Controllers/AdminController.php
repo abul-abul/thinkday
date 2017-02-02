@@ -30,6 +30,7 @@ use File;
 use Cookie;
 use Intervention\Image\ImageManagerStatic as Image;
 
+
 class AdminController extends BaseController
 {
 
@@ -76,9 +77,13 @@ class AdminController extends BaseController
       * @return redirect
      */
     public function getLogout()
-    {   
+    {
+//        $rememberCooke = Auth::getRecallerName();
+//        $cookie = Cookie::forgot($rememberCooke);
         Auth::logout();
+
         return redirect()->action('AdminController@getLogin');
+            //->withCookie($cookie);
     }
 
     /**
@@ -92,27 +97,31 @@ class AdminController extends BaseController
     {
     	$email = $request->get('email');
     	$password  = $request->get('password');
-    	
-    	// if ($request->input('remember_me')) {
-    	// 	$response = Cookie::forever('remember',Auth::user());
-    	// }
 
+        $remeber = $request->get('remember_me');
+        dd($remeber);
     	if(Auth::attempt ([
             'email'=>$email,
             'password'=>$password,
             'role' => 'main-admin',
-            ]))
+            ],$remeber))
         {
-            if($request->input('remember_me')) {
-        		$response = Cookie::forever('remember',Auth::user());
-        		$cookie =  \Response::make('www')->withCookie($response);
-        		return redirect()->action('AdminController@getDashboard')->withCookie($response);
-        	}else{
-        		return redirect()->action('AdminController@getDashboard');
-        	}        	
+
+//            if($request->input('remember_me')) {
+//        		$response = Cookie::forever('remember',Auth::user());
+//        		$cookie =  \Response::make('www')->withCookie($response);
+//        		return redirect()->action('AdminController@getDashboard')->withCookie($response);
+//        	}else{
+//
+//        	}
+
+            return redirect()->action('AdminController@getDashboard');
         }else{
         	return redirect()->back()->with('error_danger', 'Invalid login or password');
         }
+
+
+
     }
 
     /**

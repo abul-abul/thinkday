@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Contracts\UserInterface;
 use App\User;
+use Mail;
 
 
 class UserService implements UserInterface
@@ -140,6 +141,19 @@ class UserService implements UserInterface
     public function getAllUserTweeter()
     {
         return $this->user->where('twitter_id','!=', null)->paginate(10);
+    }
+
+    /**
+     * @param $dataEmail
+     * @param $email
+     */
+    public function sendEmailFromRegistration($dataEmail,$email)
+    {
+        Mail::send('user.user_profile.mail.reminder', $dataEmail, function($message) use ($email)
+        {
+            $message->from('thinkday@gamil.com');
+            $message->to($email)->subject("Welcome!");
+        });
     }
     
 }

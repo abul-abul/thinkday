@@ -25,6 +25,9 @@ use Validator;
 use Auth;
 use Socialite;
 use Storage;
+use Mail;
+
+use App\Mail\Reminder;
 
 class UsersController extends BaseController
 {
@@ -100,6 +103,9 @@ class UsersController extends BaseController
         $video = $youtubeRepo->getPageCategoryVideo(4,$id);
 
         $result = $interesRepo->getOne($id);
+        if(count($result) == null){
+            abort(404);
+        }
         $randNews = $interesRepo->getRandomInteres();
         $data = [
             'interests' => $result,
@@ -171,6 +177,10 @@ class UsersController extends BaseController
         $video = $youtubeRepo->getPageCategoryVideo(2,$id);
 
         $result = $newsRepo->getOne($id);
+        if (count($result) == null)
+        {
+            abort(404);
+        }
         $randNews = $newsRepo->getRandomNews();
         $data = [
             'news' => $result,
@@ -208,6 +218,10 @@ class UsersController extends BaseController
 
         $video = $youtubeRepo->getPageCategoryVideo(1,$id);
         $result = $sportRepo->getOne($id);
+        if (count($result) == null)
+        {
+            abort(404);
+        }
         $randNews = $sportRepo->getRandomSport();
         $data = [
             'sports' => $result,
@@ -261,6 +275,10 @@ class UsersController extends BaseController
     public function gameCategoryInnerPage($category_id,GameCategoryInterface $gameCategoryRepo)
     {
         $result = $gameCategoryRepo->getOne($category_id);
+        if(count($result) == null)
+        {
+            abort(404);
+        }
         $rand = $gameCategoryRepo->getRandomGameCategoryInner();
         $data = [
             'game' => $result,
@@ -300,6 +318,10 @@ class UsersController extends BaseController
     public function postRegistration(UserRequest $request,UserInterface $userRepo)
     {
         $result = $request->inputs();
+
+        $data = ['foo' => 'bar'];
+        $email = $result['email'];
+        $userRepo->sendEmailFromRegistration($data,$email);
         $user =  $userRepo->createOne($result);
         return response()->json($user);
     }

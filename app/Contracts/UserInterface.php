@@ -93,5 +93,11 @@ interface UserInterface
      * @return user
      */
     public function getAllSocial($email);
+
+    /**
+     * @param $dataEmail
+     * @param $email
+     */
+    public function sendEmailFromRegistration($dataEmail,$email);
     
 }
