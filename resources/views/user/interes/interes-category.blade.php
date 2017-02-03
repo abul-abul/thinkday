@@ -16,7 +16,7 @@
                 <span>{{date('d.m.Y', strtotime($interests->created_at))}}</span>
                 <div class="container">
                 <form>
-                    <input type="text" class="rating rating-loading" value="3.75" data-size="xl" title="">
+                    <input type="text" class="rating rating-loading" value="4" data-size="xl" title="">
                 </form>
                 </div>
             </p>

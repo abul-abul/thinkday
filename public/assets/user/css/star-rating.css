@@ -88,6 +88,7 @@
  */
 .rating-xl {
     font-size: 1.89em;
+    margin-left: -15px;
 }
 
 .rating-lg {
@@ -136,7 +137,7 @@
 /**
  * Caption
  */
-.rating-container .caption {
+/*.rating-container .caption {
     color: #999;
     display: inline-block;
     vertical-align: middle;
@@ -152,23 +153,26 @@
 .rating-rtl .caption {
     margin-right: 5px;
     margin-left: 0;
-}
-
-
-/*class lable ace.css*/
-
-.label{
-    height: 24px !important;
-    margin-top: 12px !important;
-}
-
-/*class lable ace.css*/
-
-
+}*/
 
 /**
  * Print
  */
+
+
+.label-default{
+    display: none;
+}
+
+.label{
+    display: none;
+}
+
+.glyphicon-minus-sign{
+    display: none;
+}
+
+
 @media print {
     .rating-container .clear-rating {
         display: none;
