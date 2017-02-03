@@ -32,7 +32,7 @@ class InteresService implements InteresInterface
      */
     public function getAllPaginate()
     {
-        return $this->interes->paginate(9);
+        return $this->interes->paginate(8);
     }
 
 
@@ -111,6 +111,15 @@ class InteresService implements InteresInterface
     public function showMoreInterest($id)
     {
         return $this->interes->where('id','>',$id)->limit(8)->get();
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function postSearch($name)
+    {
+        return $this->interes->where('title', 'LIKE', '%'.$name.'%')->orWhere('description', 'LIKE', '%'.$name.'%')->get();
     }
 
 

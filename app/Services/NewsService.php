@@ -32,7 +32,7 @@ class NewsService implements NewsInterface
      */
     public function getAllPaginate()
     {
-        return $this->news->paginate(9);
+        return $this->news->paginate(8);
     }
 
 
@@ -113,5 +113,13 @@ class NewsService implements NewsInterface
         return $this->news->where('id','>',$id)->limit(8)->get();
     }
 
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function postSearch($name)
+    {
+        return $this->news->where('title', 'LIKE', '%'.$name.'%')->orWhere('description', 'LIKE', '%'.$name.'%')->get();
+    }
 
 }

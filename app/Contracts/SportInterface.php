@@ -59,4 +59,10 @@ interface SportInterface
      * @return mixed
      */
     public function getRandomSport();
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function postSearch($name);
 }

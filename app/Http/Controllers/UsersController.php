@@ -525,7 +525,38 @@ class UsersController extends BaseController
         return redirect()->action('UsersController@getUserProfile');
     }
 
-        
+    /**
+     * @param NewsInterface $newRepo
+     * @param SportInterface $sportRepo
+     * @param InteresInterface $interestRepo
+     * @return mixed
+     */
+    public function getSearch(request $request,NewsInterface $newRepo,SportInterface $sportRepo,InteresInterface $interestRepo)
+    {
+
+        $search = trim($request->get('search'));
+
+        $news = $newRepo->postSearch($search);
+        $sport = $sportRepo->postSearch($search);
+        $interest = $interestRepo->postSearch($search);
+        $dataArray = [
+            'news' => [],
+            'interests' => [],
+            'sports' => [],
+            'search' => $search
+        ];
+        if(count($news) != 0){
+            $dataArray['news'] = $news;
+        }
+        if(count($sport) != 0){
+            $dataArray['sports'] = $sport;
+        }
+        if(count($interest) != 0){
+            $dataArray['interests'] = $interest;
+        }
+        return view('user.user_profile.user_search',$dataArray);
+    }
+
 
 
 }

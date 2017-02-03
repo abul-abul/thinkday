@@ -69,10 +69,10 @@
 
 															<div class="clearfix">
 																<label class="inline">
-																	{!! Form::checkbox('remember_me', ['class' => 'ace']) !!}
+																	{{--{!! Form::checkbox('remember_me', ['class' => 'ace']) !!}--}}
 
 
-																	{{--<input name="remember_me" type="checkbox" class="ace" />--}}
+																	<input name="remember_me" type="checkbox" class="ace" />
 																	<span class="lbl"> Remember Me</span>
 																</label>
 

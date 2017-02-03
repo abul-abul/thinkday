@@ -100,7 +100,12 @@
 				<li class="menu_children">
 					<i class="fa fa-search" aria-hidden="true"></i>
 					<i class="fa fa-times" aria-hidden="true"></i>
-					<input type="text" class="search" placeholder="search" />
+					{!! Form::open(['action' => ['UsersController@getSearch',],'method' => 'GET', 'id' => 'search_all']) !!}
+
+						<input type="text" name="search" class="search search_all" placeholder="search" />
+
+					{!!Form::close()!!}
+
 				</li>
 			</ul>
 		</div>
@@ -202,6 +207,7 @@
 
 	{!! HTML::script( asset('assets/user/js/init.js') ) !!}
 	{!! HTML::script( asset('assets/user/js/user_main.js') ) !!}
+	{!! HTML::script( asset('assets/user/js/main.js') ) !!}
 
 
 

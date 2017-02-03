@@ -70,5 +70,11 @@ interface NewsInterface
      * @return mixed
      */
     public function getShowMoreNews($id);
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function postSearch($name);
     
 }

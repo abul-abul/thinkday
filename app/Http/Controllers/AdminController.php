@@ -99,7 +99,7 @@ class AdminController extends BaseController
     	$password  = $request->get('password');
 
         $remeber = $request->get('remember_me');
-        dd($remeber);
+
     	if(Auth::attempt ([
             'email'=>$email,
             'password'=>$password,

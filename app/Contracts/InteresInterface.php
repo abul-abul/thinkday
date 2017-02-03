@@ -70,4 +70,10 @@ interface InteresInterface
      * @return mixed
      */
     public function showMoreInterest($id);
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function postSearch($name);
 }

@@ -32,7 +32,7 @@ class SportService implements SportInterface
      */
     public function getAllPaginate()
     {
-        return $this->sport->paginate(9);
+        return $this->sport->paginate(8);
     }
 
 
@@ -96,6 +96,14 @@ class SportService implements SportInterface
         return $this->sport->inRandomOrder()->take(8)->get();
     }
 
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function postSearch($name)
+    {
+        return $this->sport->where('title', 'LIKE', '%'.$name.'%')->orWhere('description', 'LIKE', '%'.$name.'%')->get();
+    }
 
 
 }
