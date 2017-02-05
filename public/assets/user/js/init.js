@@ -80,51 +80,15 @@ $(document).ready(function(){
 
 // user page
 
-	var settings = 0;
-
-	$("body").click(function(){
-		$(".user_img_abs2").css({
-			"display":"none",
-		});
-	})
-
-	$(".set_child_abs").click(function(){
-		if(settings == 0){
-			$(".user_set_abs").css({
-				"right":"0px",
-			});
-			settings++;
-		}else if(settings == 1){
-			$(".user_set_abs").css({
-				"right":"-200px",
-			});
-			settings = 0;
-		}
-	});
-
-	$(".user_img_place_child").click(function(e){
-		e.stopPropagation();
-		$(".user_img_abs2").css({
-			"display":"block",
-		});
-	});
-
-	$(".choose_yes").click(function(e){
-		e.stopPropagation(function(){
-			return false;
-		});
-		$(".user_img_abs2").css({
-			"display":"none",
-		});
-	});
-
-	$(".choose_no").click(function(e){
-		e.stopPropagation(function(){
-			return false;
-		});
-		$(".user_img_abs2").css({
-			"display":"none",
-		});
+	$(".a").click(function(){
+        $(".new_head").css({
+        	"background-color":"#f5f5f5",
+        	"color":"#333333",
+        })
+        $(this).parent().parent().css({
+        	"background-color":"#169DF3",
+        	"color":"#ffffff",
+        });
 	});
 
 // user page

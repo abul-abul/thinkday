@@ -3,35 +3,12 @@
 
 
 		<div class="user_content">
-			<div class="user_set_abs">
-				<div class="set_abs_child">
-					<div class="set_child_abs">
-						<i class="fa fa-power-off" aria-hidden="true"></i>
-					</div>
-					<div class="logout">
-						<a href="#" class="set_menu_link">
-							<span>logout</span>
-						</a>
-					</div>
-				</div>
-			</div>
 			<div class="user_info_place">
 				<div class="user_info_left">
 					<div class="user_img_place">
 						<div class="user_img_place_child">
-							<img src="/assets/user/images/user.jpg" class="user_img" />
+							<img src="images/user.jpg" class="user_img" />
 							<div class="user_img_abs"></div>
-							<div class="user_img_abs2">
-								<div class="choose_img_place">
-									<span>choose image</span>
-								</div>
-								<div class="choose_yes">
-									<i class="fa fa-check" aria-hidden="true"></i>
-								</div>
-								<div class="choose_no">
-									<i class="fa fa-window-close" aria-hidden="true"></i>
-								</div>
-							</div>
 						</div>
 					</div>
 					<div class="username_place">
@@ -52,17 +29,6 @@
 							</span>
 						</p>
 					</div>
-					<div class="user_soc_place">
-						<a href="#" class="user_soc_links">
-							<i class="fa fa-facebook-square" aria-hidden="true"></i>
-						</a>
-						<a href="#" class="user_soc_links">
-							<i class="fa fa-google-plus-square" aria-hidden="true"></i>
-						</a>
-						<a href="#" class="user_soc_links">
-							<i class="fa fa-twitter-square" aria-hidden="true"></i>
-						</a>
-					</div>
 				</div>
 				<div class="settings_place">
 					<div class="col-xs-12">
@@ -80,7 +46,7 @@
 								</li>
 							</ul>
 							<div class="tab-content no-border padding-24">
-								<div id="faq-tab-1" class="tab-pane fade in active">
+								<div id="faq-tab-1" class="tab-pane new_tab fade in active">
 									<div class="user_info_right">
 										<div class="right_info_left">
 											<p>Name</p>
@@ -104,31 +70,69 @@
 										</div>
 									</div>
 								</div>
-								<div id="faq-tab-2" class="tab-pane fade">
-									<form action="" method="post">
-										<input type="text" class="change"
-											   placeholder="Change Name" />
-										<input type="text" class="change"
-											   placeholder="Change Surname" />
-										<input type="text" class="change"
-											   placeholder="Change Username" />
-										<input type="number" class="change"
-											   placeholder="Change Age" />
-										<input type="text" class="change"
-											   placeholder="Change Country" />
-										<input type="text" class="change"
-											   placeholder="Change City" />
-										<input type="text" class="change"
-											   placeholder="Change Address" />
-										<input type="email" class="change"
-										   placeholder="Change Email" />
-										<input type="pass" class="change"
-											   placeholder="Change Password" />
-										<input type="pass" class="change"
-											   placeholder="Re-Password" />
-										<input type="submit" value="submit"
-												class="change_submit" />
-									</form>
+								<div id="faq-tab-2" class="tab-pane new_tab fade">
+									<div class="container">
+									    <div class="panel-group new_group" id="accordion">
+									    <div class="panel panel-default new_panel">
+									      <div class="panel-heading new_head">
+									        <h4 class="panel-title">
+									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="a">Personal info</a>
+									        </h4>
+									      </div>
+									      <div id="collapse1" class="panel-collapse new_collapse collapse in">
+									        <div class="panel-body new_body">
+									        	<form action="" method="post">
+										        	<input type="text" class="change" placeholder="Change Name" />
+													<input type="text" class="change" placeholder="Change Surname" />
+													<input type="text" class="change" placeholder="Change Username" />
+													<input type="number" class="change" placeholder="Change Age" />
+													<input type="text" class="change" placeholder="Change Country" />
+													<input type="text" class="change" placeholder="Change City" />
+													<input type="text" class="change" placeholder="Change Address" />
+													<input type="email" class="change" placeholder="Change Email" />
+													<input type="submit" value="submit" class="change_submit" />
+												</form>
+									        </div>
+									      </div>
+									    </div>
+									    <div class="panel panel-default new_panel">
+									      <div class="panel-heading new_head">
+									        <h4 class="panel-title">
+									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="a">Change Avatar</a>
+									        </h4>
+									      </div>
+									      <div id="collapse2" class="panel-collapse new_collapse collapse">
+									        <div class="panel-body new_body">
+									        	<form action="" method="post">
+									        		<div class="new_image_place">
+									        			<img src="" class="new_image"/>
+									        		</div>
+									        		<p class="choose_image">choose image</p>
+									        		<input type="submit" value="submit" class="change_submit" />
+									        		<input type="submit" value="cancel" class="change_submit" />
+									        	</form>
+									        </div>
+									      </div>
+									    </div>
+									    <div class="panel panel-default new_panel">
+									      <div class="panel-heading new_head">
+									        <h4 class="panel-title">
+									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="a">Change Password</a>
+									        </h4>
+									      </div>
+									      <div id="collapse3" class="panel-collapse new_collapse collapse">
+									        <div class="panel-body new_body">
+									        	<form action="" method="post">
+									        		<input type="pass" class="change" placeholder="Current Password" />
+									        		<input type="pass" class="change" placeholder="Change Password" />
+													<input type="pass" class="change" placeholder="Re-Password" />
+													<input type="submit" value="submit" class="change_submit" />
+									        	</form>
+									        </div>
+									      </div>
+									    </div>
+									    </div> 
+									</div>
 								</div>	
 							</div>
 						</div>
