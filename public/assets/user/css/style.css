@@ -1337,7 +1337,7 @@ input[type="submit"].change_submit{
 }
 
 .new_tab{
-	height: 400px;
+	height: 450px;
 }
 
 .new_group{
@@ -1348,15 +1348,17 @@ input[type="submit"].change_submit{
 	padding: 0px 0px 0px 15px;
 }
 
-.new_panel{
+.new_panel1{
 	width: 200px;
+	border-radius: 0px !important;
+	padding: 0px !important;
 }
 
 .new_collapse{
 	position: absolute;
 	top: 0px;
 	left: 200px;
-	
+	width: calc(100% - 435px);
 }
 
 .new_image_place{

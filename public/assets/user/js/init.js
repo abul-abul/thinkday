@@ -80,7 +80,16 @@ $(document).ready(function(){
 
 // user page
 
+	$(".nH").css({
+		"background-color":"#169DF3",
+       	"color":"#ffffff",
+    });
+
 	$(".a").click(function(){
+		$(".nH").css({
+			"background-color":"#f5f5f5",
+        	"color":"#333333",
+	    });
         $(".new_head").css({
         	"background-color":"#f5f5f5",
         	"color":"#333333",

@@ -7,7 +7,7 @@
 				<div class="user_info_left">
 					<div class="user_img_place">
 						<div class="user_img_place_child">
-							<img src="images/user.jpg" class="user_img" />
+							<img src="/assets/user/images/user.jpg" class="user_img" />
 							<div class="user_img_abs"></div>
 						</div>
 					</div>
@@ -31,7 +31,7 @@
 					</div>
 				</div>
 				<div class="settings_place">
-					<div class="col-xs-12">
+					<div>
 						<div class="tabbable">
 							<ul class="nav nav-tabs padding-18 tab-size-bigger" id="myTab">
 								<li class="active">
@@ -73,13 +73,13 @@
 								<div id="faq-tab-2" class="tab-pane new_tab fade">
 									<div class="container">
 									    <div class="panel-group new_group" id="accordion">
-									    <div class="panel panel-default new_panel">
-									      <div class="panel-heading new_head">
+									    <div class="panel panel-default new_panel1">
+									      <div class="panel-heading new_head nH">
 									        <h4 class="panel-title">
-									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="a">Personal info</a>
+									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse99" class="a">Personal info</a>
 									        </h4>
 									      </div>
-									      <div id="collapse1" class="panel-collapse new_collapse collapse in">
+									      <div id="collapse99" class="panel-collapse new_collapse collapse in">
 									        <div class="panel-body new_body">
 									        	<form action="" method="post">
 										        	<input type="text" class="change" placeholder="Change Name" />
@@ -95,32 +95,32 @@
 									        </div>
 									      </div>
 									    </div>
-									    <div class="panel panel-default new_panel">
+									    <div class="panel panel-default new_panel1">
 									      <div class="panel-heading new_head">
 									        <h4 class="panel-title">
-									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="a">Change Avatar</a>
+									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse88" class="a">Change Avatar</a>
 									        </h4>
 									      </div>
-									      <div id="collapse2" class="panel-collapse new_collapse collapse">
-									        <div class="panel-body new_body">
+									      <div id="collapse88" class="panel-collapse new_collapse collapse">
+									        <div class="panel-body new_body" style="width: 180px;">
 									        	<form action="" method="post">
 									        		<div class="new_image_place">
 									        			<img src="" class="new_image"/>
 									        		</div>
 									        		<p class="choose_image">choose image</p>
-									        		<input type="submit" value="submit" class="change_submit" />
 									        		<input type="submit" value="cancel" class="change_submit" />
+									        		<input type="submit" value="submit" class="change_submit" />
 									        	</form>
 									        </div>
 									      </div>
 									    </div>
-									    <div class="panel panel-default new_panel">
+									    <div class="panel panel-default new_panel1">
 									      <div class="panel-heading new_head">
 									        <h4 class="panel-title">
-									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="a">Change Password</a>
+									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse77" class="a">Change Password</a>
 									        </h4>
 									      </div>
-									      <div id="collapse3" class="panel-collapse new_collapse collapse">
+									      <div id="collapse77" class="panel-collapse new_collapse collapse">
 									        <div class="panel-body new_body">
 									        	<form action="" method="post">
 									        		<input type="pass" class="change" placeholder="Current Password" />
