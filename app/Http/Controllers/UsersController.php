@@ -18,6 +18,7 @@ use App\Contracts\InteresInterface;
 use App\Contracts\SubscripeInterface;
 use App\Contracts\PageGalleryServiceInterface;
 use App\Contracts\YoutubeInerface;
+use App\Contracts\RatingInterface;
 
 
 use App\Http\Requests;
@@ -27,7 +28,7 @@ use Socialite;
 use Storage;
 use Mail;
 
-use App\Mail\Reminder;
+
 
 class UsersController extends BaseController
 {
@@ -187,6 +188,7 @@ class UsersController extends BaseController
             'gallerys' => $gallerys,
             'videos' => $video,
             'rand_news' => $randNews,
+            'id' => $id
         ];
         return view('user.news.news-category',$data);
     }
@@ -319,9 +321,9 @@ class UsersController extends BaseController
     {
         $result = $request->inputs();
 
-        $data = ['foo' => 'bar'];
+        //$data = ['foo' => 'bar'];
         $email = $result['email'];
-        $userRepo->sendEmailFromRegistration($data,$email);
+        //$userRepo->sendEmailFromRegistration($data,$email);
         $user =  $userRepo->createOne($result);
         return response()->json($user);
     }
@@ -533,9 +535,7 @@ class UsersController extends BaseController
      */
     public function getSearch(request $request,NewsInterface $newRepo,SportInterface $sportRepo,InteresInterface $interestRepo)
     {
-
         $search = trim($request->get('search'));
-
         $news = $newRepo->postSearch($search);
         $sport = $sportRepo->postSearch($search);
         $interest = $interestRepo->postSearch($search);
@@ -557,6 +557,14 @@ class UsersController extends BaseController
         return view('user.user_profile.user_search',$dataArray);
     }
 
+
+    public function postRating(request $request, RatingInterface $ratinRepo)
+    {
+        $result = $request->all();
+        $result['user_id'] = Auth::id();
+        $status = $ratinRepo->getCreate($result);
+        dd($status);
+    }
 
 
 }

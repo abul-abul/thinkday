@@ -21,6 +21,7 @@ use App\Contracts\GamePageInterface;
 use App\Contracts\GameCategoryInterface;
 use App\Contracts\InteresInterface;
 use App\Contracts\SubscripeInterface;
+use App\Contracts\RatingInterface;
 
 use View;
 use Session;

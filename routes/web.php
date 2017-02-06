@@ -43,7 +43,7 @@ Route::get('user/twitter-callback','UsersController@getTwitterCallback');
 Route::get('user/google-login','UsersController@getGoogleLogin');
 Route::get('user/google-callback','UsersController@getGoogleCallback');
 Route::get('user/search','UsersController@getSearch');
-//Route::get('user/search','UsersController@getSearch');
+Route::post('user/rating','UsersController@postRating');
 
 //
 //Route::get('video','UsersController@getVideo');

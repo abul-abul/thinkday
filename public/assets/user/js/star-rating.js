@@ -573,10 +573,22 @@
             $input.removeClass('rating-loading').addClass('rating-loading').rating()
         }
 
-        $(".glyphicon-star").on("click",function(){
-            var ratingVal = $(".caption").children().text();
-            console.log(ratingVal);
-        });
+        // $(".glyphicon-star").on("click",function(){
+        //     var rating_val = $(".caption").children().text();
+        //
+        //     $.ajax({
+        //         url: '/user/rating',
+        //         type: 'post',
+        //         data:{_token:token,},
+        //         success: function(data)
+        //         {
+        //             $('.edit_youtube').attr('src',data.video)
+        //         }
+        //     });
+        //
+        // });
+
+        
     });
 
 }));

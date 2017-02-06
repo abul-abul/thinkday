@@ -16,7 +16,8 @@
                 <span>{{date('d.m.Y', strtotime($news->created_at))}}</span>
                 <div class="container">
                 <form>
-                    <input type="text" class="rating rating-loading" value="4" data-size="xl" title="">
+                    <input type="hidden" class="rate_hidden" data-pageid="2" data-categoryid="{{$id}}" content="{{ csrf_token() }}">
+                    <input  type="text" class="rating rating-loading" value="4" data-size="xl" title="">
                 </form>
                 </div>
             </p>
@@ -252,5 +253,6 @@
     {!! HTML::script(asset('assets/user/js/lightgallery.js'))!!}
     {!! HTML::script(asset('assets/user/js/lightgalleryCall.js'))!!}
     {!! HTML::script(asset('assets/user/js/star-rating.js'))!!}
+    {!! HTML::script(asset('assets/user/js/rating.js'))!!}
 
 @endsection
