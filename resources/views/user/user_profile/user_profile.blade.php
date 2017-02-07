@@ -82,15 +82,15 @@
 									      <div id="collapse99" class="panel-collapse new_collapse collapse in">
 									        <div class="panel-body new_body">
 									        	<form action="" method="post">
-										        	<input type="text" class="change" placeholder="Change Name" />
-													<input type="text" class="change" placeholder="Change Surname" />
-													<input type="text" class="change" placeholder="Change Username" />
-													<input type="number" class="change" placeholder="Change Age" />
-													<input type="text" class="change" placeholder="Change Country" />
-													<input type="text" class="change" placeholder="Change City" />
-													<input type="text" class="change" placeholder="Change Address" />
-													<input type="email" class="change" placeholder="Change Email" />
-													<input type="submit" value="submit" class="change_submit" />
+										        	<input type="text" id="change" placeholder="Change Name" />
+													<input type="text" id="change" placeholder="Change Surname" />
+													<input type="text" id="change" placeholder="Change Username" />
+													<input type="number" id="change" placeholder="Change Age" />
+													<input type="text" id="change" placeholder="Change Country" />
+													<input type="text" id="change" placeholder="Change City" />
+													<input type="text" id="change" placeholder="Change Address" />
+													<input type="email" id="change" placeholder="Change Email" />
+													<input type="submit" value="submit" id="change_submit" />
 												</form>
 									        </div>
 									      </div>
@@ -108,8 +108,8 @@
 									        			<img src="" class="new_image"/>
 									        		</div>
 									        		<p class="choose_image">choose image</p>
-									        		<input type="submit" value="cancel" class="change_submit" />
-									        		<input type="submit" value="submit" class="change_submit" />
+									        		<input type="submit" value="cancel" id="change_submit" />
+									        		<input type="submit" value="submit" id="change_submit" />
 									        	</form>
 									        </div>
 									      </div>
@@ -123,10 +123,10 @@
 									      <div id="collapse77" class="panel-collapse new_collapse collapse">
 									        <div class="panel-body new_body">
 									        	<form action="" method="post">
-									        		<input type="pass" class="change" placeholder="Current Password" />
-									        		<input type="pass" class="change" placeholder="Change Password" />
-													<input type="pass" class="change" placeholder="Re-Password" />
-													<input type="submit" value="submit" class="change_submit" />
+									        		<input type="password" id="change" placeholder="Current Password" />
+									        		<input type="password" id="change" placeholder="Change Password" />
+													<input type="password" id="change" placeholder="Re-Password" />
+													<input type="submit" value="submit" id="change_submit" />
 									        	</form>
 									        </div>
 									      </div>

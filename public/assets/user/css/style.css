@@ -595,20 +595,6 @@ input[type=password]:focus{
 	color: #fff;
 }
 
-input[type="number"], .change{
-	width: 100%;
-	margin-bottom: 10px;
-	padding: 5px 4px;
-	background-color: #172646;
-	color: #fff;
-}
-
-input[type="number"]:focus{
-	background-color: #172646;
-	border-color: #fff;
-	color: #fff;
-}
-
 input[type="text"].name::-webkit-input-placeholder{
 	color: #fff;
 	opacity: 1;
@@ -637,6 +623,53 @@ input[type=radio]{
 	height: 15px;
 	margin-top: 7px;
 	cursor: pointer;
+}
+
+input[type=text], #change{
+	width: 100%;
+	margin-bottom: 10px;
+	color: #858585;
+    background-color: #ffffff;
+    border-color: #b5b5b5;
+}
+
+input[type=text] #change :focus{
+	border-color: #b5b5b5 !important;
+}
+
+input[type="number"], #change{
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 5px 4px;
+	color: #858585;
+    background-color: #ffffff;
+    border-color: #b5b5b5;
+}
+
+input[type="number"]:focus{
+	border-color: #b5b5b5;
+}
+
+input[type="email"], #change{
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 5px 4px;
+	color: #858585;
+    background-color: #ffffff;
+    border-color: #b5b5b5;
+}
+
+input[type="email"]#change :focus{
+	border-color: #b5b5b5 !important;
+}
+
+input[type="submit"]#change_submit{
+	color: #fff;
+    background-color: rgb(22, 157, 243);
+}
+
+.panel-title > a:hover{
+	text-decoration: none;
 }
 
 select{
@@ -1364,6 +1397,8 @@ input[type="submit"].change_submit{
 .new_image_place{
 	width: 200px;
 	height: 200px;
+	border: none;
+	outline: none;
 }
 
 .new_image{
