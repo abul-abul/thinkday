@@ -16,7 +16,27 @@
                 <span>{{date('d.m.Y', strtotime($sports->created_at))}}</span>
                 <div class="container">
                 <form>
-                    <input type="text" class="rating rating-loading" value="4" data-size="xl" title="">
+                    @if(Auth::User() && Auth::User()->role == 'user')
+                        @if(!isset($rating_status))
+                            <input type="hidden" class="rate_hidden" data-pageid="1" data-categoryid="{{$id}}" content="{{ csrf_token() }}">
+                            @if(isset($rating))
+                                <input  type="text" class="rating rating-loading" value="{{$rating}}" data-size="xl" title="">
+                            @else
+                                <input  type="text" class="rating rating-loading" value="5" data-size="xl" title="">
+                            @endif
+                        @else
+                            @for($i=1; $i<=$rating; $i++)
+                                <i class="glyphicon glyphicon-star"></i>
+                            @endfor
+                        @endif
+                    @else
+                        <input type="hidden" class="rate_hidden">
+                        @if(isset($rating))
+                            <input  type="text" class="rating rating-loading" value="{{$rating}}" data-size="xl" title="">
+                        @else
+                            <input  type="text" class="rating rating-loading" value="5" data-size="xl" title="">
+                        @endif
+                    @endif
                 </form>
                 </div>
             </p>
@@ -122,5 +142,5 @@
     {!! HTML::script(asset('assets/user/js/lightgallery.js'))!!}
     {!! HTML::script(asset('assets/user/js/lightgalleryCall.js'))!!}
     {!! HTML::script(asset('assets/user/js/star-rating.js'))!!}
-
+    {!! HTML::script(asset('assets/user/js/rating.js'))!!}
 @endsection

@@ -1,16 +1,21 @@
 <?php
+
 namespace App\Services;
-use App\Contracts\SportInterface;
-use App\Sport;
-class SportService implements SportInterface
+
+use App\Contracts\RatingInterface;
+use App\Rating;
+
+class RatingService implements RatingInterface
 {
+
     /**
      * NewsService constructor.
      */
     public function __construct()
     {
-        $this->sport = new Sport();
+        $this->rating = new Rating();
     }
+
     /**
      * select all Language
      *
@@ -19,15 +24,18 @@ class SportService implements SportInterface
      */
     public function getAll()
     {
-        return $this->sport->get();
+        return $this->rating->get();
     }
+
     /**
      * @return mixed
      */
     public function getAllPaginate()
     {
-        return $this->sport->paginate(8);
+        return $this->rating->paginate(8);
     }
+
+
     /**
      * Create Language
      *
@@ -36,8 +44,9 @@ class SportService implements SportInterface
      */
     public function getCreate($data)
     {
-        return $this->sport->create($data);
+        return $this->rating->create($data);
     }
+
     /**
      * get one Language
      *
@@ -46,8 +55,9 @@ class SportService implements SportInterface
      */
     public function getOne($id)
     {
-        return $this->sport->find($id);
+        return $this->rating->find($id);
     }
+
     /**
      * delete one Language
      *
@@ -58,6 +68,7 @@ class SportService implements SportInterface
     {
         return $this->getOne($id)->delete();
     }
+
     /**
      * @param $id
      * @param $data
@@ -67,27 +78,27 @@ class SportService implements SportInterface
     {
         return $this->getOne($id)->update($data);
     }
+
     /**
+     * @param $page_id
+     * @param $user_id
      * @param $category_id
      * @return mixed
      */
-    public function getPageGallery($category_id)
+    public function getUserOneRaing($page_id,$user_id,$category_id)
     {
-        return $this->sport->where('id',$category_id)->with('pageGallery')->with('pageVideo')->get();
+        return $this->rating->where('page_id' , '=' , $page_id)->where('user_id' , '=' , $user_id)->where('category_id','=',$category_id)->get();
     }
+
     /**
+     * @param $page_id
+     * @param $category_id
      * @return mixed
      */
-    public function getRandomSport()
+    public function getRatingCount($page_id,$category_id)
     {
-        return $this->sport->inRandomOrder()->take(8)->get();
+        return $this->rating->where('page_id' , '=' , $page_id)->where('category_id','=',$category_id)->get();
     }
-    /**
-     * @param $name
-     * @return mixed
-     */
-    public function postSearch($name)
-    {
-        return $this->sport->where('title', 'LIKE', '%'.$name.'%')->orWhere('description', 'LIKE', '%'.$name.'%')->get();
-    }
+
+    
 }

@@ -39,11 +39,22 @@
 			</div>
 		</div>
 		<div class="center_right_top">
-			<div class="login_place">
-				<span class="login_btn" data-toggle="modal" data-target="#myModal">
-					Логин / Регистрация
-				</span>
-			</div>
+			@if(Auth::User() && Auth::User()->role == "user")
+				<div class="login_place">
+					Hello {{Auth::User()->firstname}}
+					<a href="{{action("UsersController@getLogOut")}}">Log Out</a>
+				</div>
+			@else
+				<div class="login_place">
+					{{--<span class="login_btn" data-toggle="modal" data-target="#myModal">--}}
+
+						{{--Логин / s--}}
+					{{--</span>--}}
+					<a href="{{action('UsersController@getLogin')}}">Логин</a>
+					<a href="{{action('UsersController@getRegistration')}}">Регистрация</a>
+				</div>
+			@endif
+
 		</div>
 		<div class="center_right">
 			<div class="header_right"></div>
@@ -156,16 +167,17 @@
 
 		<!-- Modal content-->
 		<div class="modal-content modal_place">
-			<div class="modal-header modal_head">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Логин</span>
-				<span class="log_middle">/</span>
-				<span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Регистрация</span>
-			</div>
-			<div class="panel-group" id="accordion">
+			{{--<div class="modal-header modal_head">--}}
+				{{--<button type="button" class="close" data-dismiss="modal">&times;</button>--}}
+				{{--<span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Логин</span>--}}
+				{{--<span class="log_middle">/</span>--}}
+				{{--<span class="modal-title login_title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Регистрация</span>--}}
+			{{--</div>--}}
+			{{--<div class="panel-group" id="accordion">--}}
 				<div class="panel panel-default">
 					<div id="collapse1" class="panel-collapse collapse in">
 						<div class="panel-body">
+							<input type="hidden" class="token" content="{{ csrf_token() }}">
 							<input type="email" class="email login_email" placeholder="Эл.адрес" />
 							<input type="password" class="pass login_password" placeholder="Пароль" />
 							<a  href="{{action('UsersController@getFacebookLogin')}}" class="user_soc_links">
@@ -181,20 +193,20 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel panel-default">
-					<div id="collapse2" class="panel-collapse collapse">
-						<div class="panel-body">
-							<input type="hidden" class="token" content="{{ csrf_token() }}">
-							<input type="text" class="reg_name" placeholder="Имя" />
-							<input type="text" class="reg_surname" placeholder="Фамиля" />
-							<input type="email" class="reg_email" placeholder="Эл.адрес" />
-							<input type="password" class="reg_pass" placeholder="Пароль" />
-							<input type="password" class="reg_rebeatpass" placeholder="Пов-пароль" />
-							<input type="button" class="reg_btn reg_submit" value="Регистрация">
-						</div>
-					</div>
-				</div>
-			</div>
+				{{--<div class="panel panel-default">--}}
+					{{--<div id="collapse2" class="panel-collapse collapse">--}}
+						{{--<div class="panel-body">--}}
+
+							{{--<input type="text" class="reg_name" placeholder="Имя" />--}}
+							{{--<input type="text" class="reg_surname" placeholder="Фамиля" />--}}
+							{{--<input type="email" class="reg_email" placeholder="Эл.адрес" />--}}
+							{{--<input type="password" class="reg_pass" placeholder="Пароль" />--}}
+							{{--<input type="password" class="reg_rebeatpass" placeholder="Пов-пароль" />--}}
+							{{--<input type="button" class="reg_btn reg_submit" value="Регистрация">--}}
+						{{--</div>--}}
+					{{--</div>--}}
+				{{--</div>--}}
+			{{--</div>--}}
 		</div>
 	</div>
 </div>

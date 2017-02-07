@@ -21,6 +21,7 @@ use App\Contracts\GamePageInterface;
 use App\Contracts\GameCategoryInterface;
 use App\Contracts\InteresInterface;
 use App\Contracts\SubscripeInterface;
+use App\Contracts\RatingInterface;
 
 use View;
 use Session;
@@ -54,8 +55,10 @@ class AdminController extends BaseController
     public function getLogin()
     {//dd(1);
     	//$remember = Cookie::get('remember');
+        
+        return view('admin.admin-login.admin-login');
 
-    	// if(isset($remember)){
+        // if(isset($remember)){
 
     	// 	//$user_cookie = Cookie::get('remember');
 
@@ -64,7 +67,7 @@ class AdminController extends BaseController
 	    // 	];
 	    // 	return view('admin.admin-login.admin-login',$data);
     	// }else{
-			return view('admin.admin-login.admin-login');
+
     	//}
 		//return view('admin.admin-login.admin-login');
     }

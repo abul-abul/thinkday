@@ -5,4 +5,6 @@ $(document).ready(function () {
             $('#search_all').submit();
         }
     })
+
+
 })

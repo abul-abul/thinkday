@@ -75,5 +75,9 @@ class AppServiceProvider extends ServiceProvider
             'App\Contracts\SubscripeInterface',
             'App\Services\SubscripeService'
         );
+        $this->app->bind(
+            'App\Contracts\RatingInterface',
+            'App\Services\RatingService'
+        );
     }
 }
