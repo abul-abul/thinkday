@@ -42,7 +42,33 @@ class UsersController extends BaseController
 	public function __construct(LanguageInterface $langRepo,SubscripeInterface $subscripeRepo)
     {
         parent::__construct($langRepo,$subscripeRepo);
-       // $this->middleware('auth', ['except' => ['getLogin', 'postLogin','getLogout']]);
+        $this->middleware('user', ['except' => [
+                                                'getHome',
+                                                'getLogin',
+                                                'getRegistration',
+                                                'postLogin',
+                                                'getLogOut',
+                                                'getInteres',
+                                                'getInteresCategory',
+                                                'getShowMoreInterest',
+                                                'getShowMoreNews',
+                                                'getFacebookLogin',
+                                                'getFacebookCallback',
+                                                'getTwitterLogin',
+                                                'getTwitterCallback',
+                                                'getGoogleLogin',
+                                                'getGoogleCallback',
+                                                'getSearch',
+                                                'postRating',
+                                                'getNews',
+                                                'getNewsCategory',
+                                                'getSport',
+                                                'getSportCategory',
+                                                'getGame',
+                                                'getCategoryPage',
+                                                'gameCategoryInnerPage',
+                                                'postSubscripe',
+                                   ]]);
        // $this->middleware('language');
 
     }
@@ -98,7 +124,7 @@ class UsersController extends BaseController
      * @param YoutubeInerface $youtubeRepo
      * @return mixed
      */
-    public function getInteresCategory($id,InteresInterface $interesRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo)
+    public function getInteresCategory($id,InteresInterface $interesRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo,RatingInterface $ratinRepo)
     {
         $gallerys = $pageGalleryRepo->getPageCategory(4,$id);
         $video = $youtubeRepo->getPageCategoryVideo(4,$id);
@@ -107,15 +133,56 @@ class UsersController extends BaseController
         if(count($result) == null){
             abort(404);
         }
-        $randNews = $interesRepo->getRandomInteres();
-        $data = [
-            'interests' => $result,
-            'gallerys' => $gallerys,
-            'videos' => $video,
-            'rand_interests' => $randNews,
-        ];
+        $randInterest = $interesRepo->getRandomInteres();
+//        $data = [
+//            'interests' => $result,
+//            'gallerys' => $gallerys,
+//            'videos' => $video,
+//            'rand_interests' => $randInterest,
+//            'id' => $id
+//        ];
+
+        $rating_status = $ratinRepo->getUserOneRaing(4,Auth::id(),$id);
+        $rating_count_results = $ratinRepo->getRatingCount(4,$id);
+        if(count($rating_count_results) != 0){
+
+            $rating = [];
+            foreach ($rating_count_results as $rating_count_result){
+                array_push($rating,$rating_count_result['rating']);
+            }
+            $rating = array_sum($rating)/count($rating_count_results);
+            if(count($rating_status) == ""){
+                $data = [
+                    'interests' => $result,
+                    'gallerys' => $gallerys,
+                    'videos' => $video,
+                    'rand_interests' => $randInterest,
+                    'id' => $id,
+                    'rating' => $rating
+                ];
+            }else{
+                $data = [
+                    'interests' => $result,
+                    'gallerys' => $gallerys,
+                    'videos' => $video,
+                    'rand_interests' => $randInterest,
+                    'id' => $id,
+                    'rating_status' => 'false',
+                    'rating' => $rating
+                ];
+            }
+        }else{
+            $data = [
+                'interests' => $result,
+                'gallerys' => $gallerys,
+                'videos' => $video,
+                'rand_interests' => $randInterest,
+                'id' => $id,
+            ];
+        }
         return view('user.interes.interes-category',$data);
     }
+
 
 
 
@@ -172,10 +239,11 @@ class UsersController extends BaseController
      * @param YoutubeInerface $youtubeRepo
      * @return mixed
      */
-    public function getNewsCategory($id,NewsInterface $newsRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo)
+    public function getNewsCategory($id,NewsInterface $newsRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo,RatingInterface $ratinRepo)
     {
         $gallerys = $pageGalleryRepo->getPageCategory(2,$id);
         $video = $youtubeRepo->getPageCategoryVideo(2,$id);
+
 
         $result = $newsRepo->getOne($id);
         if (count($result) == null)
@@ -183,13 +251,46 @@ class UsersController extends BaseController
             abort(404);
         }
         $randNews = $newsRepo->getRandomNews();
-        $data = [
-            'news' => $result,
-            'gallerys' => $gallerys,
-            'videos' => $video,
-            'rand_news' => $randNews,
-            'id' => $id
-        ];
+
+        $rating_status = $ratinRepo->getUserOneRaing(2,Auth::id(),$id);
+        $rating_count_results = $ratinRepo->getRatingCount(2,$id);
+        if(count($rating_count_results) != 0){
+
+            $rating = [];
+            foreach ($rating_count_results as $rating_count_result){
+                array_push($rating,$rating_count_result['rating']);
+            }
+            $rating = array_sum($rating)/count($rating_count_results);
+            if(count($rating_status) == ""){
+                $data = [
+                    'news' => $result,
+                    'gallerys' => $gallerys,
+                    'videos' => $video,
+                    'rand_news' => $randNews,
+                    'id' => $id,
+                    'rating' => $rating
+                ];
+            }else{
+                $data = [
+                    'news' => $result,
+                    'gallerys' => $gallerys,
+                    'videos' => $video,
+                    'rand_news' => $randNews,
+                    'id' => $id,
+                    'rating_status' => 'false',
+                    'rating' => $rating
+                ];
+            }
+        }else{
+            $data = [
+                'news' => $result,
+                'gallerys' => $gallerys,
+                'videos' => $video,
+                'rand_news' => $randNews,
+                'id' => $id,
+            ];
+        }
+
         return view('user.news.news-category',$data);
     }
 
@@ -212,9 +313,12 @@ class UsersController extends BaseController
     /**
      * @param $id
      * @param SportInterface $sportRepo
+     * @param PageGalleryServiceInterface $pageGalleryRepo
+     * @param YoutubeInerface $youtubeRepo
+     * @param RatingInterface $ratinRepo
      * @return mixed
      */
-    public function getSportCategory($id,SportInterface $sportRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo)
+    public function getSportCategory($id,SportInterface $sportRepo,PageGalleryServiceInterface $pageGalleryRepo,YoutubeInerface $youtubeRepo,RatingInterface $ratinRepo)
     {
         $gallerys = $pageGalleryRepo->getPageCategory(1,$id);
 
@@ -224,15 +328,49 @@ class UsersController extends BaseController
         {
             abort(404);
         }
-        $randNews = $sportRepo->getRandomSport();
-        $data = [
-            'sports' => $result,
-            'gallerys' => $gallerys,
-            'videos' => $video,
-            'rand_sports' => $randNews,
-        ];
+        $randSport = $sportRepo->getRandomSport();
+
+        $rating_status = $ratinRepo->getUserOneRaing(1,Auth::id(),$id);
+        $rating_count_results = $ratinRepo->getRatingCount(1,$id);
+        if(count($rating_count_results) != 0){
+
+            $rating = [];
+            foreach ($rating_count_results as $rating_count_result){
+                array_push($rating,$rating_count_result['rating']);
+            }
+            $rating = array_sum($rating)/count($rating_count_results);
+            if(count($rating_status) == ""){
+                $data = [
+                    'sports' => $result,
+                    'gallerys' => $gallerys,
+                    'videos' => $video,
+                    'rand_sports' => $randSport,
+                    'id' => $id,
+                    'rating' => $rating
+                ];
+            }else{
+                $data = [
+                    'sports' => $result,
+                    'gallerys' => $gallerys,
+                    'videos' => $video,
+                    'rand_sports' => $randSport,
+                    'id' => $id,
+                    'rating_status' => 'false',
+                    'rating' => $rating
+                ];
+            }
+        }else{
+            $data = [
+                'sports' => $result,
+                'gallerys' => $gallerys,
+                'videos' => $video,
+                'rand_sports' => $randSport,
+                'id' => $id,
+            ];
+        }
         return view('user.sport.sport-category',$data);
     }
+
 
     /**
      * @param GameCategoryInterface $gameCategoryRepo
@@ -313,6 +451,14 @@ class UsersController extends BaseController
     }
 
     /**
+     * @return mixed
+     */
+    public function getRegistration()
+    {
+        return view('user.user_profile.user-registration');
+    }
+
+    /**
      * @param UserRequest $request
      * @param UserInterface $userRepo
      * @return mixed
@@ -328,6 +474,11 @@ class UsersController extends BaseController
         return response()->json($user);
     }
 
+
+    public function getLogin()
+    {
+        return view('user.user_profile.user-login');
+    }
 
     /**
      * @param Request $request
@@ -528,6 +679,15 @@ class UsersController extends BaseController
     }
 
     /**
+     * @return mixed
+     */
+    public function getLogOut()
+    {
+        Auth::logout();
+        return redirect()->action('UsersController@getHome');
+    }
+
+    /**
      * @param NewsInterface $newRepo
      * @param SportInterface $sportRepo
      * @param InteresInterface $interestRepo
@@ -557,13 +717,21 @@ class UsersController extends BaseController
         return view('user.user_profile.user_search',$dataArray);
     }
 
-
+    /**
+     * @param Request $request
+     * @param RatingInterface $ratinRepo
+     * @return mixed
+     */
     public function postRating(request $request, RatingInterface $ratinRepo)
     {
         $result = $request->all();
         $result['user_id'] = Auth::id();
         $status = $ratinRepo->getCreate($result);
-        dd($status);
+        if($status){
+            return response()->json(['status' => 'true']);
+        }else{
+            return responsee()->json(['status'=> 'false']);
+        }
     }
 
 

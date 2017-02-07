@@ -79,5 +79,26 @@ class RatingService implements RatingInterface
         return $this->getOne($id)->update($data);
     }
 
+    /**
+     * @param $page_id
+     * @param $user_id
+     * @param $category_id
+     * @return mixed
+     */
+    public function getUserOneRaing($page_id,$user_id,$category_id)
+    {
+        return $this->rating->where('page_id' , '=' , $page_id)->where('user_id' , '=' , $user_id)->where('category_id','=',$category_id)->get();
+    }
+
+    /**
+     * @param $page_id
+     * @param $category_id
+     * @return mixed
+     */
+    public function getRatingCount($page_id,$category_id)
+    {
+        return $this->rating->where('page_id' , '=' , $page_id)->where('category_id','=',$category_id)->get();
+    }
+
     
 }

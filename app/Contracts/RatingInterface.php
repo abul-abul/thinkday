@@ -48,5 +48,20 @@ interface RatingInterface
      * @return mixed
      */
     public function getUpdate($id,$data);
+
+    /**
+     * @param $page_id
+     * @param $user_id
+     * @param $category_id
+     * @return mixed
+     */
+    public function getUserOneRaing($page_id,$user_id,$category_id);
+
+    /**
+     * @param $page_id
+     * @param $category_id
+     * @return mixed
+     */
+    public function getRatingCount($page_id,$category_id);
     
 }
