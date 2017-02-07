@@ -20,7 +20,7 @@
                         @if(!isset($rating_status))
                             <input type="hidden" class="rate_hidden" data-pageid="2" data-categoryid="{{$id}}" content="{{ csrf_token() }}">
                             @if(isset($rating))
-                                <input  type="text" class="rating rating-loading" value="{{$rating}}" data-size="xl" title="">
+                                <input  type="text" class="rating rating-loading new_rating" value="{{$rating}}" data-size="xl" title="">
                             @else
                                 <input  type="text" class="rating rating-loading" value="5" data-size="xl" title="">
                             @endif

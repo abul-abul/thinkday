@@ -41,8 +41,10 @@
 		<div class="center_right_top">
 			@if(Auth::User() && Auth::User()->role == "user")
 				<div class="login_place">
-					Hello {{Auth::User()->firstname}}
-					<a href="{{action("UsersController@getLogOut")}}">Log Out</a>
+					<div class="welcome_user">
+						<span class="user_hello">Hello {{Auth::User()->firstname}}</span>
+						<a href="{{action("UsersController@getLogOut")}}">Log Out</a>
+					</div>
 				</div>
 			@else
 				<div class="login_place">
@@ -50,8 +52,12 @@
 
 						{{--Логин / s--}}
 					{{--</span>--}}
-					<a href="{{action('UsersController@getLogin')}}">Логин</a>
-					<a href="{{action('UsersController@getRegistration')}}">Регистрация</a>
+					<button class="new_login_btn">
+						<a href="{{action('UsersController@getLogin')}}">Логин</a>
+					</button>
+					<button class="new_login_btn">
+						<a href="{{action('UsersController@getRegistration')}}">Регистрация</a>
+					</button>
 				</div>
 			@endif
 

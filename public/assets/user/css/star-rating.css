@@ -37,6 +37,7 @@
     display: inline-block;
     margin: 0 3px;
     text-align: center;
+    cursor: pointer;
 }
 
 .rating-container .empty-stars {
@@ -171,7 +172,6 @@
 .glyphicon-minus-sign{
     display: none;
 }
-
 
 @media print {
     .rating-container .clear-rating {
