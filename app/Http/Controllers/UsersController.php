@@ -46,6 +46,7 @@ class UsersController extends BaseController
                                                 'getHome',
                                                 'getLogin',
                                                 'getRegistration',
+                                                'postRegistration',
                                                 'postLogin',
                                                 'getLogOut',
                                                 'getInteres',
@@ -466,12 +467,11 @@ class UsersController extends BaseController
     public function postRegistration(UserRequest $request,UserInterface $userRepo)
     {
         $result = $request->inputs();
-
         //$data = ['foo' => 'bar'];
         $email = $result['email'];
         //$userRepo->sendEmailFromRegistration($data,$email);
         $user =  $userRepo->createOne($result);
-        return response()->json($user);
+        return redirect()->back()->with('error','пожалуйста проверить свой email');
     }
 
 
@@ -485,7 +485,7 @@ class UsersController extends BaseController
      * @param UserInterface $userRepo
      * @return mixed
      */
-    public function postLogin(Request $request,UserInterface $userRepo)
+    public function postLoginModal(Request $request,UserInterface $userRepo)
     {
         $result = $request->all();
         $password = $request->get('password');
@@ -513,6 +513,38 @@ class UsersController extends BaseController
         }
     }
 
+    public function postLogin(Request $request,UserInterface $userRepo)
+    {
+        $result = $request->all();
+
+        $password = $request->get('password');
+        $email = $request->get('email');
+
+        $validator = Validator::make($result, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        if ($validator->fails()) {
+             return redirect()->back()->withErrors($validator);
+        }else{
+            if(Auth::attempt([
+                'email' => $email,
+                'password' => $password,
+                'role' => 'user'
+            ]))
+            {
+//                $user = $userRepo->getAllEmail($email);
+//                Auth::login($user);
+                return redirect()->action('UsersController@getUserProfile');
+            }else{
+                return redirect()->back()->with('error_danger','видете правильно логин или пароль');
+            }
+        }
+    }
+
+    /**
+     * @return mixed
+     */
     public function getUserProfile()
     {
         return view('user.user_profile.user_profile');
