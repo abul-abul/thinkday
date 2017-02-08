@@ -52,12 +52,17 @@
 
 						{{--Логин / s--}}
 					{{--</span>--}}
-					<button class="new_login_btn">
-						<a href="{{action('UsersController@getLogin')}}">Логин</a>
-					</button>
-					<button class="new_login_btn">
-						<a href="{{action('UsersController@getRegistration')}}">Регистрация</a>
-					</button>
+					
+					<a href="{{action('UsersController@getLogin')}}" class="btn_a">
+						<button class="new_login_btn">
+							Логин
+						</button>
+					</a>
+					<a href="{{action('UsersController@getRegistration')}}" class="btn_a">
+						<button class="new_login_btn">
+							Регистрация
+						</button>
+					</a>
 				</div>
 			@endif
 
@@ -184,8 +189,8 @@
 					<div id="collapse1" class="panel-collapse collapse in">
 						<div class="panel-body">
 							<input type="hidden" class="token" content="{{ csrf_token() }}">
-							<input type="email" class="email login_email" placeholder="Эл.адрес" />
-							<input type="password" class="pass login_password" placeholder="Пароль" />
+							<input type="email" id="email" class=" login_email" placeholder="Эл.адрес" />
+							<input type="password" id="pass" class="login_password" placeholder="Пароль" />
 							<a  href="{{action('UsersController@getFacebookLogin')}}" class="user_soc_links">
 								<i class="fa fa-facebook-square" aria-hidden="true"></i>
 							</a>
