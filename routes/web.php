@@ -32,6 +32,7 @@ route::get('show-more-news/{id}','UsersController@getShowMoreNews');
 
 Route::post('user/registration','UsersController@postRegistration');
 Route::get('user/registration','UsersController@getRegistration');
+Route::post('user/login','UsersController@postLoginModal');
 Route::post('user/login','UsersController@postLogin');
 Route::get('user/logout','UsersController@getLogOut');
 Route::get('user/login','UsersController@getLogin');

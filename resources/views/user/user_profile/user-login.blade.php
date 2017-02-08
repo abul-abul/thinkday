@@ -1,5 +1,6 @@
 <html>
 	<head>
+		{!! HTML::style( asset('assets/admin/plugins/css/bootstrap.css')) !!}
 		{!! HTML::style( asset('assets/admin/plugins/css/font-awesome.css')) !!}
 		{!! HTML::style( asset('assets/user/css/login_reg.css')) !!}
 	</head>
@@ -12,12 +13,13 @@
 			</div>
 			<div class="login_reg_place">
 				<div class="login_place">
+					@include('message')
 					<div class="login_title">
 						<span>Welcome.</span> Please login.
 					</div>
-					<form action="" method="post">
-						<input type="text" class="user_login" name="user_log" placeholder="Username" />
-						<input type="text" class="user_login" name="user_reg" placeholder="Password" />
+					{!! Form::open(['action' => ['UsersController@postLogin'],'class' => 'login-form' ]) !!}
+						{!! Form::text('email',null, ['class' => 'user_login','placeholder' => 'Email']) !!}
+						{!! Form::password('password',['class' => 'user_login','placeholder' => 'Password']) !!}
 						<div class="login_btn_place">
 							<input type="submit" class="login_btn" value="login" />
 						</div>
@@ -29,7 +31,7 @@
 							</label>
 							<a href="#" class="forgot">Forgot Password?</a>
 						</div>
-					</form>
+					{!! Form::close() !!}
 					<div class="soc_login_place">
 						<div class="login_child_left">
 							<span class="soc_login_text">Or login with</span>
