@@ -14,6 +14,7 @@ $(document).ready(function(){
                 {
                     if(data.status == 'true'){
                         $('.rating').hide('1000');
+                        
                     }else{
                         alert("error")
                     }

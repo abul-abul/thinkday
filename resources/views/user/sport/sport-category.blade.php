@@ -25,8 +25,26 @@
                                 <input  type="text" class="rating rating-loading" value="5" data-size="xl" title="">
                             @endif
                         @else
-                            @for($i=1; $i<=$rating; $i++)
+                            @for($i=1; $i<=round($rating); $i++)
                                 <i class="glyphicon glyphicon-star" style="
+                                        position: relative;
+                                        top: 1px;
+                                        display: inline-block;
+                                        font-family: 'Glyphicons Halflings';
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        line-height: 1;
+                                        -webkit-font-smoothing: antialiased;
+                                        color: #fde16d;
+                                        white-space: nowrap;
+                                        text-shadow: 1px 1px #999;
+                                        font-size: 1.89em;
+                                        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                        box-sizing: border-box;
+                                "></i>
+                            @endfor
+                            @for($i = 1; $i<= 5 - round($rating);$i++)
+                                <i class="glyphicon glyphicon-star-empty" style="
                                         position: relative;
                                         top: 1px;
                                         display: inline-block;

@@ -44,7 +44,6 @@
 		</div>
 		</div>
 		<div class="more_place show_more_interest">
-			<img src="/images/loadingIframe.gif" class="showw_more_loading" style="display: none;">
 
 			<div class="all_services">
 				<span class="all_ser_text">Еще</span>
@@ -124,12 +123,8 @@
 		</div>
 		</div>
 		<div class="more_place show_more_news">
-			<img src="/images/loadingIframe.gif" class="interest_loading" style="display: none;">
-
 			<div class="all_services">
-
-					<span class="all_ser_text">Еще</span>
-
+				<span class="all_ser_text">Еще</span>
 			</div>
 		</div>
 	</div>
