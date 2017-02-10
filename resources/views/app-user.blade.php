@@ -30,11 +30,40 @@
 					</a>
 				</div>
 				<div class="center_hide">
-					<div class="login_place2">
-						<span class="login_btn" data-toggle="modal" data-target="#myModal">
-							Логин / Регистрация
-						</span>
-					</div>
+					@if(Auth::User() && Auth::User()->role == "user")
+						<div class="login_place2">
+							<div class="welcome_user">
+								<span class="user_hello">{{Auth::User()->firstname}}</span>
+								<img src="/assets/user/images/user.jpg" class="user_small_img" />
+								<i class="fa fa-sort-desc" aria-hidden="true"></i>
+								<div class="welcome_user_abs">
+									<div class="user_abs_child">
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+										<a href="#" style="font-style: italic;">My Page</a>
+										<a href="{{action('UsersController@getLogOut')}}">Log Out</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					@else
+						<div class="login_place">
+							{{--<span class="login_btn" data-toggle="modal" data-target="#myModal">--}}
+
+								{{--Логин / s--}}
+							{{--</span>--}}
+							
+							<a href="{{action('UsersController@getLogin')}}" class="btn_a">
+								<button class="new_login_btn">
+									Логин
+								</button>
+							</a>
+							<a href="{{action('UsersController@getRegistration')}}" class="btn_a">
+								<button class="new_login_btn">
+									Регистрация
+								</button>
+							</a>
+						</div>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -42,8 +71,16 @@
 			@if(Auth::User() && Auth::User()->role == "user")
 				<div class="login_place">
 					<div class="welcome_user">
-						<span class="user_hello">Hello {{Auth::User()->firstname}}</span>
-						<a href="{{action("UsersController@getLogOut")}}">Log Out</a>
+						<span class="user_hello">{{Auth::User()->firstname}}</span>
+						<img src="/assets/user/images/user.jpg" class="user_small_img" />
+						<i class="fa fa-sort-desc" aria-hidden="true"></i>
+						<div class="welcome_user_abs">
+							<div class="user_abs_child">
+								<i class="fa fa-caret-up" aria-hidden="true"></i>
+								<a href="#" style="font-style: italic;">My Page</a>
+								<a href="{{action('UsersController@getLogOut')}}">Log Out</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			@else

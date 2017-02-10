@@ -2,6 +2,17 @@ $(document).ready(function(){
 
 	window.width = $(window).width();
 	var offsetUs = $(".us_place").offset().top;
+	setInterval(function(){
+		offsetUs = $(".us_place").offset().top;
+	},10);
+	var userLogPlace = 0;
+
+	$("body").click(function(){
+		$(".welcome_user_abs").css({
+			"display":"none",
+		});
+		userLogPlace = 0;
+	});
 
 	$(window).scroll(function(){
 
@@ -101,5 +112,24 @@ $(document).ready(function(){
 	});
 
 // user page
+
+// user login
+	
+	$(".welcome_user").click(function(e){
+		e.stopPropagation();
+		if(userLogPlace == 0){
+			$(".welcome_user_abs").css({
+				"display":"block",
+			});
+			userLogPlace++;
+		}else if(userLogPlace == 1){
+			$(".welcome_user_abs").css({
+				"display":"none",
+			});
+			userLogPlace = 0;
+		}
+	});
+
+// user login
 
 });

@@ -7,21 +7,35 @@
     .error-actions .btn { margin-right:10px; }
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </style>
-<body>
+<body style="background-image: url(/assets/user/images/error.jpg); background-size: cover;">
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="error-template">
-                <h1>
+                <!-- <h1>
                     Oops!</h1>
                 <h2>
                     404 Not Found</h2>
                 <div class="error-details">
 
-                </div>
-                <div class="error-actions">
-                    <a href="{{action('UsersController@getHome')}}" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Take Me Home </a>
+                </div> -->
+                <div class="error-actions" style="
+                                                width: 250px;
+                                                padding: 10px;
+                                                position: absolute;
+                                                top: 25px;
+                                                left: 25px;
+                                                ">
+                    <a href="{{action('UsersController@getHome')}}" class="btn btn-primary btn-lg" style="
+                                        margin: 0px;
+                                        font-size: 30px;
+                                        font-style: italic;
+                                        font-weight: bold;
+                                        color: #000;
+                                ">
+                        <span class="glyphicon glyphicon-home"></span>
+                        Take Me Home
+                    </a>
                 </div>
             </div>
         </div>
