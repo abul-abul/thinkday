@@ -21,6 +21,7 @@
 
 <header>
 
+	<input class="url" type="hidden" data-url="{{$url}}">
 	<div class="header_center">
 		<div class="center_left">
 			<div class="header_left">
@@ -39,7 +40,7 @@
 								<div class="welcome_user_abs">
 									<div class="user_abs_child">
 										<i class="fa fa-caret-up" aria-hidden="true"></i>
-										<a href="#" style="font-style: italic;">My Page</a>
+										<a href="{{action('UsersController@getUserProfile')}}" style="font-style: italic;">My Page</a>
 										<a href="{{action('UsersController@getLogOut')}}">Log Out</a>
 									</div>
 								</div>
@@ -77,7 +78,7 @@
 						<div class="welcome_user_abs">
 							<div class="user_abs_child">
 								<i class="fa fa-caret-up" aria-hidden="true"></i>
-								<a href="#" style="font-style: italic;">My Page</a>
+								<a href="{{action('UsersController@getUserProfile')}}" style="font-style: italic;">My Page</a>
 								<a href="{{action('UsersController@getLogOut')}}">Log Out</a>
 							</div>
 						</div>

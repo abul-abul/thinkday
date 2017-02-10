@@ -17,13 +17,9 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
-            $table->string('username')->nullable();
             $table->string('profile_picture')->nullable();           
             $table->string('email')->unique()->nullable();
             $table->enum('role', ['user','main-admin','other_admin']);
-            $table->string('country')->nullable();
-            $table->string('city')->nullable();
-            $table->string('address')->nullable();
             $table->string('facebook_id')->nullable();
             $table->string('facebook_token')->nullable();
             $table->string('twitter_id')->nullable();

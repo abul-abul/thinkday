@@ -32,11 +32,14 @@ route::get('show-more-news/{id}','UsersController@getShowMoreNews');
 
 Route::post('user/registration','UsersController@postRegistration');
 Route::get('user/registration','UsersController@getRegistration');
-Route::post('user/login','UsersController@postLoginModal');
+Route::post('user/login-modal','UsersController@postLoginModal');
 Route::post('user/login','UsersController@postLogin');
 Route::get('user/logout','UsersController@getLogOut');
 Route::get('user/login','UsersController@getLogin');
 Route::get('user/profile','UsersController@getUserProfile');
+Route::post('change-user-profile','UsersController@postChangeUserProfile');
+Route::post('change-passowrd','UsersController@postChangePassowrd');
+Route::post('user/change-user-avatar','UsersController@postChangeUserAvatar');
 
 
 Route::get('user/facebook-login','UsersController@getFacebookLogin');
@@ -49,6 +52,7 @@ Route::get('user/google-login','UsersController@getGoogleLogin');
 Route::get('user/google-callback','UsersController@getGoogleCallback');
 Route::get('user/search','UsersController@getSearch');
 Route::post('user/rating','UsersController@postRating');
+
 
 //
 //Route::get('video','UsersController@getVideo');

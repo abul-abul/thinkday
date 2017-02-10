@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
 use App\Http\Requests\user\UserRequest;
+use App\Http\Requests\user\UserUpdatePasswordRequest;
 
 use App\Contracts\UserInterface;
 use App\Contracts\LanguageInterface;
@@ -27,7 +29,7 @@ use Auth;
 use Socialite;
 use Storage;
 use Mail;
-
+use Hash;
 
 
 class UsersController extends BaseController
@@ -48,6 +50,7 @@ class UsersController extends BaseController
                                                 'getRegistration',
                                                 'postRegistration',
                                                 'postLogin',
+                                                'postLoginModal',
                                                 'getLogOut',
                                                 'getInteres',
                                                 'getInteresCategory',
@@ -69,6 +72,9 @@ class UsersController extends BaseController
                                                 'getCategoryPage',
                                                 'gameCategoryInnerPage',
                                                 'postSubscripe',
+                                                'postChangeUserProfile',
+                                                'postChangePassowrd',
+                                                'postChangeUserAvatar'
                                    ]]);
        // $this->middleware('language');
 
@@ -490,7 +496,9 @@ class UsersController extends BaseController
         $result = $request->all();
         $password = $request->get('password');
         $email = $request->get('email');
+       //
 
+        //dd($url);
         $validator = Validator::make($result, [
             'email' => 'required|email',
             'password' => 'required',
@@ -513,6 +521,11 @@ class UsersController extends BaseController
         }
     }
 
+    /**
+     * @param Request $request
+     * @param UserInterface $userRepo
+     * @return mixed
+     */
     public function postLogin(Request $request,UserInterface $userRepo)
     {
         $result = $request->all();
@@ -550,6 +563,62 @@ class UsersController extends BaseController
         return view('user.user_profile.user_profile');
     }
 
+    /**
+     * @param Request $request
+     * @param UserInterface $userRepo
+     * @return mixed
+     */
+    public function postChangeUserProfile(request $request,UserInterface $userRepo)
+    {
+        $result = $request->all();
+        $validator = Validator::make($result, [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }else{
+            $userRepo->getUpdate(Auth::id(),$result);
+            return redirect()->back()->with('error','ваши данные успешно изменены');
+        }
+    }
+
+    public function postChangeUserAvatar(request $request,UserInterface $userRepo)
+    {
+        $result = $request->all();
+        $logoFile = $result['file']->getClientOriginalExtension();
+        $name = str_random(12);
+        $path = public_path() . '/assets/user/user_profile_avatar';
+        $result_move = $result['file']->move($path, $name.'.'.$logoFile);
+        $images_name = $name.'.'.$logoFile;
+        $data['profile_picture'] = $images_name;
+        $userRepo->getUpdate(Auth::id(),$data);
+        return response()->json(['error'=>'success','image'=>$images_name]);
+    }
+
+    /**
+     * @param UserUpdatePasswordRequest $request
+     * @param UserInterface $userRepo
+     * @return mixed
+     */
+    public function postChangePassowrd(UserUpdatePasswordRequest $request,UserInterface $userRepo)
+    {
+        $data = $request->inputs();
+        $password = $data['old_password'];
+        if(Hash::check($password, Auth::user()->password)){
+            unset($data['old_password']);
+            $result['password'] = $data['new_password'];
+            $datarray = $userRepo->getPassword(Auth::id(),$result);
+            if($datarray){
+                return redirect()->back()->with('error','ваш пароль успешно изменен');
+            }else{
+                return redirect()->back()->with('error_danger','error');
+            }
+        }else{
+            return redirect()->back()->with('error_danger','вы неверно ввели пароль');
+        }
+    }
 
     /**
      * Get facebook login

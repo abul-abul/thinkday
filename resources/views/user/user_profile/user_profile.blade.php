@@ -3,11 +3,17 @@
 
 
 		<div class="user_content">
+			@include('message')
 			<div class="user_info_place">
 				<div class="user_info_left">
 					<div class="user_img_place">
 						<div class="user_img_place_child">
+							@if(!Auth::User()->profile_picture)
 							<img src="/assets/user/images/user.jpg" class="user_img" />
+							@else
+								<img src="/assets/user/user_profile_avatar/{{Auth::User()->profile_picture}}" class="user_img" />
+
+							@endif
 							<div class="user_img_abs"></div>
 						</div>
 					</div>
@@ -15,20 +21,20 @@
 						<div class="username_center">
 							<span class="user_status"></span>
 							<span class="username">
-								Mr. Green
+								{{Auth::User()->firstname}}
 							</span>
 						</div>
 						<div class="username_abs1"></div>
 						<div class="username_abs2"></div>
 					</div>
-					<div class="user_sms_place">
-						<p class="send_sms">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<span class="send_sms_text">
-								Отправить письмо
-							</span>
-						</p>
-					</div>
+					{{--<div class="user_sms_place">--}}
+						{{--<p class="send_sms">--}}
+							{{--<i class="fa fa-envelope" aria-hidden="true"></i>--}}
+							{{--<span class="send_sms_text">--}}
+								{{--Отправить письмо--}}
+							{{--</span>--}}
+						{{--</p>--}}
+					{{--</div>--}}
 				</div>
 				<div class="settings_place">
 					<div>
@@ -49,24 +55,14 @@
 								<div id="faq-tab-1" class="tab-pane new_tab fade in active">
 									<div class="user_info_right">
 										<div class="right_info_left">
-											<p>Name</p>
-											<p>Surname</p>
-											<p>Username</p>
-											<p>Age</p>
-											<p>Country</p>
-											<p>City</p>
-											<p>Address</p>
+											<p>Firname</p>
+											<p>lastname</p>
 											<p>Email</p>
 										</div>
 										<div class="right_info_right">
-											<p>George</p>
-											<p>Benson</p>
-											<p>Mr. Green</p>
-											<p>29</p>
-											<p>Russia</p>
-											<p>Moscow</p>
-											<p>Pushkin. St.</p>
-											<p>mrgreen@gmail.com</p>
+											<p>{{Auth::User()->firstname}}</p>
+											<p>{{Auth::User()->lastname}}</p>
+											<p>{{Auth::User()->email}}</p>
 										</div>
 									</div>
 								</div>
@@ -81,17 +77,12 @@
 									      </div>
 									      <div id="collapse99" class="panel-collapse new_collapse collapse in">
 									        <div class="panel-body new_body">
-									        	<form action="" method="post">
-										        	<input type="text" id="change" placeholder="Change Name" />
-													<input type="text" id="change" placeholder="Change Surname" />
-													<input type="text" id="change" placeholder="Change Username" />
-													<input type="number" id="change" placeholder="Change Age" />
-													<input type="text" id="change" placeholder="Change Country" />
-													<input type="text" id="change" placeholder="Change City" />
-													<input type="text" id="change" placeholder="Change Address" />
-													<input type="email" id="change" placeholder="Change Email" />
+												{!! Form::open(['action' => ['UsersController@postChangeUserProfile'] ]) !!}
+													{!! Form::text('firstname',Auth::User()->firstname, ['placeholder' => 'Change Firstname"', 'class' => 'form-control', 'id'=>'change' ]) !!}
+													{!! Form::text('lastname',Auth::User()->lastname, ['placeholder' => 'Change Lastname"', 'class' => 'form-control', 'id'=>'change' ]) !!}
+													{!! Form::text('email',Auth::User()->email, ['placeholder' => 'Change Email', 'class' => 'form-control', 'id'=>'change' ]) !!}
 													<input type="submit" value="submit" id="change_submit" />
-												</form>
+												{!!Form::close()!!}
 									        </div>
 									      </div>
 									    </div>
@@ -105,29 +96,36 @@
 									        <div class="panel-body new_body" style="width: 180px;">
 									        	<form action="" method="post">
 									        		<div class="new_image_place">
-									        			<img src="" class="new_image"/>
+														<input style="display:none" type="file" class="user_avatar_inp" content="{{ csrf_token() }}">
+
+														@if(!Auth::User()->profile_picture)
+															<img src="/assets/user/images/user.jpg" class="change_user_avatar" />
+														@else
+															<img src="/assets/user/user_profile_avatar/{{Auth::User()->profile_picture}}" class="change_user_avatar" />
+														@endif
 									        		</div>
-									        		<p class="choose_image">choose image</p>
-									        		<input type="submit" value="cancel" id="change_submit" />
+									        		{{--<p class="choose_image">choose image</p>--}}
 									        		<input type="submit" value="submit" id="change_submit" />
 									        	</form>
 									        </div>
 									      </div>
 									    </div>
+
 									    <div class="panel panel-default new_panel1">
 									      <div class="panel-heading new_head">
 									        <h4 class="panel-title">
 									          <a data-toggle="collapse" data-parent="#accordion" href="#collapse77" class="a">Change Password</a>
 									        </h4>
 									      </div>
+
 									      <div id="collapse77" class="panel-collapse new_collapse collapse">
 									        <div class="panel-body new_body">
-									        	<form action="" method="post">
-									        		<input type="password" id="change" placeholder="Current Password" />
-									        		<input type="password" id="change" placeholder="Change Password" />
-													<input type="password" id="change" placeholder="Re-Password" />
+												{!! Form::open(['action' => ['UsersController@postChangePassowrd'] ]) !!}
+													{!! Form::password('old_password',['placeholder' => 'ваш текущий пароль', 'class' => 'form-control', 'id'=>'change' ]) !!}
+													{!! Form::password('new_password',['placeholder' => 'новый пароль', 'class' => 'form-control', 'id'=>'change' ]) !!}
+													{!! Form::password('password_confirmation',['placeholder' => 'повторите пароль', 'class' => 'form-control', 'id'=>'change' ]) !!}
 													<input type="submit" value="submit" id="change_submit" />
-									        	</form>
+												{!!Form::close()!!}
 									        </div>
 									      </div>
 									    </div>
@@ -170,6 +168,5 @@
 	            </div>
 	        </div>
 	    </div>
-
 
 @endsection

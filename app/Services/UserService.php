@@ -155,5 +155,25 @@ class UserService implements UserInterface
             $message->to($email)->subject("Welcome!");
         });
     }
+
+    /**
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function getUpdate($id,$data)
+    {
+        return $this->getOne($id)->update($data);
+    }
+
+    /**
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function getPassword($id,$data)
+    {
+        return $this->user->where('id',$id)->update($data);
+    }
     
 }

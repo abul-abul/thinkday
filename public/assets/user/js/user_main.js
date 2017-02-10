@@ -130,6 +130,53 @@ $(document).ready(function(){
 		}	
 	})
 
+
+	//change user avatar
+	$('.change_user_avatar').click(function () {
+		$('.user_avatar_inp').trigger('click');
+	})
+
+	$('.user_avatar_inp').change(function (event) {
+		 files = event.target.files;
+		event.stopPropagation();
+		event.preventDefault();
+		var data = new FormData();
+		var token = $('.user_avatar_inp').attr('content');
+		data.append('file', files[0]);
+		data.append('_token',token);
+		$.ajax({
+			url: '/user/change-user-avatar',
+			type: 'post',
+			data: data,
+			cache: false,
+			dataType: 'json',
+			processData: false,
+			contentType: false,
+			cache: false,
+			dataType: 'json',
+			processData: false,
+			contentType: false,
+			success: function(data)
+			{
+				if(data.error == 'success'){
+					src = '/assets/user/user_profile_avatar/' + data.image;
+					$('.change_user_avatar').attr('src',src);
+				}else{
+					alert('error')
+				}
+			}
+		});
+	})
+
+
+
+
+	//end change user avatar
+
+
+
+
+
 	
 
 })

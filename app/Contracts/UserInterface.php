@@ -99,5 +99,21 @@ interface UserInterface
      * @param $email
      */
     public function sendEmailFromRegistration($dataEmail,$email);
-    
+
+
+    /**
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function getUpdate($id,$data);
+
+    /**
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function getPassword($id,$data);
+
+
 }

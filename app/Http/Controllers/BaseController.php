@@ -22,6 +22,8 @@ class BaseController extends Controller
         $subscripe = $subscripeRepo->getAllActiveStatus();
         $count_subscripe = count($subscripe);
 
+        $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
         $this->currentPathWithoutLocale = substr( implode(\Request::segments(), '/'), 3);
 
         $data = [
@@ -29,6 +31,7 @@ class BaseController extends Controller
             'count_subscripe' => $count_subscripe,
             'languages' => $lang,
             'currentPathWithoutLocale' => $this->currentPathWithoutLocale,
+            'url' => $url
         ];
 
         view()->share($data);
